@@ -1,5 +1,5 @@
-# java-web
-高级网页设计（Java Web）实验库
+# 高级网页设计（Java Web）实验库
+讲义：http://zeng.shaoning.net/javaweb
 
 # 实验一：Web基础
 https://github.com/hzuapps/java-web/issues/2
