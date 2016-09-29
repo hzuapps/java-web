@@ -1,6 +1,9 @@
 # java-web
 高级网页设计（Java Web）实验库
 
+# 实验一：Web基础
+https://github.com/hzuapps/java-web/issues/2
+
 # 参考资料
 
 Java EE官方教程：http://docs.oracle.com/javaee/6/tutorial/doc/bnadr.html  
