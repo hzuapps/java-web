@@ -1,0 +1,37 @@
+.navbar {
+    min-height: 30px;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.lead {
+    margin-top: 2px;
+    font-size: 15px;
+    font-weight: normal;
+    margin-left: 30px;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+footer p {
+    font-weight: bold;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    margin-top: 2px;
+}
+
+select {
+    margin-top: 2px;
+}
+
+.pid {
+    color: #a94442;
+    font-size: 13px;
+}
