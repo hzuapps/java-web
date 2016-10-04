@@ -11,7 +11,9 @@ var m5 = false;
 $(document).ready(function () {
     $(".pid").hide();
     $("#row").submit(function (event) {
-        if ($("#row input").val() == "") {
+        if ($("#InputId").val() == "" || $("#InputUserName").val() == "" ||
+            $("#InputEmail1").val() == "" || $("#InputPassword1").val() == "" ||
+            $("#InputSchool").val() == "") {
             IsEmpty("#InputId");
             IsEmpty("#InputUserName");
             IsEmpty("#InputEmail1");
@@ -32,6 +34,12 @@ $(document).ready(function () {
     });
 
     $("#reset").on("click", function () {
+        m1 = false;
+        m2 = false;
+        m3 = false;
+        m4 = false;
+        m5 = false;
+
         $(".pid").hide();
         $("input").parent().removeClass("has-success");
         $("input").parent().removeClass("has-error");
