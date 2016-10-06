@@ -1,0 +1,167 @@
+<!-- 此页面目标是高仿百度的个人资料修改页面，但是仿不成。。。 -->
+<html lang="zh-cn">
+  <head>
+  	<meta content="text/html;charset=utf-8" />
+    <title>实验一——个人基本资料修改页面</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript">
+    	window.onload = function(){
+	    	//初始化年份列表
+	    	var years = document.getElementById("year");
+	    	var year = new Date().getFullYear();
+	    	var node = null;
+	    	while(year >= 1900){
+	    		node = new Option(year,year);
+		    	years.options.add(node);
+	    		year--;
+	    	}
+	    	//初始化月份列表
+	    	var months = document.getElementById("month");
+	    	for(var i = 1;i <= 12;i++){
+	    		node = new Option(i,i);
+	    		months.options.add(node);
+	    	}
+    	};
+    	//判断当前选择的年份是否是闰年
+    	function isLeap(){
+    		var options = document.getElementById("year").options;
+    		var index = options.selectedIndex;
+    		var year = options[index].text;
+    		if(year % 100 != 0){
+    			if(year % 4 == 0)
+    				return true;
+    		}else{
+    			if(year % 400 == 0)
+    				return true;
+    		}
+    		return false;
+    	}
+    	//清空options集合但保留第一项
+    	function clear(options){
+    		var len = options.length - 1;
+    		for(var i = 0;i < len;i++)
+    			options.remove(1);
+    	}
+    	//年份变化时执行
+    	function onYearChange(){
+    		onMonthChange();
+    	}
+    	//月份变化时执行
+    	function onMonthChange(){
+    		//获取当前选择的年份项索引
+    		var yearIndex = document.getElementById("year").options.selectedIndex;
+    		//获取当前选择的月份
+    		var month = document.getElementById("month").options.selectedIndex;
+    		//获取日列表对象
+ 	    	var days = document.getElementById("day");
+ 	    	//获取当前选择的日项索引
+ 	    	var oldDayIndex = days.selectedIndex;
+ 	    	//如果年份或月份没有选择，就隐藏日列表并结束
+    		if(month == 0 || yearIndex == 0){
+    			days.style.display = "none";
+    			return;
+    		}
+    		//显示日列表
+    		days.style.display = "";
+    		//计算最大的日数
+    		var maxDay = null;
+    		switch(month){
+    			case 1:
+    			case 3:
+    			case 5:
+    			case 7:
+    			case 8:
+    			case 10:
+    			case 12:
+    				maxDay = 31;
+    				break;
+    			case 2:
+ 	    			if(isLeap() == true)
+	    				maxDay = 29;
+	    			else
+	    				maxDay = 28;
+	    			break;
+	    		default:
+	    			maxDay = 30;
+    		}
+    		//情况原日列表，保留第一项
+ 	    	clear(days.options);
+ 	    	//重新插入日项
+ 	    	var node = null;
+	    	for(var i = 1;i <= maxDay;i++){
+	    		node = new Option(i,i);
+	    		days.options.add(node);
+	    	}
+	    	//如果原来选择的日不超过新的最大日数，则保留原选择
+	    	if(oldDayIndex <= maxDay)
+	    		days.options.selectedIndex = oldDayIndex;
+    	}
+    </script>
+  </head>
+  <body>
+	    <form action="">
+	    	<table align="center">
+			  	<tr><td colspan="2"><h4 class="page-header">基本资料</h4></td></tr>
+		    	<tr>
+			    	<td align="right">性别：</td>
+			    	<td>
+			    		<input name="sex" type="radio" value="0" checked>男
+			    		<input name="sex" type="radio" value="1">女
+			    	</td>
+		    	</tr>
+		    	<tr><td><br/></td></tr>
+		    	<tr>
+			    	<td align="right">生日：</td>
+			    	<td>
+				    	<select id="year" name="year" onChange="onYearChange();">
+				    		<option selected>年</option>
+				    	</select>
+				    	<select id="month" name="month" onChange="onMonthChange();">
+				    		<option selected>月</option>
+				    	</select>
+				    	<select id="day" name="day" style="display:none">
+				    		<option selected>日</option>
+				    	</select>
+			    	</td>
+		    	</tr>
+		    	<tr><td><br/></td></tr>
+		    	<tr>
+			    	<td align="right">血型：</td>
+			    	<td>
+				    	<select name="blood" class="form-control">
+				    		<option value="0" selected>未知</option>
+				    		<option value="1">A</option>
+				    		<option value="2">B</option>
+				    		<option value="3">O</option>
+				    		<option value="4">AB</option>
+				    		<option value="5">其他</option>
+				    	</select>
+				    </td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+			    <tr>
+		    		<td align="right">出生地：</td>
+		    		<td><input name="hometown" type="text" class="form-control"></td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+			    <tr>
+		    		<td align="right">居住地：</td>
+		    		<td><input name="house" type="text" class="form-control"></td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+			    <tr>
+		    		<td valign="top" align="right" style="line-height:36px">个人简介：</td>
+		    		<td><textarea name="pesonal" cols="50" rows="8" class="form-control"></textarea></td>
+			    </tr>
+			    <tr><td><br/></td></tr>
+			    <tr>
+			    	<td></td>
+	    			<td>
+	    				<input type="submit" class="btn btn-sm btn-primary" value="保存" onClick="addYear();">
+	    			</td>
+	    		</tr>
+	    	</table>
+	    </form>
+    
+   </body>
+</html>
