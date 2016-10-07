@@ -1,0 +1,60 @@
+<html>
+  <head> 
+    <title>学生信息注册页面</title> 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+  </head>  
+  <body> 
+   <h3 align="center">学生信息注册</h3>
+     <form  name="stu" action=""> 
+      <table> 
+       <tr> <td>姓名：</td> <td><input type="text" name="stuName" class="form-control"></td> </tr> 
+       <tr> <td>性别：</td>
+           <td><input type="radio" name="stuSex" checked="checked" >男 
+               <input type="radio" name="stuSex" >女
+           </td>
+       </tr> 
+       <tr> <td>出生日期</td> 
+          <td><input type="text" name="stuBirthday" class="form-control"></td> 
+          <td>按格式yyyy-mm-dd</td> 
+       </tr> 
+       <tr> <td>学校：</td><td><input type="text" name="stuSchool" class="form-control"></td></tr> 
+       <tr><td>专业：</td>
+          <td><select name ="stuSelect2">
+                <option selected>计算机科学与技术</option>
+                <option >网络工程</option>   
+                <option >物联网工程</option>
+                <option >应用数学</option>
+             <lect>
+          </td>
+       </tr> 
+       <tr> <td>体育特长：</td>
+           <td colspan="2">
+              <input type="checkbox" name="stuCheck" >篮球
+              <input type="checkbox" name="stuCheck" >排球
+              <input type="checkbox" name="stuCheck" >足球
+              <input type="checkbox" name="stuCheck" >游泳
+          </td>
+       </tr> 
+       <tr><td>上传照片：</td> <td colspan="2"><input type="file"></td></tr> 
+       <tr><td>密码：</td><td><input type="password" name="stuPwd" class="form-control"></td> </tr>
+       <tr><td>个人介绍：</td>
+          <td colspan="2"><textarea name="Letter" rows="4" cols="40" class="form-control"></textarea> </td>
+       </tr> 
+       <tr>
+         <td><input type="button" value="提交"><input type="reset" value="取消"></td>
+       </tr> 
+     </table> 
+   </form> 
+  </body>
+<script>
+$.ajax({
+  url: "success.json
+}).done(function(data) {
+  if ( console && console.log ) {
+      console.dir(data);
+      alert(data.msg);
+    }
+});
+</script>
+<html>
