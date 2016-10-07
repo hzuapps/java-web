@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="index.js"></script>
+<style type="text/css">
+body{color:#FF7B0B;font-size:18px;}
+.title{text-align: center;font-size:43px;}
+.register{text-align: center;}
+#exampleInputEmail1,#exampleInputPassword1{width:250px; margin:0 auto;}
+#exampleInputFile{width:257px;margin:0 auto;}
+.checkbox{margin-left: -130px;}
+.btn{width: 253px;}
+</style>
+<head><title>Registration Page</title></head>
+<body>
+<h1 class="title"><br/>Register</h1><br/>
+<div class="container" >
+<form role="form" class="register">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email Address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="please enter your email address">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="please enter your password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">Upload Your Avatar</label>
+    <input type="file" id="exampleInputFile">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Remember Me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html> 
