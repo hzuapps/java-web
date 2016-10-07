@@ -42,9 +42,19 @@
           <td colspan="2"><textarea name="Letter" rows="4" cols="40" class="form-control"></textarea> </td>
        </tr> 
        <tr>
-         <td><input type="submit" value="提交"><input type="reset" value="取消"></td>
+         <td><input type="button" value="提交"><input type="reset" value="取消"></td>
        </tr> 
      </table> 
    </form> 
   </body>
+<script>
+$.ajax({
+  url: "success.json
+}).done(function(data) {
+  if ( console && console.log ) {
+      console.dir(data);
+      alert(data.msg);
+    }
+});
+</script>
 <html>
