@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Add Your Resume</title>
+
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style type="text/css">
+		.headline{
+			padding-right: 0;
+			padding-left: 0;
+			background-color:#5bc0de;
+			margin-top:0;
+			margin-bottom: 15px;
+			height: 45px;
+			line-height: 45px;
+			font-size: 24px;
+			color: #ffffff
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+<form id="target" class="form-horizontal" role="form" style="background-color: #f5f5f5">
+	<!-- headline -->
+	<div class="headline text-center">Add Your Resume</div>
+	<!-- Name -->
+	<div class="form-group">
+    	<label for="Fisrt-Name" class="col-sm-3 control-label">Fisrt Name</label>
+    	<div class="col-sm-3">
+      		<input type="text" class="form-control" id="Fisrt-Name" placeholder="Fisrt Name">
+    	</div>
+    	<label for="Last-Name" class="col-sm-1 control-label text-nowrap">Last Name</label>
+    	<div class="col-sm-3">
+      		<input type="text" class="form-control" id="Last-Name" placeholder="Last Name">
+    	</div> 	
+    </div>
+    <!-- Sex & Grade-->
+	<div class="form-group">
+		<label for="Sex" class="col-sm-3 control-label">Sex</label>
+    	<div class="col-sm-3" >
+    		<select class="form-control">
+    			<option value="Male">Male</option>
+    			<option value="Female">Female</option>
+    		</select>
+    	</div>
+  		<label for="Grade" class="col-sm-1 control-label">Grade</label>
+    	<div class="col-sm-3">
+      		<select class="form-control">
+    			<option value="Freshman">Freshman</option>
+    			<option value="Sophomore">Sophomore</option>
+    			<option value="Junior">Junior</option>
+    			<option value="Senior">Senior</option>
+    			<option value="Graduate">Graduate</option>
+    		</select>
+    	</div>
+  	</div>
+  	<!-- Profession -->
+  	<div class="form-group">
+  		<label for="Profession" class="col-sm-3 control-label">Profession</label>
+    	<div class="col-sm-7">
+      		<input type="text" class="form-control" id="Profession" placeholder="Profession">
+    	</div>
+  	</div>
+  	<!-- Tel -->
+  	<div class="form-group">
+  		<label for="Tel" class="col-sm-3 control-label">Tel</label>
+    	<div class="col-sm-7">
+      		<input type="tel" class="form-control" id="Tel" placeholder="Telephone Number">
+    	</div>
+  	</div>
+  	<!-- Email -->
+  	<div class="form-group">
+  		<label for="" class="col-sm-3 control-label">Email</label>
+    	<div class="col-sm-7">
+      		<input type="email" class="form-control" id="email" placeholder="Email">
+    	</div>
+  	</div>
+  	<!-- Hobby -->
+  	<div class="form-group">
+  		<label for="hobby" class="col-sm-3 control-label">Hobby</label>
+    	<div class="col-sm-7">
+      		<textarea class="form-control" id="hobby"></textarea>
+    	</div>
+  	</div>
+  	<!-- Speciality -->
+  	<div class="form-group">
+  		<label for="" class="col-sm-3 control-label">Speciality</label>
+    	<div class="col-sm-7">
+      		<textarea class="form-control" id="Speciality"></textarea>
+    	</div>
+  	</div>
+  	<!-- Experience -->
+  	<div class="form-group">
+  		<label for="" class="col-sm-3 control-label">Experience</label>
+    	<div class="col-sm-7">
+      		<textarea class="form-control" id=""></textarea>
+    	</div>
+  	</div>
+  	<!-- Button -->
+  	<div class="form-group"  style="margin-bottom: 0">
+    	<div class="col-sm-offset-3 col-sm-7">
+      		<button id="submit" type="submit" class="btn btn-success">Submit</button>
+      		<button type="reset" class="btn btn-info">Reset</button>
+    	</div>
+  	</div>
+</form>
+<footer>
+  <div class="text-center" style="background-color: #ddd;">
+      <a href="#">Jiushig</a>&nbsp;&copy;&nbsp;2016
+  </div>
+</footer>
+</div>
+
+<!-- jQuery文件必须在bootstrap.min.js之前引入。js放在最后，网页加载更快。 -->
+<!-- <script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script> -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
