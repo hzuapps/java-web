@@ -1,0 +1,108 @@
+﻿<html>
+
+	<meta charset="utf-8">
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<head>
+	<title>个人登陆</title>
+  <style type="text/css">
+  
+   #exampleInputEmail1{
+    width: 380px;
+   }
+   .np{
+    width: 30%;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    
+   }
+   #exampleInputPassword1{
+  width: 380px;
+     }
+     body{
+      background:aquamarine;
+      margin-top:10%;
+     }
+     .form-group{
+      margin-top: 7%;
+
+     }
+    .btn{
+      width: 25%;
+    }
+    #big{
+
+      height: 100%;
+      
+    }
+    #divcenter{
+      margin-top: 5%;
+       width: 50%;
+       height:65%;
+      border: 1px solid red;
+      background: chocolate;
+    }
+    
+  </style>
+
+</head>
+<body>
+  <div id="big">
+<center>
+   <form role="form" id="target" >
+    <div  id="divcenter">
+  <div class="form-group">
+
+    <!-- <label for="exampleInputEmail1">用户名</label> -->
+    <label for="exampleInputEmail1" class="np">用户名:</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="np">密 &nbsp;&nbsp;码:</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" checked="ischecked">记住密码
+    </label>
+  </div>
+  <div class="form-group"> 
+    <button type="submit" class="btn">登陆</button><label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+    <button type="reset" class="btn">重置</button>
+  </div>
+  </div>
+</form>
+</center>
+  </div>
+  <script type="text/JavaScript" >
+$("#target").submit(function (event) {
+    alert( "登陆成功！" );
+   event.preventDefault();
+    $.ajax({
+            url: "success.json",
+            dataType: "json",
+            data:"{}",
+            success: function (data) {
+                // Play with returned data in JSON format
+                alert("登陆成功！");
+            },
+            error: function (msg) {
+                alert(msg+"登陆失败");
+            }
+        });
+ 
+});
+  </script>
+</body>
+</html>
