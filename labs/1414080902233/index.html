@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户登录</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/first.css" rel="stylesheet">
+    <script src="js/jquery-3.1.1.min.js"></script>  
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $("#form-all").submit(function(event){
+          alert( "Handler for .submit() called." );
+          event.preventDefault();
+        });
+    </script>
+    <script>
+      $.ajax({
+          url: "success.json"
+      }).done(function(data) {
+          if ( console && console.log ) {
+              console.dir(data);
+              alert(data.msg);
+              }
+      });
+    </script>
+  </head>
+  <body>
+    <form id="form-all" role="form">
+      <div class="form-group">
+        <label >Email address<input type="email" class="form-control" placeholder="Enter email"></label>
+      </div>
+      <div class="form-group">
+        <label >Password<input type="password" class="form-control" placeholder="Password"></label>
+      </div>
+      <div class="form-group">
+        <label>File input<input type="file"></label>
+      </div>
+      <div class="checkbox">
+        <label>
+        <input type="checkbox"> Check me out
+        </label>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
