@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Join in Exam System</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <!--<link type="text/css" href="css/style.css" rel="stylesheet">-->
+    <!--<script src="JS/jquery-2.2.1.js"></script>-->
+    <script src="index.js"></script>
+    <style>
+        .navbar {
+            min-height: 30px;
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .lead {
+            margin-top: 2px;
+            font-size: 15px;
+            font-weight: normal;
+            margin-left: 30px;
+        }
+
+        h4 {
+            font-weight: bold;
+        }
+
+        footer p {
+            font-weight: bold;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input {
+            margin-top: 2px;
+        }
+
+        select {
+            margin-top: 2px;
+        }
+
+        .pid {
+            color: #a94442;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Internet Based Exam System</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="UserName">
+                        <input type="text" class="form-control" placeholder="PassWord">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-success">Sign up</button>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="">
+        <div class="row" style="background-color: #eee">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <!--<h2 style="text-align: center">教师信息注册</h2>-->
+                <div>
+                    <h1>Join in Exam System</h1>
+
+                    <p class="lead">The Best System to design and finish a Exam</p>
+                    <h4>Create your personal account</h4>
+                </div>
+                <form role="form" id="row">
+                    <label for="InputId">ID Number</label>
+
+                    <p class="pid">The ID can't be empty</p>
+
+                    <div class="input-group ">
+                        <span class=" glyphicon glyphicon-star input-group-addon"></span>
+                        <input type="text" class="form-control" id="InputId" placeholder="Enter ID Number">
+                        <span class="checkId"></span>
+                    </div>
+                    <label for="InputUserName">Name</label>
+
+                    <p class="pid">The Name can't be empty</p>
+
+                    <div class="input-group">
+                        <span class=" glyphicon glyphicon-user input-group-addon"></span>
+                        <input type="text" class="form-control" id="InputUserName" placeholder="Enter Name">
+                        <span class="checkId"></span>
+                    </div>
+                    <label for="InputPassword1">Password</label>
+
+                    <p class="pid">The Password can't be empty</p>
+
+                    <div class="input-group">
+                        <span class="glyphicon glyphicon-lock input-group-addon"></span>
+                        <input type="password" class="form-control" id="InputPassword1"
+                               placeholder="Enter Password">
+                        <span class="checkId"></span>
+                    </div>
+
+                    <label for="InputEmail1">Email address</label>
+
+                    <p class="pid">The Email can't be empty</p>
+
+                    <div class="input-group">
+                        <span class=" glyphicon glyphicon-envelope input-group-addon"></span>
+                        <input type="email" class="form-control" id="InputEmail1" placeholder="Enter email">
+                        <span class="checkId"></span>
+                    </div>
+                    <label for="InputSchool">School</label>
+
+                    <p class="pid">The School can't be empty</p>
+
+                    <div class="input-group">
+                        <span class=" glyphicon glyphicon-home input-group-addon"></span>
+                        <input type="text" class="form-control" id="InputSchool" placeholder="Enter School">
+                        <span class="checkId"></span>
+                    </div>
+
+                    <label>Sex</label><br/>
+
+                    <div class="input-group">
+                        <span class=" glyphicon glyphicon-heart-empty input-group-addon"></span>
+                        <select class="form-control">
+
+                            <option>Man</option>
+                            <option>Woman</option>
+
+                        </select>
+                    </div>
+                    <label>Status</label><br/>
+
+                    <div class="input-group">
+
+                        <span class=" glyphicon glyphicon-briefcase input-group-addon"></span>
+                        <select class="form-control">
+
+                            <option>Teacher</option>
+                            <option>Student</option>
+
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+
+
+                        <hr/>
+                    </div>
+                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                    <button type="reset" class="btn btn-primary" id="reset">Reset</button>
+                </form>
+                <hr/>
+                <div class="">
+                    <footer>
+                        <p style="text-align: center">&copy;By&nbsp;Bingo1414080902108</p>
+                    </footer>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
