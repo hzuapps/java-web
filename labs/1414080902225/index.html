@@ -12,6 +12,22 @@
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        #main:target{animation:slide 3s;}
+            @keyframes slide{
+            0%{
+                transform:translateZ(300px) ratateZ(120deg);
+            }
+            50%{
+                transform:translateZ(-300px) ratateZ(120deg);
+
+            }
+            100%{
+                transform:translateZ(0px) ratateZ(120deg);
+                border-radius: 10%;
+            }
+        }
+    </style>
   </head>
 
 
@@ -19,9 +35,9 @@
     <nav class="navbar navbar-inverse" role="navigation">
     </nav>
      
-    <div class="container-fluid">
+    <div class="container-fluid" id="main">
         <div class="col-md-2 "></div>  
-        <div class="col-md-8 bg-success">
+        <div class="col-md-8 bg-success" >
             <br>
             <br>
             <br>
@@ -55,7 +71,7 @@
 
                 <div class="col-md-offset-4">
                     <div class="btn-group">
-                        <input type="submit" class="btn btn-success" value="Register" id="login" onclick="return chkform()">
+                        <input type="button" class="btn btn-success" value="Register" id="login" onclick="return chkform()">
                         <input type="reset" class="btn btn-warning" value="Reset" >
                     </div>  
                 </div>       
