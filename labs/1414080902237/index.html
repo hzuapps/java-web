@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>实验一</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="demo.css">
+  <style type="text/css">
+    .box{
+      width: 30%;
+      margin: 0 auto;
+      margin-top: 50px;
+      padding: 20px 20px;
+      border: 1px solid #BABEC3;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <form role="form" id="Form">
+    <div class="form-group">
+      <label for="exampleInputEmail1">输入你的账号:</label>
+      <input type="email" class="form-control" id="account" placeholder="账号">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">输入你的密码:</label>
+      <input type="password" class="form-control" id="password" placeholder="密码">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile">上传你的头像</label>
+      <input type="file" id="exampleInputFile">
+    </div>
+    <div class="checkbox">
+    </div>
+    <button type="button" class="btn btn-primary">注册</button>
+  </form>
+</div>
+</body>
+<script src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".btn").click(function(event){
+      if($('#account').val() == "")
+          alert("请输入账号！");
+      else if($('#password').val() == ""){
+          alert("请输入密码！");
+      }else{
+        $(this).text('注册中...');
+        $.getJSON('success.json',function(data){
+          alert(data.msg);
+          location.reload();
+        });         
+      }
+  });
+})
+
+</script>
+</html>
