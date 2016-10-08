@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>选择电影类别</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+  </head>
+  
+  <body>
+    欢迎光临<br>
+    <form action="listForm_result.jsp" method="post">
+    请您选择要观看的电影类别:<BR>
+    <select name="fav" multiple>
+    <option value="1">恐怖片</option>
+    <option value="2">爱情片</option>
+    <option value="3">科幻片</option>
+    </select>
+    <button type ="button" class="btn">确认</button>
+    </form>  
+  </body>
+<script>
+$(".btn").click(function(){
+$.ajax({
+  url: "success.json
+}).done(function(data) {
+  if ( console && console.log ) {
+      console.dir(data);
+      alert(data.msg);
+    }
+});
+
+})
+</script>
+</html>
