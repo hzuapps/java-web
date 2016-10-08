@@ -1,0 +1,80 @@
+﻿<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Submit Form</title>
+		<script src = "http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js">
+		</script>
+		<link href = "http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel = "styleSheet"/>
+		<link href = "http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css" rel = "styleSheet"/>
+		<script src = "http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container" style="padding : 10px;">
+            <div class="panel col-sm-6">
+                <form role="form" id="target">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input type="file" id="exampleInputFile">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="button" class="btn btn-default" onclick="JQJSONRequest()">Another</button>
+                </form>
+            </div>
+        </div>
+		<div id = "result" role="alert" class="alert alert-info col-sm-8" style="left:5px;">
+            Result 
+		</div>
+		<script>
+            //To be honest , I really did not know why need this function , because I think it is useless .
+			function  JQDearWithForm(){
+				$( "#target" ).submit(function( event ) {
+					alert( "Handler for .submit() called." );
+					event.preventDefault();
+				});
+			}
+			function JQJSONRequest() {
+			    //I try to use the follow function , but fail , so I rewrite one what I know .
+                //Maybe jq version is not match .
+				/*$.ajax({
+					url: "success.json",
+				}).done(function(data) {
+					if ( console && console.log ) {
+						console.dir(data);
+						alert(data.msg);
+					}
+				});*/
+				$.ajax({
+					url : "success.json",
+					complete : function(data) {
+					    console.log(data);
+					    if (data.readyState == 4 && data.status == 200) {
+					        var str = "",
+					            resp = JSON.parse(data.responseText);
+					        str = "Result :";
+					        for (var i in resp) {
+					            str += "<br/>" +  i + "　　" + resp[i]
+					        }
+					        $("#result").html(str);
+					    } else {
+					        $("#result").text("Result : some thing error");
+					    }
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
