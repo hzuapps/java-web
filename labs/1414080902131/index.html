@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Vialyn的表单</title>
+<!-- 可选的Bootstrap主题文件（一般不用引入） --><link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 --><script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="index.js"></script>
+</head>
+<body style="background-color:#FC3">
+<h1 align=center>留余味外卖订单</h1>
+<center>
+<form role="form"name="myform"id="target">
+<p>选择菜单：</p>
+<div class="radio">
+<label>
+<input type="radio"name="specialmeau"id="specialmeau1"value="meau1"checked>套餐1
+</label>
+</div>
+<div class="radio">
+<label>
+<input type="radio"name="specialmeau"id="specialmeau2"value="meau2">套餐2
+</label>
+</div>
+<div class="radio">
+<input type="radio"name="specialmeau" id="specialmeau3"value="meau3">套餐3
+</label>
+</div>
+<div class="form-group">
+<label>数量：</label>
+<select class="form-control"id="num">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+<input type="button"value="确定"onclick="experiment2()" />
+</div>
+<div class="form-group">
+<label for="address1">送餐地址：</label>
+<input type="text"class="form-control"id="address1"placeholder="送餐地址">
+</div>
+<div class="form-group">
+<label for="telephone1">手机号：</label>
+<input type="text"class="form-control"id="telephone1"placeholder="手机号">
+</div>
+<p>支付方式：</p>
+<div class="radio">
+<label>
+<input type="radio"name="payment"id="payment1"value="way1"checked>微信支付
+</label>
+</div>
+<div class="radio">
+<label>
+<input type="radio"name="payment"id="payment2"value="way2">支付宝支付
+</label>
+</div>
+<div class="radio">
+<label>
+<input type="radio"name="payment"id="payment3"value="way3">银行卡快捷支付
+</label>
+</div>
+</br>
+<div class="form-group">
+<label for="paymentPassword">支付密码：</label>
+<input type="password"class="form-control"id="paymentPassword"placeholder="支付密码">
+</div>
+</br>
+<div class="form-group">
+<label for="Emailbox"> 电子邮箱：</label>
+<input type="email"class="form-control"id="Emailbox"placeholder="电子邮箱">
+</div>
+</br>
+<div class="form-group">
+<label>给商家的留言：</label>
+<textarea class="form-control"id="liuyan"row="5"></textarea>
+</div>
+<div class="checkbox">
+<label>
+<input type="checkbox"name="right"id="denfity">请确认您所填写的信息
+</label>
+</div>
+<button type="submit"class="btn btn-default">提交</button>
+</form>
+</center>
+</body>
+</html>
