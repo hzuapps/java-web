@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+  <head>
+    <title>注册界面</title>
+	
+      <script src="http://code.jquery.com/jquery.js"></script>
+    <script language="javascript" src="test.js"></script>
+
+  </head>
+  
+  <body >
+  	<h3 align="center">个人账号注册</h3>
+  	<form name="stu" action="">
+  	<table  align="center">
+  	<tr><td>昵称：</td><td><input type="text" name="stuName"></td></tr>
+  	<tr><td>性别：</td>
+  		<td><input type="radio" name="stuSex" checked="checked">男
+  		<input type="radio" name="stuSex">女
+  		</td>
+    </tr>
+  	<tr><td>关注领域：</td>
+  		<td><select name="stuSelect2">
+  		<option selected>计算机</option>
+  		<option>文学</option>
+  		<option>社会</option>
+  		<option>生物科学</option>
+      <option>体育</option>
+      <option>其他</option>
+  				</select>
+  		</td>
+  		</tr>
+		<tr><td>密码：</td><td><input type="password" name="4" cols="40"></td></tr>
+		<tr><td>自我介绍：</td>
+			<td colspan="2"><textarea name="Letter" rows="4" cols="40"></textarea></td>
+			</tr>
+		<tr>
+			<td><input type="submit" value="注册" onclick="test()"><input type="reset" value="取消"></td>
+			</tr>
+			</table>
+			</form>
+  </body>
+</html>
