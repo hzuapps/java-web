@@ -1,14 +1,14 @@
 $(function(){
-	var id;
+    var id;
 	var password;
 	$("input[type=button]").click(function(){
-		id=$("#inputEmail3").val();
-		password=$("#inputPassword3").val();
+		id=$("#inputaccount").val();
+		password=$("#inputPassword").val();
 		if(id==""||password==""){
-			alert("è¯·è¾“å…¥ä½ çš„è´¦å·å’Œå¯†ç ï¼");
+			alert("ÇëÊäÈëÄãµÄÕËºÅºÍÃÜÂë£¡");
 		}else{
 			$.getJSON("success.json",function(date){
-				alert(date.mag);
+				alert(date.msg);
 			})
 		}
 	});
