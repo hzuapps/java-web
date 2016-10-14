@@ -1,26 +1,32 @@
 <html>
 <head>
-	<title>���û�ע��</title>
+	<title>游戏账号交易</title>
 </head>
 <body>
 
-    <h2 align="center">���û�ע��</h2>
+    <h2 align="center">输入相关账号信息</h2>
     <form>
     <table align="center">
-    <tr><td>���䣺</td><td><input type="email" name="Email"></td></tr>
-    <tr><td>�û�����</td><td><input type="text" name="Name"></td></tr>
-    <tr><td>���룺</td><td><input type="password" name="PW"></td></tr>
-   <tr><td>�Ա�</td>
-   <td><input type="radio"name="stuSex"checked="checked">��
-   <input type="radio"name="stuSex">Ů
-   </td>
-   </tr>
+    <tr><td>ID或者邮箱：</td><td><input type="email" name="Email"></td></tr>
+    <tr><td>用户名：</td><td><input type="text" name="Name"></td></tr>
+    <tr><td>密码：</td><td><input type="password" name="PW"></td></tr>
+    <tr><td>游戏选择：</td>
+  		<td><select name="stuSelect2">
+  		<option selected>英雄联盟</option>
+  		<option>泡泡卡丁车</option>
+  		<option>地下城与勇士</option>
+  		<option>CF</option>
+                <option>CS</option>
+                <option>其他</option>
+  				</select>
+  		</td>
+  		</tr>
+    <tr><td>交易金额：</td><td><input type="money" name="Money"></td></tr>
     <tr>
     <td>
-        <input type="submit" value="ע��"name="a"id="a"> <input type="reset" value="ȡ��">
+        <input type="submit" value="提交"name="a" id="a"> <input type="reset" value="取消">
     </td>
     </tr>
-
     </table>
     </form>
 </body>
@@ -32,8 +38,8 @@
 					type: "get",
 					url: "success.json",
 					success: function(msg) {
-						var data = msg;
-						alert(data.msg);
+						var aaaaa = msg;
+						alert(aaaaa.msg);
 					}
 				});
 			});
