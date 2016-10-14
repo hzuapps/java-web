@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <title>登录界面</title>
+</head>
+<body>
+    <form id="1" action="">
+<div class="text-center">
+           <p>填写登录信息</p>
+            <p>用户名：
+                <input type="text"name="userName"/>
+             </p>
+     <p></p>
+    <p> 密码：&nbsp;&nbsp;&nbsp;
+             <input type="password"name="userPwd"/>
+    </p>
+        <p>
+                <input type="submit"value="确认"/>&nbsp;
+                <input type="reset"value="取消"/>
+        </p>
+</div>
+        <script type="text/javascript">
+            $( "#1" ).submit(function(event) {
+                $.ajax({
+                    url: "success.json",
+                    success: function(data){
+                        alert(data.msg);
+                    },
+                    error: function(){
+                        alert("error!");
+                    }
+
+                });
+                event.preventDefault();
+            });
+        </script>
+</body>
+</html>
