@@ -126,7 +126,6 @@
  			 	if ( console && console.log ) {
       			console.dir(data);
       			alert(data.msg);
-      			location.replace("main.html");
    			 	}
 				}); 
 		}
