@@ -3,6 +3,8 @@
 
 # 实验一：Web基础
 https://github.com/hzuapps/java-web/issues/2
+# 实验二：Tomcat基础
+https://github.com/hzuapps/java-web/issues/3
 
 # 参考资料
 
