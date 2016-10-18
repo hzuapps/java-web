@@ -19,15 +19,5 @@ jQuery(document).ready(function(){
 	});
 });
 
-
-
-<script type="text/javascript">
-function e(){
-var name=document.forms[0].InputName.value;
-if(name.length<=0)alter("而当事人")；
-else document.forms[0].Button();
-}
-</script>
-
    
  
