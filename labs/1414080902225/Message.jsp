@@ -1,19 +1,36 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
   <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>成绩填写</title>
     <script src="js/jquery-1.7.1.min.js"></script>
-
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+	
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
+    <%@page import="java.text.*" %>
+	<%@page import="java.util.Date,java.lang.*" %>
   </head>
+  
   <body>
     
     <nav class="navbar navbar-inverse" role="navigation">
@@ -49,22 +66,25 @@
         </ol>
       </div>
       
+      <%!Date date=new Date(); %>
+      <%!DateFormat df= DateFormat.getDateTimeInstance(); %>
       <div class="col-md-3">
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+        	<span ><%=df.format(date) %></span> 
+        </div>
         <div class="col-md-4">
             <button type="button" class="btn btn-info btn-sm">
                 <span class="glyphicon glyphicon-user"></span> 
-                <label value="Jim">你好！</label>
+                <%String userName =request.getParameter("user"); %>
+                <label>你好！<%=userName %>,欢迎登录</label>
             </button>
         </div>
-        <div class="col-md-4"></div>
+        
+        <div class="col-md-4">
+        
       </div>
 
     </div>
-
-    
-    
-
     <div class="container-fluid">
         <div class="col-md-2 "></div>  
         <div class="col-md-8 bg-success">
