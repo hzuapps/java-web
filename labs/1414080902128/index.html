@@ -1,0 +1,85 @@
+﻿
+<html lang="zh-cn">
+  <head>
+  	<meta content="text/html;charset=utf-8" />
+    <title>实验一——个人简历填写页面</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(function(){
+			$("#form1").submit(function(){
+				$.getJSON("success.json",function(data){
+					console.log(data);
+					alert(data.msg);
+				});
+			});
+		});
+    </script>
+  </head>
+  <body>
+	    <form id="form1" method="post" action="">
+	    	<table align="center">
+			  	<tr><td colspan="2"><h4 class="page-header">个人资料</h4></td></tr>
+		    	<tr>
+			    	<td align="right">性别：</td>
+			    	<td>
+			    		<input name="sex" type="radio" value="0" checked>男
+			    		<input name="sex" type="radio" value="1">女
+			    	</td>
+		    	</tr>
+		    	<tr><td><br/></td></tr>
+				<tr>
+		    		<td align="right">原出生地：</td>
+		    		<td><input name="hometown" type="text" class="form-control"></td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+			    <tr>
+		    		<td align="right">现住地：</td>
+		    		<td><input name="house" type="text" class="form-control"></td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+		    	<tr>
+			    	<td align="right">出生年月：</td>
+			    	<td>
+				    	<select id="year" name="year" onChange="onYearChange();">
+				    		<option selected>年</option>
+				    	</select>
+				    	<select id="month" name="month" onChange="onMonthChange();">
+				    		<option selected>月</option>
+				    	</select>
+				    	
+			    	</td>
+		    	</tr>
+		    	<tr><td><br/></td></tr>
+		    	<tr>
+			    	<td align="right">当前从事职业：</td>
+			    	<td>
+				    	<select name="blood" class="form-control">
+				    		<option value="0" selected>教师</option>
+				    		<option value="1">IT</option>
+				    		<option value="2">金融</option>
+				    		<option value="3">公务员</option>
+				    		<option value="4">保险</option>
+				    		<option value="5">其他</option>
+				    	</select>
+				    </td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+			    
+			    <tr>
+		    		<td valign="top" align="right" style="line-height:36px">工作经历：</td>
+		    		<td><textarea name="pesonal" cols="52" rows="12" class="form-control">请填写个人工作经历及你对应聘工作的认识</textarea></td>
+			    </tr>
+			    <tr><td><br/></td></tr>
+			    <tr>
+			    	<td></td>
+	    			<td>
+	    				<input id="save" type="submit" class="btn btn-sm btn-primary" value="保存">
+	    			</td>
+	    		</tr>
+	    	</table>
+	    </form>
+    
+   </body>
+</html>
