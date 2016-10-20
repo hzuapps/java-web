@@ -18,9 +18,7 @@
 </form>
 <script>
 $( "#tijiao" ).submit(function( event ) {
-  
-});
-$.ajax({
+  $.ajax({
   url: "success.json
 }).done(function(data) {
   if ( console && console.log ) {
@@ -28,6 +26,8 @@ $.ajax({
       alert(data.msg);
     }
 });
+});
+
 </script>
 </body>
 </html>
