@@ -1,6 +1,6 @@
 $(function(){
    $( "form" ).submit(function( event ) {
-   alert( "×¢²á³É¹¦£¡" );
+   alert( "æ³¨å†ŒæˆåŠŸ" );
        $.ajax({
   url: "success.json
 }).done(function(data) {
@@ -9,6 +9,7 @@ $(function(){
       alert(data.msg);
      }
    });
+       event.preventDefault()
  });
 })
          
