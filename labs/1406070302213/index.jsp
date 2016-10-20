@@ -1,9 +1,15 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <link rel="stylesheet" type="text/css" href="mpq.css"/>
-<title>µÇÂ¼</title>
+<title>ç™»å½•</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -12,20 +18,20 @@
 <h1><%=new java.util.Date()%></h1>
 </center>
 	<div id="main_special">
-		<fieldset><legend>µÇÂ¼</legend>
+		<fieldset><legend>ç™»å½•</legend>
 			<form action="" method="post">
-				<label for="label1">ÓÃ&nbsp; »§&nbsp; Ãû£º</label>
-				<input type="text" name="name" id="username label1"/><font style="font-size:12px;color:#898983"> *ÓÃ»§Ãû²»µÃ³¬¹ı16Î»×Ö·û</font><br>
-				<label for="label2">ÃÜ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Âë£º</label>
-				<input type="password" name="pw" id="password label2"/><font style="font-size:12px;color:#898983"> *ÃÜÂë²»ÄÜ³¬¹ı16Î»×Ö·û</font><br>
-				<input type="submit" name="submit" class="submit" value="µÇÂ¼"/>
-				<input type="reset" name="reset" class="submit" value="ÖØÖÃ"/>
+				<label for="label1">ç”¨&nbsp; æˆ·&nbsp; åï¼š</label>
+				<input type="text" name="name" id="username label1"/><font style="font-size:12px;color:#898983"> *ç”¨æˆ·åä¸å¾—è¶…è¿‡16ä½å­—ç¬¦</font><br>
+				<label for="label2">å¯†&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ç ï¼š</label>
+				<input type="password" name="pw" id="password label2"/><font style="font-size:12px;color:#898983"> *å¯†ç ä¸èƒ½è¶…è¿‡16ä½å­—ç¬¦</font><br>
+				<input type="submit" name="submit" class="submit" value="ç™»å½•"/>
+				<input type="reset" name="reset" class="submit" value="é‡ç½®"/>
 			</form>
 		</fieldset>
 	</div>
 	<script type="text/javascript">
       $( ".submit" ).click(function(event) {
-		    alert("µÇÂ¼³É¹¦");
+		    alert("ç™»å½•æˆåŠŸ");
 	        $.ajax({ 
 	          url: "success.json"
 	        }).done(function(data){
