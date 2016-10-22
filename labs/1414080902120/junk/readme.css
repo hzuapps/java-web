@@ -1,0 +1,281 @@
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {
+	display: block;
+}
+mark, rp, rt, ruby, summary, time {
+	display: inline
+}
+* {
+	margin:0;
+	padding:0;
+	border:0;
+}
+body {
+	font: normal normal 14px/12px Tahoma, Arial, Helvetica, Verdana, sans-serif;
+	text-shadow: 0px -1px 0px #3f4353;
+	color:#fff;
+}
+
+h1 {
+	font-size: 1.6em;
+	font-weight: normal;
+	font-family:"DINNeuzeitGroteskLTLightRegul", Arial, Helvetica, sans-serif;
+	padding:0 0 12px;
+}
+h2 {
+	font-size: 1.2em;
+	font-weight: normal;
+	padding:0 0 8px;
+}
+p {
+	padding:0 0 10px;
+}
+a {
+	color:#fff;
+	font-weight:bold;
+	outline:none;
+}
+a:hover {
+	color:#b8c6ef;
+	text-decoration:none;
+}
+#navigation {
+	list-style-type:none;
+	float:right;
+	margin-top:10px;
+}
+#navigation li {
+	float:left;
+}
+/* Reusable classes */
+
+/* Left & Right alignment */
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+/* The inside class provides consistent padding. To be used often! */
+.inside, .inside-plus {
+	padding: 30px 20px;
+	float:left;
+	line-height:20px;
+	width:940px
+}
+.inside-plus {
+	padding: 40px 20px 0;
+}
+.inside-plus-demo {
+	padding: 40px 20px 0;
+	width:750px;
+}
+/* The fraction classes are useful for column lists */
+.half, .half-pad, .third, .quarter, .fifth, .sixth, .two-third {
+	padding:0;
+	float: left;
+}
+.half li, .third li, .quarter li, .fifth li, .sixth li {
+	float: left;
+	list-style-type:none;
+}
+.half li {
+	padding-right: 5%;
+	width: 45%
+}
+.third li {
+	padding-right: 5%;
+	width: 28.3%
+}
+.quarter li {
+	padding-right: 5%;
+	width: 20%
+}
+.fifth li {
+	padding-right: 5%;
+	width: 15%
+}
+.two-third {
+	padding-right: 5%;
+	width: 70%
+}
+.half {
+	width: 50%
+}
+.third {
+	padding-right: 5%;
+	width: 28.3%
+}
+.quarter {
+	width: 25%
+}
+.fifth {
+	padding-right: 5%;
+	width: 15%
+}
+.half-pad {
+	padding-left: 5%;
+	width: 45%
+}
+/* For when a <br /> just ain't enough */
+.separator {
+	clear: both;
+	float: left;
+	height: 1px;
+	width: 100%;
+}
+/* Basic Structure ------------------------------------------ */
+#wrap, #wrap-demo {
+	margin: 0 auto;
+	position: relative;
+	width: 960px; /* width you like */
+}
+#wrap-demo {
+	width: 790px;
+}
+#logo {
+	float: left;
+}
+#about {
+	width:940px;
+	float: left;
+	clear:both;
+	padding:25px 0 0;
+	margin-top:30px;
+	border-top:2px dotted #8e97b2;
+}
+.home, .board, .contact, .download {
+	display:block;
+	background: transparent url('projekktor.png') left top no-repeat;
+	width:82px;
+	height:33px;
+	text-indent:-99999px;
+}
+.home:hover {
+	background: transparent url('projekktor.png') left bottom no-repeat;
+}
+.board {
+	background: transparent url('discuss.png') left top no-repeat;
+}
+.board:hover {
+	background: transparent url('discuss.png') left bottom no-repeat;
+}
+.contact {
+	background: transparent url('contact.png') left top no-repeat;
+	width:80px;
+}
+.contact:hover {
+	background: transparent url('contact.png') left bottom no-repeat;
+}
+.download {
+	background: transparent url('download.png') left top no-repeat;
+	width:102px;
+}
+.download:hover {
+	background: transparent url('download.png') left bottom no-repeat;
+}
+.soon {
+	display:block;
+	background: transparent url('soon.png') left top no-repeat;
+	width:90px;
+	height:77px;
+	text-indent:-99999px;
+}
+.demo {
+	display:block;
+	background: transparent url('demo.png') left top no-repeat;
+	width:90px;
+	height:77px;
+	text-indent:-99999px;
+}
+.demo:hover {
+	background: transparent url('demo.png') left bottom no-repeat;
+}
+#picture {
+	position:relative;
+	top:12px;
+	width:940px;
+	height:420px;
+	margin:0px auto;
+	background:transparent url('speakker.png');
+	overflow:hidden;
+}
+/* General More Button */		
+.more {
+	position:absolute;
+	width:33px;
+	height:33px;
+	background:url('dim.png') left top;
+	padding:3px 2px 2px 3px;
+	text-align:left;
+	overflow:hidden;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+}
+.more span {
+	position:absolute;
+	left:45px;
+	width:250px;
+	padding:6px 0 0 5px;
+	font-size:12px;
+	/*color:#000;
+	/*font:bold 13px Lucida Grande, Arial, sans-serif;* /
+	text-shadow:#858585 1px 1px 0px;*/
+}
+/* Item Specific More Button */
+#coversearch {
+	top:150px;
+	left:25px;
+}
+#social {
+	top:200px;
+	left:680px;
+}
+#slide {
+	top:340px;
+	left:410px;
+}
+#control {
+	top:14px;
+	left:150px;
+}
+/* General Info Box */
+#infobox {
+	position:absolute;
+	bottom:-210px;
+	left: 480px;
+	height:250px;
+	width:500px;
+	z-index:20;
+	margin:0 0 -125px -250px;
+	background:#e6e8ef;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	text-align:center;
+	color:#191919;
+	text-shadow:#fff 0px 1px 0px;
+}
+/* #infobox a, #infobox a:visited {
+	color:#191919;
+	text-shadow:#fff 0px 1px 0px;
+	text-decoration:none;
+}
+#infobox a:hover {
+	text-decoration:underline;
+}*/
+/* Close button for info box */
+	span.close {
+	position:absolute;
+	right:5px;
+	top:5px;
+}
+/* The dimmed background when the info box is showing */	
+#fade_bg {
+	position:absolute;
+	z-index:15;
+	width:100%;
+	height:100%;
+	background:url('speakker-dim.png');
+	display:none;
+}
