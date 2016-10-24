@@ -1,0 +1,40 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Welcome to login interfaction</title>
+	<meta charset="UTF-8" />
+
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="Style/css/style.css">
+	<script src="Style/index.js"></script>
+</head>
+
+<body>
+                        <--转跳到servlet/loginServlet中 -->
+	<form class="box" action="servlet/loginServlet" method="post">
+		<fieldset class="boxBody">
+		  <label>Username</label>
+		  <input type="text" placeholder="输入邮箱或账号" required>
+		  <input type="password" placeholder="输入密码"required>
+		</fieldset>
+
+		<footer>
+		  <label><input type="checkbox" >Keep logined</label>
+		  <input type="submit" class="target"  value="Login" >
+		</footer>
+	</form>
+
+</body>
+</html>
