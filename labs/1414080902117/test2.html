@@ -1,0 +1,74 @@
+﻿<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table border="1 solid black" align="center">
+	<tr>
+	<td>
+<h3 align="center">学院交流学生登录界面</h3>
+<hr width="200"/>
+<table align="center">
+	<tr>
+		<td>帐号：</td>
+		<td><input id="u" name="u"/></td>
+	</tr>
+	<tr>
+		<td>密码：</td>
+		<td><input type="password" id="p" name="p"/></td>
+	</tr>
+	<tr>
+		<td align="center"><input type="button" value="登录" id="submit"></td> 
+		<td align="center"><input type="button" value="注册" id="submit2"></td>
+	</tr>
+</table>
+	</td>
+	<tr>
+</table>
+</body>
+</html>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script type="text/javascript">
+    var id = function(id){
+        return document.getElementById(id);
+    };
+   // var btn = $("submit");
+   // var btn2 = $("submit2");
+   $("#submit").click(function(){
+        var u = id("u");
+        var p =id("p");
+        if(u.value ===""){
+            alert("帐号输入为空");
+        }else if(p.value===""){
+            alert("密码输入为空");
+        } else if(u.value==="123456"){
+            if( p.value!=="abcdef"){
+                alert("密码错误");
+            }else{
+				$.getJSON("test.json",function(data) {
+ 			 	if ( console && console.log ) {
+      			console.dir(data);
+      			alert(data.msg);
+      			location.replace("main.html");
+   			 	}
+				}); 
+			 }
+        }else if(u.value==="654321"){
+            if( p.value!=="fedcbc"){
+                alert("密码错误");
+            }else{
+                window.open("654321.html");
+            }
+        }else{
+            alert("帐号不存在");
+        }
+    
+});
+  $("#submit2").click(function()
+	{
+		location.replace("register.html");
+	});
+</script>

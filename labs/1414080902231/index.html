@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>		
+		<meta charset="utf-8">
+		<title>javaweb 实验一</title>
+
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+		
+	</head>
+	<body>
+		<form role="form" id="fm">
+		  <div class="form-group">
+		    <label for="PhoneName">Phone model</label>
+		    <input type="text" class="form-control" id="PhoneName" placeholder="Phone name" >
+		  </div>
+		  <div class="form-group">
+		    <label for="Detail">Detail</label>
+		    <input type="text" class="form-control" id="Detail" placeholder="Detail">
+		  </div>
+		  <div class="form-group">
+		    <label for="imgfile">Pictures input</label>
+		    <input name="imgfile" type="file" id="imgfile" accept="image/*">
+		    <img value>
+		  </div>
+		  
+		  <button type="submit"  class="btn">Submit</button>
+		</form>
+	</body>	
+	<script type="text/javascript" >
+
+		$( "#fm" ).submit(function( event ) {	
+			  alert( "提交成功" );
+			  event.preventDefault();
+		});
+		
+	</script>	
+
+	
+</html>

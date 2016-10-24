@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>欢迎登录</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        /*#main:target{animation:slide 3s;}
+            @keyframes slide{
+            0%{
+                transform:translateZ(300px) ratateZ(120deg);
+            }
+            50%{
+                transform:translateZ(-300px) ratateZ(120deg);
+
+            }
+            100%{
+                transform:translateZ(0px) ratateZ(120deg);
+                border-radius: 10%;
+            }
+        }*/
+    </style>
+  </head>
+
+
+  <body> 
+    <nav class="navbar navbar-inverse" role="navigation">
+    </nav>
+     
+    <div class="container-fluid" id="main">
+        <div class="col-md-2 "></div>  
+        <div class="col-md-8 bg-success" >
+            <br>
+            <br>
+            <br>
+            <form class="form-horizontal " role="form" method="post" action="message.html" >
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="userName">UserName:</label>
+                    <div class="col-md-4">
+                         <input type="text" id="userName" class="form-control" placeholder="Hurrican">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="pwd">Password:</label>
+                    <div class="col-md-4">
+                         <input type="password" id="pwd" class="form-control" placeholder="*********">
+                    </div>           
+                </div>
+
+                
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-8" >
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" >Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div> 
+
+
+                <div class="col-md-offset-4">
+                    <div class="btn-group">
+                        <input type="button" class="btn btn-success" value="Register" id="login" onclick="return chkform()">
+                        <input type="reset" class="btn btn-warning" value="Reset" >
+                    </div>  
+                </div>       
+            </form>
+        </div> 
+        <div class="col-md-2 "></div>  
+        <div class="col-md-12 "></div>     
+    </div>
+
+    <script type="text/javascript">
+
+        var checkUserName=document.getElementById("userName");
+            var checkUserPwd=document.getElementById("pwd");
+            var submit=document.getElementById("login");
+           
+            function chkform()
+            { 
+                 if(checkUserName.value=="")
+                 { 
+                      alert("用户名不能为空！"); 
+                      return false; 
+                 } 
+
+                 if(checkUserPwd.value=="") 
+                 { 
+                      alert("密码不能为空！"); 
+                      return false; 
+                 }  
+                 self.location='message.html';  
+
+             };
+    </script>
+    
+  </body>
+</html>
