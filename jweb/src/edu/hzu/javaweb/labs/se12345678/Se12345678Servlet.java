@@ -26,6 +26,7 @@ public class Se12345678Servlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// 已登录
 		String login = "zhang3";
 		// Session
 		HttpSession session = request.getSession(true);
