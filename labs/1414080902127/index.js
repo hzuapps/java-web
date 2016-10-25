@@ -9,4 +9,4 @@ $.ajax({
       console.dir(data);
       alert(data.msg);
     }
-});
+}); 
