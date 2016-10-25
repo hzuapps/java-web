@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用户登录</title>
+</head>
+<body>
+  <form role="form" id="Form">
+    <table>
+      <tr>
+          <td>账号:</td><td><input type="email" id="account"></td>
+      </tr>
+      <tr>
+          <td>密码:</td><td><input type="password"id="password"></td>
+      </tr>
+      <tr>
+          <td><button type="button" class="btn btn-primary">登录</button></td>
+      </tr>
+    </table>
+  </form>
+
+</body>
+<script src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".btn").click(function(event){
+      if($('#account').val() == "")
+          alert("请输入账号！");
+      else if($('#password').val() == ""){
+          alert("请输入密码！");
+      }else{
+        $(this).text('登录中...');
+        $.getJSON('success.json',function(data){
+          alert(data.msg);
+          location.reload();
+        });         
+      }
+  });
+})
+
+</script>
+</html>
