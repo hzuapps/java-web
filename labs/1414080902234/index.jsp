@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <html>
 <head> 
 <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -13,6 +14,10 @@
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 
+<%
+  int i=0;
+  int j=i+1;
+%>
 
 <body>
 <meta charset=utf-8>

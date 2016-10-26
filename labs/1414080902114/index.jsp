@@ -1,3 +1,8 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -12,14 +17,13 @@
 
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="index.js"></script>
+	<link rel="stylesheet" type="text/css" href="Style/css/style.css">
+	<script src="Style/index.js"></script>
 </head>
 
-	
 <body>
-
-	<form class="box" action="">
+                        <--转跳到servlet/loginServlet中 -->
+	<form class="box" action="servlet/loginServlet" method="post">
 		<fieldset class="boxBody">
 		  <label>Username</label>
 		  <input type="text" placeholder="输入邮箱或账号" required>
@@ -31,5 +35,6 @@
 		  <input type="submit" class="target"  value="Login" >
 		</footer>
 	</form>
+
 </body>
 </html>
