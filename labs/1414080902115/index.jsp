@@ -76,22 +76,22 @@ $(function(){
 	
 	<div class="row">
 		<div class="span4" style="float:left;width: 20%" >
-			<form class="form-horizontal" id="target" style="height: 250px;margin-top:2%">
+			<form class="form-horizontal" id="target" style="height: 250px;margin-top:2%" action="loginServlet" method="get">
 				<div class="control-group">
 					<label class="control-label" for="inputEmail">用&nbsp;户&nbsp;名</label>
 					<div class="controls">
-						<input id="inputEmail" type="text" />
+						<input id="inputEmail" type="text" name="username" />
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="inputPassword">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
 					<div class="controls">
-						<input id="inputPassword" type="password" />
+						<input id="inputPassword" type="password" name="userpwd" />
 					</div>
 				</div>
 				<div class="control-group">
 					<div class="controls"  style="margin-left: 10%">
-						<label class="checkbox"><input type="checkbox" /> 记住账户</label>
+						<label class="checkbox"><input type="checkbox"   name="check" checked="checked" value="1 " /> 记住账户</label>
 						 <button class="btn" type="submit"  style="margin-top: 10%">登陆</button>
 					</div>
 				</div>
@@ -199,7 +199,7 @@ $("#target").submit(function (event) {
 	 var user = document.getElementById("inputEmail");
 	var pwd= document.getElementById("inputPassword"); 
 if(user.value.length>0&&pwd.value.length>0){
-	event.preventDefault();
+	//event.preventDefault();
     $.ajax({
             url: "success.json",
             dataType: "json",
@@ -207,18 +207,18 @@ if(user.value.length>0&&pwd.value.length>0){
             success: function (data) {
                 // Play with returned data in JSON format
                 alert(data.msg);
+                return true;
             },
             error: function (msg) {
                 alert("登陆失败");
+                return false;
             }
         });
- 
 }else{
 	alert("请输入用户名或密码");
-}
-	 
-	
-});
+	return false;
+}	
+});   
    
   </script>
   </body>
