@@ -1,4 +1,4 @@
-package edu.hzu.javaweb.labs;
+package edu.hzu.javaweb.labs.se1414080902125;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class se1414080902125
  */
 @WebServlet("/1414080902125")
-public class se1414080902125 extends HttpServlet {
+public class Se1414080902125 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -45,7 +45,7 @@ public class se1414080902125 extends HttpServlet {
 		String school=request.getParameter("SCHOOL");
 		String majo=request.getParameter("MAJO");
 		
-		String info= "用户名："+name+"；密码："+pw+"；身份："+user+"；学校："+school+"；专业："+majo;
+		String info= "鐢ㄦ埛鍚嶏細"+name+"锛涘瘑鐮侊細"+pw+"锛涜韩浠斤細"+user+"锛涘鏍★細"+school+"锛涗笓涓氾細"+majo;
 		
 		request.setAttribute("outputMessage", info);
 		request.getRequestDispatcher("/info.jsp").forward(request,response);
