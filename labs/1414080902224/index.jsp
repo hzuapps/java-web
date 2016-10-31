@@ -1,24 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>·¢²¼±Ê¼Ç</title>
-<!-- ÐÂ Bootstrap ºËÐÄ CSS ÎÄ¼þ -->
+<title>å‘å¸ƒç¬”è®°</title>
+<!-- æ–° Bootstrap æ ¸å¿ƒ CSS æ–‡ä»¶ -->
 <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
-<!-- ¿ÉÑ¡µÄBootstrapÖ÷ÌâÎÄ¼þ£¨Ò»°ã²»ÓÃÒýÈë£© -->
+<!-- å¯é€‰çš„Bootstrapä¸»é¢˜æ–‡ä»¶ï¼ˆä¸€èˆ¬ä¸ç”¨å¼•å…¥ï¼‰ -->
 <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
-<!-- jQueryÎÄ¼þ¡£Îñ±ØÔÚbootstrap.min.js Ö®Ç°ÒýÈë -->
+<!-- jQueryæ–‡ä»¶ã€‚åŠ¡å¿…åœ¨bootstrap.min.js ä¹‹å‰å¼•å…¥ -->
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 
-<!-- ×îÐÂµÄ Bootstrap ºËÐÄ JavaScript ÎÄ¼þ -->
+<!-- æœ€æ–°çš„ Bootstrap æ ¸å¿ƒ JavaScript æ–‡ä»¶ -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="index.js" type="text/javascript"></script>
 </head>
 <body>
 	<form>
-	·¢±í±Ê¼Ç:<br>
+	å‘è¡¨ç¬”è®°:<br>
 	<textarea rows="10" cols="50"></textarea>
-	<button type="button" class="btn btn-default">·¢±í</button>
+	<button type="button" class="btn btn-default">å‘è¡¨</button>
 	</form>
 </body>
 </html>
