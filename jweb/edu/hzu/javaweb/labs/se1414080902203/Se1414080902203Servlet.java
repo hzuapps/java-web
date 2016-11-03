@@ -1,4 +1,4 @@
-package se1414080902203;
+package edu.hzu.javaweb.labs.se1414080902203;
 
 import java.io.IOException;
 import java.io.PrintWriter;
