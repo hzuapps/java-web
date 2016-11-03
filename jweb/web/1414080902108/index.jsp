@@ -4,70 +4,36 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>新增试题</title>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>首页</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <!--<script src="js/bootstrap.min.js"></script>-->
-    <!--<link type="text/css" href="css/style.css" rel="stylesheet">-->
-    <!--<script src="JS/jquery-2.2.1.js"></script>-->
-    <!--<script src="index.js"></script>-->
+
     <style>
-        .navbar {
-            min-height: 30px;
-            margin-bottom: 0;
-            border-radius: 0;
+        .top{
+            background-color: #eeeeee;
         }
-
-        h4 {
-            font-weight: bold;
-            margin-left: 10px;
-            margin-bottom: 20px;
-        }
-
-        footer p {
-            font-weight: bold;
-        }
-
-        .control-label {
-            text-align: left;
-        !important;
-        }
-
-        input {
-            margin-top: 2px;
-        }
-
-        select {
-            margin-top: 2px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .checkbox {
-            float: left;
-            margin-right: 20px;
-        }
-
-        #submit {
-            margin-left: 23%;
-        }
-
-        * {
+        *{
             font-family: "微软雅黑";
         }
     </style>
-</head>
-<body>
-<div class="">
+
+  </head>
+  
+  <body>
+    <div class="top">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -91,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">首页</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">新增试题</a></li>
+                            <li><a href="add.jsp">新增试题</a></li>
                             <li><a href="#">查询成绩</a></li>
                             <li><a href="#">快速考试</a></li>
                             <li class="divider"></li>
@@ -117,7 +83,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li><a href="#">我的记录</a></li>
                             <li><a href="#">意见反馈</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">退出</a></li>
+                            <li>
+                            <% String flag="";
+                               Object obj = session.getAttribute("flag");
+                               if(obj != null){
+                                flag = obj.toString();
+                               }
+                               if(flag.equals("login_success")){
+                             %>
+                             <a href="<%=request.getContextPath() %>/logoutSe1414080902108">退出</a>
+                             <% }else{ %>
+                             <a href="<%=request.getContextPath() %>/sign.jsp">登录</a>
+                             <%} %>
+                            </li>
+                            <li><a href="<%=request.getContextPath() %>/sign_up.jsp">注册</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -126,157 +105,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class="">
-        <div class="row" style="background-color: #eee">
-            <div class="col-md-3 ">
-            </div>
-            <div class="col-md-6 container">
-                
-                <div>
-                    <h1>Add your question</h1>
 
-                    <!--<h4>Add your question and answer</h4>-->
-                </div>
-                <form role="form" id="row" class="form-horizontal" method="post" action="Se1414080902108Servlet">
-                    <div class="form-group">
-                        <label for="inputSubject" class="col-sm-2 control-label">Subject</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputSubject" name="subject" placeholder="Enter Subject">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputQuestion" class="col-sm-2 control-label">Question</label>
-
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="inputQuestion" name="question" placeholder="Enter Question"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAnswer1" class="col-sm-2 control-label">Option A</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputAnswer1" name="answer1" placeholder="Enter Answer">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAnswer2" class="col-sm-2 control-label">Option B</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputAnswer2" name="answer2" placeholder="Enter Answer">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAnswer3" class="col-sm-2 control-label">Option C</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputAnswer3" name="answer3" placeholder="Enter Answer">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAnswer4" class="col-sm-2 control-label">Option D</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputAnswer4" name="answer4" placeholder="Enter Answer">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputA" class="col-sm-2 control-label">Answer</label>
-
-                        <div class="col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="radio" id="inputA" name="answer" onclick="check()" value="A"> A
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="radio" id="inputB" name="answer" onclick="check()" value="B"> B
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="radio" id="inputC" name="answer" onclick="check()" value="C"> C
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="radio" id="inputD" name="answer" onclick="check()" value="D"> D
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <button type="submit" class="btn btn-success" id="submit" name="submit">Add</button>
-                        <button type="reset" class="btn btn-primary" id="reset" name="reset">Reset</button>
-                    </div>
-                </form>
-                <hr/>
-                <div class="">
-                    <footer>
-                        <p style="text-align: center">系统当前时间：<%= new Date().toLocaleString() %></p>
-                        <p style="text-align: center">&copy;&nbsp;Bingo1414080902108</p>
-                    </footer>
-                </div>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>Internet Based Exam System</h1><br/>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在线考试系统是一款面向老师和学生的优秀系统，可以更好地管理学生的试卷，更高效地评卷以及查询成绩,学生也可以随时随地进行更方便地答题。目前只提供三种功能：老师可以添加考试试题，查询学生成绩，学生可以在线考试答题。</p>
+        <br/><p><a class="btn btn-info btn-lg" href="#" role="button">Know more &raquo;</a></p>
     </div>
 </div>
+</div>
 
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Add Question</h2>
+            <p>Please add your questions and answers to create your exam. </p>
+            <p><a class="btn btn-default" href="add.jsp" role="button">添加试题 &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>View Score</h2>
+            <p>The teachers and students can view score in here and should input the student's ID number</p>
+            <p><a class="btn btn-default" href="#" role="button">查询成绩 &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Do Exam</h2>
+            <p>The students can enter this to do his exam and the system will save the score.</p>
+            <p><a class="btn btn-default" href="#" role="button">在线考试 &raquo;</a></p>
+        </div>
+    </div>
 
-<script>
+    <hr>
 
-    var checked = false;
-    $(document).ready(function () {
-        $("#row").submit(function (event) {
-            var subject = $("#inputSubject").val();
-            var question = $("#inputQuestion").val();
-            var option1 = $("#inputAnswer1").val();
-            var option2 = $("#inputAnswer2").val();
-            var option3 = $("#inputAnswer3").val();
-            var option4 = $("#inputAnswer4").val();
-            var A = $("#inputA");
-            var B = $("#inputB");
-            var C = $("#inputC");
-            var D = $("#inputD");
-            
-            
-            if (subject == "") {
-                event.preventDefault();
-                alert("请输入科目！");              
-            }
-            else if (question == "") {
-                event.preventDefault();
-                alert("请输入题目！");
-            }
-            else if (option1 == "" || option2 == "" || option3 == "" || option4 == "") {
-                event.preventDefault();
-                alert("请输入选项！");
-            }
-            else if (!checked) {
-                event.preventDefault();
-                alert("请选择答案！");
-            }
-            else {
-               /* alert("提交成功！"); */
-                /* $.ajax({
-                    url: "success.json"
-                }).done(function (data) {
-                    if (console && console.log) {
-                        console.dir(data);
-                        alert(data.msg);
-                    }
-                });  */
-            }
-        })
-
-    });
-
-    function check() {
-        checked = true;
-    }
-</script>
-
-</body>
+    <footer>
+        <p style="text-align: center">&copy; Bingo 1414080902108</p>
+    </footer>
+</div> <!-- /container -->
+  </body>
 </html>
