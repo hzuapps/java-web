@@ -3,20 +3,4 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <servlet-name>Se135</servlet-name>
-    <servlet-class>edu.hzu.javaweb.labs.se1414080902135.Se135</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>User_Session</servlet-name>
-    <servlet-class>edu.hzu.javaweb.labs.se1414080902135.User_Session</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>User_Session</servlet-name>
-    <url-pattern>/User_Session</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Se135</servlet-name>
-    <url-pattern>/1414080902135</url-pattern>
-  </servlet-mapping>
 </web-app>
