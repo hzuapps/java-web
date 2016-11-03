@@ -88,16 +88,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           						<li><a href="#">软件工程2班</a></li>
           						<li><a href="#">学号:1414080902237</a></li>
         					</ul>
-      					</div><!-- /btn-group -->
+      					</div>
       					<input type="text" class="form-control" aria-label="..." id="search">
         				<button class="btn btn-default searched" type="button" id="searched">搜索</button>
-    				</div><!-- /input-group -->
-  				</div><!-- /.col-lg-6 -->
+    				</div>
+  				</div>
   			</div>
 </div>
 
 <script>
--$(document).ready(function(){
+$(document).ready(function(){
 	 	$(".searched").click(function(event){
 	 		alert("hello!");
 	       if($('.search').val() == ""){
