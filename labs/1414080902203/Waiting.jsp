@@ -25,6 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<h1>正在上传，请稍后</h1>
+	<h1><%=request.getAttribute("OutputMessage") %></h1>
   </body>
   </html>

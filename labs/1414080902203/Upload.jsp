@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,19 +28,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <form action="L.jsp" method="post">
+  <form action="Se1414080902203Servlet" method="post">
 	<div id="01" style=" position:absolute; width:100%; height:100%; background-color:yellow"
-	<center> ���ڵ�ʱ���ǣ� <%=new Date()%> ��60S��ˢ��<hr>
+	<center> 现在的时间是： <%=new Date()%> ：60S后刷新<hr>
 	<%response.setHeader("refresh","60");%>
 	</center>
-	<div>
+	</div>
 	<div id="02" style=" position:absolute; width:100%; height:100%; background-color:#33CC99">
   	<table border="0" align="center" width=400>
   	<tr><td align="center"><h1>Hello Teacher</h1></td></tr>
 	
-    <tr><td colspan="2"><h2>ѡ���ļ���*</h2><input type="file" accept="video/mp4" multiple="multiple" >
-	��������֤�루Upload��:<input type="text" name="Pass"><br>
-	<input type="submit" value="ȷ���ύ"></td>
+    <tr><td colspan="2" ><h2>选择文件：*</h2><input type="file" accept="video/mp4" multiple="multiple" >
+	请输入验证码（Upload）:<input type="text" name="Pass"><br>
+	<input type="submit" value="提交"><br>
+	<input type="reset"></td>
 	
 	</tr>
   	</table>
