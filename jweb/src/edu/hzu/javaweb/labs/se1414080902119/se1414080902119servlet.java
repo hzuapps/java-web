@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,13 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/1414080902119")
-public class se1414080902119servlet extends HttpServlet {
+public class Se1414080902119servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	//初始化基本数据
 	private static List<BookType> types;
 	static{
-		types=new ArrayList<>();
+		types=new ArrayList<BookType>();
 		types.add(new BookType("数学", false));
 		types.add(new BookType("文学",false));
 		types.add(new BookType("天文学",true));
@@ -33,20 +34,19 @@ public class se1414080902119servlet extends HttpServlet {
 		response.setContentType("application/json;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
 		String operate=request.getParameter("operate");
+		System.out.println(request.getRequestURI());
 		if(operate==null)operate="";
-		switch (operate) {
-		case "add":
-			addTypes(response,request);
-			break;
-		case "delete":
-			deleteTypes(response,request);
-			break;
-		default: showList(response);
-			break;
-		}
-		
+		if("show".equals(operate))doshow(response,request);
+		else if("add".equals(operate))addTypes(response,request);
+		else if("delete".equals(operate))deleteTypes(response,request);
+		else showList(response);
 	}
 	
+	private void doshow(HttpServletResponse response, HttpServletRequest request) throws IOException, ServletException {
+		request.setAttribute("list", types);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/1414080902119/client.jsp");
+		dispatcher.forward(request, response);
+	}
 	private void deleteTypes(HttpServletResponse response, HttpServletRequest request) throws IOException {
 		// TODO Auto-generated method stub
 		String name=request.getParameter("name");
@@ -129,31 +129,5 @@ public class se1414080902119servlet extends HttpServlet {
 		}
 		str.append("}");
 		return str.toString();
-	}
-}
-//图书类别类
-class BookType
-{
-	private String name;  						//图书类别名字
-	private Boolean isHasBook;				//该类别下是否有图书标志
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Boolean getIsHasBook() {
-		return isHasBook;
-	}
-	public void setIsHasBook(Boolean isHasBook) {
-		this.isHasBook = isHasBook;
-	}
-	public BookType(String name, Boolean isHasBook) {
-		super();
-		this.name = name;
-		this.isHasBook = isHasBook;
-	}
-	public BookType() {
-		super();
 	}
 }
