@@ -1,0 +1,48 @@
+<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>±íµ¥desu -</title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+</head>
+
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+<div class="login-container">
+	<h2>GiliGili Timetable</h2>
+	
+	<form action="" method="post" id="loginForm">
+		<div>
+			<input type="text" name="username" class="username" placeholder="admin" autocomplete="off"/>
+		</div>
+		<div>
+			<input type="password" name="password" class="password" placeholder="password" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<button id="submit" type="submit">logn in</button>
+	</form>
+</div>
+<script src="index.js"></script>
+<script type="text/javascript">
+$("#form-all").submit(function(event){
+    alert( "Handler for .submit() called." );
+    event.preventDefault();
+});
+$.ajax({
+    url: "success.json"
+}).done(function(data) {
+    if ( console && console.log ) {
+        console.dir(data);
+        alert(data.msg);
+    }
+});
+</script>
+
+</div>
+</body>
+</html>
