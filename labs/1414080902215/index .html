@@ -18,16 +18,16 @@
 </form>
 <script>
 $( "#tijiao" ).submit(function( event ) {
-  
-});
-$.ajax({
-  url: "success.json
+  $.ajax({
+  url: "success.json"
 }).done(function(data) {
   if ( console && console.log ) {
       console.dir(data);
       alert(data.msg);
     }
 });
+});
+
 </script>
 </body>
 </html>

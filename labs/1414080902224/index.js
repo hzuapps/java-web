@@ -1,6 +1,6 @@
 ﻿$(function(){
     $( ".btn" ).click(function( event ) {
-  alert( "确定" );
+  alert( "ok" );
   $.ajax({
   url: "ok.json"
 }).done(function(data) {
