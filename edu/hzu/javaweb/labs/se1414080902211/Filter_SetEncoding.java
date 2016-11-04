@@ -18,10 +18,11 @@ public class Filter_SetEncoding implements Filter {
 	}
 
 	@Override
-	public void doFilter(ServletRequest arg0, ServletResponse arg1,
-			FilterChain arg2) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain filterchain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-
+		request.setCharacterEncoding("UTF-8");
+		filterchain.doFilter(request, response);
 	}
 
 	@Override
