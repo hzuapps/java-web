@@ -1,70 +1,21 @@
-﻿<%@page contentType="text/html" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>		
-		<meta charset="utf-8">
-		<title>javaweb 实验三</title>
-
-		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="index.js"></script>
-		
-	</head>
-	<body>
-		<%=new java.util.Date().toLocaleString() %>
-		<p style=""><b>发布二手货物</b></p>
-		<form  id="fm"  method="post">
-		  <div class="form-group">
-		    <p><label for="GoodsName">Goods Name</label><span style="color:red" id="p1"></span></p>
-		    <input type="text"  id="GoodsName" name="GoodsName" placeholder="Goods Name" style="width:320px"/>
-		  </div>
-		  <div class="form-group">
-		    <p><label for="Detail">Detail</label><span style="color:red" id="p2"></span></p>
-		     <textarea name="Detail" id="Detail" cols="50" rows="10" placeholder="Detail"></textarea>
-		  </div>		 
-		  <div class="form-group">
-		    <p><label for="imgfile">Pictures input</label><span style="color:red" id="p3"></span></p>
-		    <input name="imgfile" type="file" id="imgfile" accept="image/*">
-		  </div>
-		</form>
-		
-		<button id="btn" type="submit" onclick="fun()">submit</button>
-	</body>	
-	<% %>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+		<button onclick="gotofabu()">发布二手货物</button><br/>
+		<br/>
+		<button onclick="">搜索二手货物</button>
+</body>
+<script>
+	function gotofabu()
+	{
+		window.location.href="issue.jsp";
+	}
 	
-	<script type="text/javascript" >
-  		
-  		function fun(){
-  			
-			if(document.getElementById("GoodsName").value=='')
-				document.getElementById("p1").innerHTML="* not null";
-				
-			if(	document.getElementById("Detail").value=='')
-				document.getElementById("p2").innerHTML="* not null";
-				
-			if(	document.getElementById("imgfile").value=='')
-			   document.getElementById("p3").innerHTML="* not null";
-			else
-				//document.getElementById("fm").submit();
-				$.a();
-		}
-  </script>
-  <script type="text/javascript" >
-  	$.a=function(){
-  		$.ajax({
-  			type:"post",
-  			datatype:"html",
-  			url:"1414080902231",
-  			success:function(data){
-  			alert(data);
-  			}
-  		});		
-  	};
-  </script>
-	
-
-
-	
+</script>
 </html>
