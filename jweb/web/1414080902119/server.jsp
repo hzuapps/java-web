@@ -18,7 +18,7 @@
 </head>
 <script type="text/javascript">
 	var str = null;
-	var url="../1414080902119";
+	var url="<%=request.getContextPath()%>/1414080902119";
 	var aBtn = document.getElementsByClassName('btn1 btn btn-default button');
 	var aDiv=document.getElementsByClassName("hehe");
 	window.onload = function() {
@@ -32,7 +32,7 @@
 			showDiv(aBtn[1]);
 			var addBtn=document.getElementById('addBtn');
 			addBtn.onclick=function(){
-				var url="../1414080902119";
+				var url="<%=request.getContextPath()%>/1414080902119";
 				data="operate=add&name="+document.getElementById('types_name').value;
 				ajax(url,afterAdd,data);
 			}
@@ -80,7 +80,7 @@
 				}
 			}
 			arr=arr.substring(0,arr.length-1);
-			var url="../1414080902119";
+			var url="<%=request.getContextPath()%>/1414080902119";
 			data="operate=delete&name="+arr;
 			ajax(url,showDeleteList);
 			ajax(url,afterDelete,data);
@@ -217,9 +217,9 @@
 			</form>
 		</div>
 	</div>
-	<div class="col-sm-offset-2 col-sm-10 delete_item"   name="delete_item">
+	<div class="col-sm-offset-2 col-sm-10 delete_item" name="delete_item" style="visibility: hidden;">
 		<div class="checkbox">
-			<label> <input type="checkbox"   class="delete_item_value">
+			<label> <input type="checkbox" class="delete_item_value">
 				<span></span>
 			</label>
 		</div>
