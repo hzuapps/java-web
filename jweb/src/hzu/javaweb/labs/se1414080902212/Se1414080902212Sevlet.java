@@ -71,7 +71,7 @@ public class Se1414080902212Sevlet extends HttpServlet {
         out.close();
     }
 	public void init() throws ServletException {
-		// Put your code here
+		
 	}
 
 }
