@@ -190,7 +190,7 @@
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
 							<label for="exampleInputEmail1">图书类别</label> 
-							<input id="types_name" type="text" class="form-control" placeholder="Enter"  name="name" >
+							<input  id="types_name" type="text" class="form-control" placeholder="Enter"  name="name" >
 						</div>
 					</div>
 				</div>
@@ -203,7 +203,7 @@
 				<div class="form-group" id="delete_selected">
 					<div class="col-sm-offset-2 col-sm-10 delete_item"   name="delete_item">
 						<div class="checkbox">
-							<label> <input type="checkbox" class="delete_item_value">
+							<label> <input name="hehe" type="checkbox" class="delete_item_value">
 								<span></span>
 							</label>
 						</div>

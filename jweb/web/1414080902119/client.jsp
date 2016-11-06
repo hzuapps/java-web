@@ -25,7 +25,7 @@
 		align="center">
 		<div class="btn-group btn-group-justified">
 			<div class="btn-group">
-				<button id="btn1" type="button" class="btn1 btn btn-default button">
+				<button id="btn1" name="hehe" type="button" class="btn1 btn btn-default button">
 					<c:out value="查看图书类别"></c:out>
 				</button>
 			</div>
