@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'main.jsp' starting page</title>
+    <title>欢迎使用校园社团管理系统</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -44,69 +44,69 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="Index.jsp">后台首页</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="##">后台首页</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="TeacherManager.action">管理员管理</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">管理员管理</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="StudentManager.action">部门管理</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">部门管理</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="BuildingManager.action">部员管理</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">部员管理</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="DomitoryManager.action">宿舍管理</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">宿舍管理</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="StudentRZ.action">活动管理</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">活动管理</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="StudentTH.jsp">值班管理</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="#">值班管理</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="StudentQC.jsp">部门历史资料记载</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">部门历史资料记载</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="AdminLog.action">部门公众号管理</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">部门公众号管理</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="PasswordUpdate.jsp">修改密码</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">修改密码</a></td>
                 </tr>
                 <tr>
                   <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="Quit.action" onclick="return confirm('确定要退出系统吗？')">退出系统</a></td>
+                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="#" onclick="return confirm('确定要退出系统吗？')">退出系统</a></td>
                 </tr>
               </table>
               </td>
