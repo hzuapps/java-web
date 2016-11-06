@@ -1,1 +1,0 @@
-console.dir('This is index.js');
