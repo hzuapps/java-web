@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-
+    <script src="index.js"></script>
 
   </head>
  
@@ -27,19 +27,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <center>Now time is: 
          <%=new java.util.Date()%>
      </center>
-  <form id="stu" action="">
-     <table>
-<tr><td>学生签到表</td></tr>
-<tr><td>姓名：<input type="text"></td></tr>
-<tr><td>学号：<input type="text"></td></tr>
-<tr><td>日期：<input type="text"></td></tr>
-<tr><td>缺勤情况：</td></tr>
-<tr><td>
-<textarea name="Letter" rows="5" cols="50"></textarea>
-</td></tr>
+  <form id="stu" action=""  method="post">
+     
+<div>学生签到表</div>
+<div>姓名：<input type="text"  id="name" ></div>
+<div>学号：<input type="text"  id="id" ></div>
+<div>日期：<input type="text"  id="date" ></div>
+<div>缺勤情况：</div>
+<div>
+<textarea name="Letter" rows="5" cols="50"  id="note" ></textarea>
+</div>
 
-<tr><td><button type="submit"  class="btn" >登记</button><input type="reset" value="取消" class="btn" ></td></tr>
-</table>
+<div><button type="submit"  class="btn" onclick="formSubmit.Deal()">登记</button><input type="reset" value="取消" class="btn" ></div>
+
 </form>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
