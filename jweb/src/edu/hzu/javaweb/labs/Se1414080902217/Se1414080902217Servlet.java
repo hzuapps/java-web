@@ -24,8 +24,7 @@ public class Se1414080902217Servlet extends HttpServlet {
 		}
 		else
 		{
-			request.setAttribute("userName", userName);
-			request.setAttribute("userPwd", userPwd);
+			request.getSession().setAttribute("userName", userName);
 			request.getRequestDispatcher("select.jsp").forward(request, response);
 		}
 	}
