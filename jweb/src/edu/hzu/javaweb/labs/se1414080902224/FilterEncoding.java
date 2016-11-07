@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class Filter_encoding implements Filter {
+public class FilterEncoding implements Filter {
 
 	@Override
 	public void destroy() {

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class Filter_login implements Filter {
+public class FilterLogin implements Filter {
 
 	@Override
 	public void destroy() {
