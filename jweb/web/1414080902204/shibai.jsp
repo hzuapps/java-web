@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <p><a href="bangding.jsp" target="right"> 绑定</a></p>
-     <p><a href="login.jsp" target="right">登陆</a></p>  </body>
+    登陆失败！<br>
+  </body>
 </html>

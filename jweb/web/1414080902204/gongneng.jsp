@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'shibai.jsp' starting page</title>
+    <title>My JSP 'gongneng.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,6 +23,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <p><a href="bangding.jsp" target="right"> 绑定</a></p>
-     <p><a href="login.jsp" target="right">登陆</a></p>  </body>
+  <% String str1=request.getParameter("kahao");
+  	session.setAttribute("KAHAO", str1);
+  	
+   %>
+       <p><a href="jiechubangding.jsp" target="right"> 解除绑定</a></p>
+              <p><a href="chaxunyue.jsp" target="right"> 查询余额</a></p>
+       
+  </body>
 </html>
