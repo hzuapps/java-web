@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,java.util.*" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,java.util.*,JDBC_package.JDBC_package" errorPage="" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,55 +11,6 @@
 </style>
 </head>
 <style type="text/css">
-#Layer1 {
-	position:absolute;
-	width:70;
-	height:30;
-	z-index:1;
-	left:780;
-	top: 80;
-	overflow: visible;
-}
-#Layer2
-{
-	position:absolute;
-	width="70";
-	height="30"
-	z-index:1;
-	left:705;
-	top:80;
-	overflow:visible;
-}
-#Layer3
-{
-	position:absolute;
-	width="70";
-	height="30";
-	z-index:1;
-	left:630;
-	top:80;
-	overflow:visible;
-}
-#Layer4
-{
-	position:absolute;
-	width="70";
-	height="30";
-	z-index:1;
-	left:855;
-	top:80;
-	overflow:visible;
-}
-#Layer5
-{
-	position:absolute;
-	width="70";
-	height="30";
-	z-index:1;
-	left:555;
-	top:80;
-	overflow:visible;
-}
 body
 {
 	padding:  0px;
@@ -80,6 +31,15 @@ a
 }
 </style>
 <body>
+<table align="center" height="30" width="800">
+<tr>
+	<td height="30" width="800">
+		<iframe src="time.jsp" height="30" width="800" frameborder="0">
+		
+		</iframe>
+	</td>
+</tr>
+</table>
 <table align="center" height="800" width="800">
 	<tr>
 		<td>
@@ -94,11 +54,11 @@ a
 				<tr>
 					<td width="270" height="34" class="STYLE4 STYLE5">计算机专业知识交流网</td>
 					<td width="140" align="center" bgcolor="#FFFFFF">&nbsp;</td>
-				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="#" onmouseover="f_server()" onclick="f_close()">客服中心</a></td>
-				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="#" onmouseover="f_measure()" onclick="f_close()">学习工具</a></td>
-				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="#" onmouseover="f_example()" onclick="f_close()">素材教程</a></td>
-				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="#" onmouseover="f_job()" onclick="f_close()">寻找工作</a></td>
-				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="#" onmouseover="f_talk()" onclick="f_close()">专业论坛</a></td>
+				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="main.jsp">首页</a></td>
+				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="stuff.jsp">学习工具</a></td>
+				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="teach.jsp">素材教程</a></td>
+				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="work.jsp">寻找工作</a></td>
+				    <td width="72" align="center" bgcolor="#FFFFFF"><a href="talk.jsp">专业论坛</a></td>
 				</tr>
 			</table>
 			<table align="center" width="800" height="200">
@@ -109,7 +69,7 @@ a
 		  <table>
 		  	<tr>
 		  		<td align="center">
-		  			<hr width="830"/>
+		  			<hr />
 		  		</td>
 		  	</tr>
 		  	<tr>
@@ -117,13 +77,13 @@ a
 		  	</tr>
 		  	<tr>
 		  		<td align="center">
-		  			<hr width="830"/>
+		  			<hr width="800"/>
 		  		</td>
 		  	</tr>
 		  </table>
 		  <table align="center" width="800" height="201" border="1" >
 				<tr>
-					<td width="30"></td>
+					<td width="50"></td>
 					<td width="50" height="30"><a href="" onMouseOver="f_java()">Java</a></td>
 					<td width="50"><a href="" onMouseOver="f_VC2010()">VS2010</a></td>
 					<td width="50"><a href="" onMouseOver="f_VC()">VC6.0</a></td>
@@ -138,7 +98,7 @@ a
 					<td width="50"><a href="" onmouseover="f_mysql()">Mysql</td>
 					<td width="50"><a href="" onmouseover="f_Oracle()">Oracle</td>
 					<td width="50"><a href="" onmouseover="f_masm()">Masm</td>
-					<td width="30"></td>
+					<td width="50"></td>
 			    </tr>
 				<tr><td colspan="10">
 				<table align="center" border="0"><tr>
@@ -175,13 +135,13 @@ a
 			</tr>
 				<tr>
 					<td colspan="18">
-						<hr align="center" width="780"/>					</td>
+						<hr align="center" width="800"/>					</td>
 				</tr>
 				<tr>
 					<td colspan="18" align="center"><h4>热门教程</h4></td>
 				</tr>
 				<tr>
-					<td colspan="18"><hr width="780"/></td>
+					<td colspan="18"><hr width="800"/></td>
 				</tr>
 				<tr>
 				  <td width="50" rowspan="5"><a href="<%=request.getContextPath()%>/image/left.png" onmouseover="f_left()"><img src="<%=request.getContextPath()%>/image/left.png" width="50" onclick="f_left()"/></a></td>
@@ -252,6 +212,7 @@ a
 					<td width="50"></td>
 					<td width="50"></td>
 					<td width="50"></td>
+					<td width="50"></td>
 		    </tr>
 		  </table>
 		  <table align="center" width="800" height="882">
@@ -262,92 +223,6 @@ a
 		</td>
 	</tr>
 </table>
-<div id="Layer5" style="display:none">
-	<table width="75" height="50" bgcolor="#FFFFFF">
-		<tr>
-			<td>
-				<a href="自助服务">自助服务</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="人工服务">人工服务</a>
-			</td>
-		</tr>
-	</table>
-</div>
-<div id="Layer4" style="display:none">
-	<table width="75" height="50" bgcolor="#FFFFFF">
-		<tr>
-			<td>
-				<a href="#" id="ts_talk">教师论坛</a>
-				
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="#" id="ss_talk">学生论坛</a>
-			</td>
-		</tr>
-	</table>
-</div>
-<div id="Layer1" style="display:none">
-	<table width="75" height="50" bgcolor="#FFFFFF">
-		<tr>
-			<td>
-				<a href="#" id="partimejob">寻找兼职</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="#" id="employee">查找招聘</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="#" id="introduce">个人简历</a>
-			</td>
-		</tr>
-	</table>
-</div>
-<div id="Layer2" style="display:none">
-	<table height="50" width="75" bgcolor="#FFFFFF">
-		<tr>
-			<td>
-				<a href="#" id="example_sucai">高级素材</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="#" id="example_teacher">教师教程</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="#" id="example_student">学生教程</a>
-			</td>
-		</tr>
-	</table>
-</div>
-<div id="Layer3" style="display:none">
-	<table height="50" width="75" bgcolor="#FFFFFF">
-		<tr>
-			<td>
-				<a href="#" id="program_measure">编程工具</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="#" id="designer_measure">绘制工具</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="#" id="perform_measure">后台工具</a>
-			</td>
-		</tr>
-	</table>
-</div>
 </body>
 </html>
 <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
@@ -569,113 +444,6 @@ a
 			i+=3;
 		}
 		i--;
-	}
-	function f_job()
-	{
-		var display = document.getElementById("Layer1").style.display;
-		if(display=="none")
-		{
-			document.getElementById("Layer1").style.display="";
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer3").style.display="none";
-			document.getElementById("Layer4").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}
-		else
-		{
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer3").style.display="none";
-			document.getElementById("Layer4").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}
-	}
-	function f_example()
-	{
-		var display = document.getElementById("Layer2").style.display;
-		if(display =="none")
-		{
-			document.getElementById("Layer2").style.display="";
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer3").style.display="none";
-			document.getElementById("Layer4").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}
-		else
-		{
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer3").style.display="none";
-			document.getElementById("Layer4").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}
-	}
-	function f_measure()
-	{
-		var display = document.getElementById("Layer3").style.display;
-		if(display =="none")
-		{
-			document.getElementById("Layer3").style.display="";
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer4").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}
-		else
-		{
-			document.getElementById("Layer3").style.display="none";
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer4").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}
-	}
-	function f_talk()
-	{
-		var display = document.getElementById("Layer4").style.display;
-		if(display == "none")
-		{
-			document.getElementById("Layer4").style.display="";
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer3").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}
-		else
-		{
-			document.getElementById("Layer4").style.display="none";
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer3").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}	
-	}
-	function f_server()
-	{
-		var display = document.getElementById("Layer5").style.display;
-		if(display == "none")
-		{
-			document.getElementById("Layer5").style.display="";
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer3").style.display="none";
-		}
-		else
-		{
-			document.getElementById("Layer4").style.display="none";
-			document.getElementById("Layer1").style.display="none";
-			document.getElementById("Layer2").style.display="none";
-			document.getElementById("Layer3").style.display="none";
-			document.getElementById("Layer5").style.display="none";
-		}
-	}
-	function f_close()
-	{
-		document.getElementById("Layer4").style.display="none";
-		document.getElementById("Layer1").style.display="none";
-		document.getElementById("Layer2").style.display="none";
-		document.getElementById("Layer3").style.display="none";
-		document.getElementById("Layer5").style.display="none";
 	}
 </script>
 
