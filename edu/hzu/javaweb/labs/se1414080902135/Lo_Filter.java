@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(
 		//过滤器名称
-		filterName="Load_filter",
+		filterName="Lo_filter",
 		//定义过滤液页面
 		urlPatterns={"/*"},
 		//定义配置细信息
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 				@WebInitParam(name="error",value="error.jsp"),
 		}
 		)
-public class Load_Filter implements Filter {
+public class Lo_Filter implements Filter {
 	private String encoding=null;
 	private String error=null;
 	
