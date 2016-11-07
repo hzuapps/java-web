@@ -7,6 +7,6 @@
 <title>请求出错</title>
 </head>
 <body>
-	<p>请先登录！</p>
+	<p>请先登录</p>
 </body>
 </html>
