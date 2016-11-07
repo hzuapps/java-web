@@ -9,6 +9,8 @@ https://github.com/hzuapps/java-web/issues/3
 https://github.com/hzuapps/java-web/issues/4
 # 实验四：Filter基础
 https://github.com/hzuapps/java-web/issues/5
+# 实验五：JSP基础
+https://github.com/hzuapps/java-web/issues/6
 
 # 参考资料
 
