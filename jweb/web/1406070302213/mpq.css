@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+#main_special{
+	margin:80px 0 0 50px;
+}
+#main_special form input{
+   
+	height:22px;
+	margin-bottom:20px;
+}
+#main_special fieldset{
+	width:450px;
+}
+#main_special label{
+	font-size:15px;
+	
+}
+#main_special #label4{
+	width:50px;
+}
+#main_special form{
+	margin:20px;
+	padding:0px;
+}
+#main_special .submit{
+	margin:10px 0 0 0px;
+}
+#main_special img{
+	margin:0 0 0 80px;
+}
