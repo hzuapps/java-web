@@ -1,0 +1,13 @@
+body {
+	background: #f5f5f5;
+}
+.login {
+	width: 300px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: -150px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+}

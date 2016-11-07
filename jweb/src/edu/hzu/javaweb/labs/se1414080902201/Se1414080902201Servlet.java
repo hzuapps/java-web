@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Se1414080902201Servlet
  */
+@WebServlet(name="Se1414080902201Servlet",urlPatterns="/1414080902201")
 public class Se1414080902201Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
