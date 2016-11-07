@@ -47,19 +47,7 @@ public class Servlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the GET method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+		doPost(request,response);
 	}
 
 	/**
@@ -98,13 +86,15 @@ public class Servlet extends HttpServlet {
 		height1 = y.getHeight();
 		HttpSession session=request.getSession(true);
 		// +			session.setAttribute("list", list);
-		session.setAttribute(Weight, weight);
-		session.setAttribute(Height, height);
-		session.setAttribute(Weight1, weight1);
-		session.setAttribute(Height1, height1);
+		request.setAttribute("Weight", weight);
+		request.setAttribute("Height", height);
+		request.setAttribute("Weight1", weight1);
+		request.setAttribute("Height1", height1);
 		listz.add(x);
 		listz.add(y);
-		session.setAttribute("list", listz);
+		request.setAttribute("list", listz);
+		System.out.println(listz);
+		request.getRequestDispatcher("abc.jsp").forward(request, response);
 	}
 
 	/**

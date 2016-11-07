@@ -5,6 +5,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
 <html>
   <head>
     <base href="<%=basePath%>">
@@ -21,13 +22,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-     请输入第一个动物类型： <input type="text" style="margint-top:10px;width:120px"><br>
-     请输入第一个动物年龄： <input type="text" style="margint-top:10px;width:120px"><br>
-     请输入第二个动物类型： <input type="text" style="margint-top:10px;width:120px"><br>
-     请输入第二个动物年龄： <input type="text" style="margint-top:10px;width:120px"><br>
-    <button id = "sb">提交</button><br>
+  <form method="post" action="Servlet">
+     请输入第一个动物类型： <input name="cls" type="text" style="margint-top:10px;width:120px"><br>
+     请输入第一个动物年龄： <input name="age" type="text" style="margint-top:10px;width:120px"><br>
+     请输入第二个动物类型： <input name="cls1" type="text" style="margint-top:10px;width:120px"><br>
+     请输入第二个动物年龄： <input name="age1" type="text" style="margint-top:10px;width:120px"><br>
+    <input type="submit" value="提交"><br>
+    </form>
   结果:
-  <c:forEach var="l" items="${sessionScope.list}">
+  <c:out value="${1+2}" default=""/>
+  <c:forEach var="l" items="${list}">
  			<c:out value="${l.cls}"/>
  			<c:out value="${l.age}"/>
  			<c:out value="${l.weight}"/>
@@ -38,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </body>
 </html>
 <script>
-var btn = document.getElementById("sb");
+/*var btn = document.getElementById("sb");
 sb.onclick = function(){
   var xml = new XMLHttpRequest();
   var ipt =document.getElementsByTagName("input")
@@ -47,5 +51,5 @@ sb.onclick = function(){
   xml.open("post", "Servlet", true);
   xml.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xml.send(js);
-  }
+  }*/
 </script>
