@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class Se1414080902106Servlet extends HttpServlet {
+public class Login extends HttpServlet {
 	
-	public Se1414080902106Servlet() {
+	public Login() {
 		super();
 	}
 
@@ -27,19 +27,20 @@ public class Se1414080902106Servlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		//由于设置了编码过滤器，这里不需要额外设置request的编码方式
+		//获取参数——用户名、密码
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 		
-		//获取参数——标题、内容
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		
-		//将标题和内容放到session里
-		HttpSession session = request.getSession();
-		session.setAttribute("title", title);
-		session.setAttribute("content", content);
-		
-		//将页面跳转到index.jsp
-		response.sendRedirect("home.jsp");
+		//判断是否正确
+		if("test".equals(username) && "me".equals(password)){		
+			//将用户名放到session里
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username);
+			//将页面跳转到home.jsp
+			response.sendRedirect("home.jsp");
+		}else
+			//错误就返回登录页面
+			response.sendRedirect("./");
 	}
 
 	public void init() throws ServletException {

@@ -3,9 +3,9 @@
 <html>
 	<head>
 		<title>发帖</title>
-		<link rel='stylesheet' type='text/css' href='content.css'>
+		<link rel='stylesheet' type='text/css' href='css/content.css'>
 		<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
-		<script type="text/javascript" src="content.js"></script>
+		<script type="text/javascript" src="js/content.js"></script>
 	</head>
 	<body>
 		<div>

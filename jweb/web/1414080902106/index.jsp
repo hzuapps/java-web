@@ -1,28 +1,33 @@
-<%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
-<%!
-	String title;
-	String content;
-%>
-<%
-	title = (String)session.getAttribute("title");
-	content = (String)session.getAttribute("content");
-	if(title == null)
-		title = "没有帖子！";
-	if(content == null)
-		content = "";
-%>
-<!-- 因为是实验，所以只能发一个帖子 -->
+<%@ page pageEncoding = "utf-8" %>
 <html>
 	<head>
-		<title>浏览帖子</title>
-		<script type="text/javascript" src="index.js"></script>
+		<title>登录页面</title>
+		<meta content="charset=utf-8">
 	</head>
 	<body>
-		<form method="post" action="content.jsp"><input type="submit" value="发帖"></form>
-		<h2 id="title"><%= title %></h2>
-		<hr>
-		<div>
-			<p id="context"><%= content %></p>
-		</div>
+		<p align="center" style="color:red">
+		<%
+			String first = (String)session.getAttribute("first");
+			if(first == null)
+				session.setAttribute("first", "no");
+			else
+				out.println("用户名或密码输入错误！");
+		%>
+		</p>
+		<form action="login" method="post">
+			<table align="center">
+				<tr>
+					<td>用户名：</td>
+					<td><input name="username" type="text"></td>
+				</tr>
+				<tr>
+					<td align="right">密码：</td>
+					<td><input name="password" type="password"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="登录"></td>
+				</tr>
+			</table>
+		</form>
 	</body>
 </html>
