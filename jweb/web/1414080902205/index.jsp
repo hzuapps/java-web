@@ -14,7 +14,7 @@ ATM Transfer
         <center>Now time is: 
         <%=new java.util.Date()%>
         </center>
-	   	  <form id="register" action="/LabForTwo/servlet/Se1414080902205Servlet" method="post">
+	   	  <form id="register" action="/jweb/servlet/Se1414080902205Servlet" method="post">
 		  	<div class="form-group">
                 <label for="username1">Account *</label>
                 <input type="text" name="username" class="form-control" />
