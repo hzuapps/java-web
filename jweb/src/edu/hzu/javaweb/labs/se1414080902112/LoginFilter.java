@@ -28,10 +28,10 @@ public class LoginFilter implements Filter {
 	     HttpServletResponse res = (HttpServletResponse) response;   
 	  
 	     HttpSession session = req.getSession();   
-	    if (session.getAttribute("username") != null) {//登录后才能访问   
+	    if (session.getAttribute("username") != null) { 
 	         chain.doFilter(request, response);   
 	     } else {   
-	         res.sendRedirect("../failure.jsp");   
+	         res.sendRedirect("failure.jsp");   
 	     }   
 	}  
 
