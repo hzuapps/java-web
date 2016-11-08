@@ -1,45 +1,8 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,java.util.*,JDBC_package.JDBC_package" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,java.util.*,Bean.Bean1" errorPage="" %>
 <%
-request.setCharacterEncoding("UTF-8");
-JDBC_package.getUrl("3306","test","root","");
-String select_userimformation = String.format("select * from user,imformation where user.account='%s' and password ='%s' and user.account = imformation.account",JDBC_package.account,JDBC_package.password);
-try
-{
-	JDBC_package.getUrl("3306","test","root","");
-	JDBC_package.SqlConnection();
-	JDBC_package.getstmt();
-	JDBC_package.select_table(select_userimformation);
-	try
-	{
-		while(JDBC_package.result.next())
-		{
-			JDBC_package.name = JDBC_package.result.getString("name");
-			JDBC_package.birthplace = JDBC_package.result.getString("birthplace");
-			JDBC_package.birthday = JDBC_package.result.getString("birthday");
-			JDBC_package.sex = JDBC_package.result.getString("sex");
-			JDBC_package.email = JDBC_package.result.getString("email");
-			JDBC_package.graduate = JDBC_package.result.getString("graduate");
-			JDBC_package.personimg = JDBC_package.result.getString("personimg");
-			JDBC_package.skill = JDBC_package.result.getString("skill");
-			JDBC_package.work_exp = JDBC_package.result.getString("work_exp");
-			JDBC_package.education_bg = JDBC_package.result.getString("education_bg");
-			JDBC_package.evaluate1 = JDBC_package.result.getString("evaluate1");
-			JDBC_package.evaluate2 = JDBC_package.result.getString("evaluate2");
-			JDBC_package.age = JDBC_package.result.getInt("age");
-			JDBC_package.telephone = JDBC_package.result.getString("telephone");
-		}
-
-	}
-	catch(Exception e)
-	{
-		
-	}
-	JDBC_package.sql_close();
-}
-catch(Exception e)
-{
-}
- %>
+	request.setCharacterEncoding("UTF-8");
+%>
+ <jsp:useBean id="worker" class="Bean.Bean1" scope="session"></jsp:useBean>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -71,7 +34,7 @@ h3
 <body  onLoad="f_load()">
 <h3 align="center">个人简历</h3>
 <hr width="615" />
-<form action="" id="form_imformation" name="form_imformation" method="post">
+<form action="" id="form_imformation" name="form_imformation" method="get">
 <table width="615" height="190" align="center" id="table1" name="table1">
 	<tr background="<%=request.getContextPath()%>/image/head.png" >
 		<td>
@@ -147,24 +110,11 @@ h3
 <script type="text/javascript">
 	function f_update(tValue)
 	{
-		form_imformation.action="submit.jsp";
+		form_imformation.action="/javaweb/Se1414080902117/servlet";
 		form_imformation.submit();
 	}
 	function f_load()
 	{
-		form_imformation.name.value ="<%=JDBC_package.name%>";
-		form_imformation.birthplace.value ="<%=JDBC_package.birthplace%>";
-		form_imformation.birthday.value ="<%=JDBC_package.birthday%>";
-		form_imformation.email.value="<%=JDBC_package.email%>";
-		form_imformation.graduate.value="<%=JDBC_package.graduate%>";
-		form_imformation.skill.value="<%=JDBC_package.skill%>";
-		form_imformation.workexp.value="<%=JDBC_package.work_exp%>";
-		form_imformation.age.value="<%=JDBC_package.age%>";
-		form_imformation.telephone.value="<%=JDBC_package.telephone%>";
-		form_imformation.education_bg.value="<%=JDBC_package.education_bg%>";
-		form_imformation.evaluate1.value="<%=JDBC_package.evaluate1%>";
-		form_imformation.evaluate2.value="<%=JDBC_package.evaluate2%>";
-		form_imformation.sex.value="<%=JDBC_package.sex%>";
 	}
-	
+
 </script>
