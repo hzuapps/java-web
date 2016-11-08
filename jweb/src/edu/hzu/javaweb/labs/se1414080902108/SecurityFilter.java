@@ -44,8 +44,8 @@ public class SecurityFilter implements Filter {
 	    String servletPath = req.getServletPath();
 	    String flag = (String) session.getAttribute("flag");
 	    
-	    if(servletPath !=null && (servletPath.equals("/login.jsp")) || 
-	    		(servletPath.equals("/index.jsp")) || (servletPath.equals("/loginSe1414080902108")) ||
+	    if(servletPath !=null && (servletPath.equals("/sign.jsp")) || 
+	    		(servletPath.equals("/index.jsp")) || (servletPath.equals("/LoginSe1414080902108")) ||
 	    		(servletPath.equals("/sign_up.jsp"))){
 	    	chain.doFilter(request, response);  
 	    }else{

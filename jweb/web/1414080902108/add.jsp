@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -79,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">在线考试系统</a>
+                <a class="navbar-brand" href="index.jsp">在线考试系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -89,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">功能<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">首页</a></li>
+                            <li><a href="index.jsp">首页</a></li>
                             <li class="divider"></li>
                             <li><a href="#">新增试题</a></li>
                             <li><a href="#">查询成绩</a></li>
@@ -111,13 +112,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li><a href="#">关于我们</a></li>
                     <li><a href="#">帮助</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的 <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                         <c:if test="${name != null}">欢迎，<%=session.getAttribute("name") %></c:if> 
+                         <c:if test="${name == null}">我的</c:if> 
+                         <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">修改信息</a></li>
                             <li><a href="#">我的记录</a></li>
                             <li><a href="#">意见反馈</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">退出</a></li>
+                            <li>
+                            <% String flag="";
+                               Object obj = session.getAttribute("flag");
+                               if(obj != null){
+                                flag = obj.toString();
+                               }
+                               if(flag.equals("login_success")){
+                             %>
+                             <a href="<%=request.getContextPath() %>/LogoutSe1414080902108">退出</a>
+                             <% }else{ %>
+                             <a href="<%=request.getContextPath() %>/sign.jsp">登录</a>
+                             <%} %>
+                            </li>
+                            <li><a href="<%=request.getContextPath() %>/sign_up.jsp">注册</a></li>
                         </ul>
                     </li>
                 </ul>

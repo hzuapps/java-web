@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -47,9 +48,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         .col-sm-9{
             font-size: 18px;
         }
+        .boxs{
+            border:2px solid #d8dee2;
+            border-radius: 8px;
+            padding: 10px;
+            height:300px;
+            margin-bottom:20px;
+            background-color: #f5f5f5;
+        }
     </style>
   </head>
-  <body style="background-color: #eee">
+  <body style="background-color: #eee ">
     <nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -61,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">在线考试系统</a>
+            <a class="navbar-brand" href="index.jsp">在线考试系统</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">功能<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">首页</a></li>
+                        <li><a href="index.jsp">首页</a></li>
                         <li class="divider"></li>
                         <li><a href="#">新增试题</a></li>
                         <li><a href="#">查询成绩</a></li>
@@ -93,13 +102,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <li><a href="#">关于我们</a></li>
                 <li><a href="#">帮助</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的 <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                         <c:if test="${name != null}">欢迎，<%=session.getAttribute("name") %></c:if> 
+                         <c:if test="${name == null}">我的</c:if> 
+                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">修改信息</a></li>
                         <li><a href="#">我的记录</a></li>
                         <li><a href="#">意见反馈</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">退出</a></li>
+                        <li>
+                            <% String flag="";
+                               Object obj = session.getAttribute("flag");
+                               if(obj != null){
+                                flag = obj.toString();
+                               }
+                               if(flag.equals("login_success")){
+                             %>
+                             <a href="<%=request.getContextPath() %>/LogoutSe1414080902108">退出</a>
+                             <% }else{ %>
+                             <a href="<%=request.getContextPath() %>/sign.jsp">登录</a>
+                             <%} %>
+                            </li>
+                            <li><a href="<%=request.getContextPath() %>/sign_up.jsp">注册</a></li>
                     </ul>
                 </li>
             </ul>
@@ -120,26 +145,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <!--<h4>Add your question and answer</h4>-->
             </div>
             <div>
+                <c:forEach var="question" items="${result}">
+                <div class="boxs">
+                <label class="col-sm-12"style="text-align:center">Question&nbsp;<c:out value="${question.num}"></c:out></label>
                 <label class="col-sm-3 control-label">Subject:</label>
-                <p class="col-sm-9">&nbsp;<%=request.getAttribute("subject") %></p><br/>
+                <p class="col-sm-9">&nbsp;<c:out value="${question.subject}"></c:out></p><br/>
                 <label class="col-sm-3 control-label">Question:</label>
-                <p class="col-sm-9">&nbsp;<%=request.getAttribute("question") %></p><br/>
+                <p class="col-sm-9">&nbsp;<c:out value="${question.question}"></c:out></p><br/>
                 <label class="col-sm-3 control-label">Option A:</label>
-                <p class="col-sm-9">&nbsp;<%=request.getAttribute("answer1") %></p><br/>
+                <p class="col-sm-9">&nbsp;<c:out value="${question.answer1}"></c:out></p><br/>
                 <label class="col-sm-3 control-label">Option B:</label>
-                <p class="col-sm-9">&nbsp;<%=request.getAttribute("answer2") %></p><br/>
+                <p class="col-sm-9">&nbsp;<c:out value="${question.answer2}"></c:out></p><br/>
                 <label class="col-sm-3 control-label">Option C:</label>
-                <p class="col-sm-9">&nbsp;<%=request.getAttribute("answer3") %></p><br/>
+                <p class="col-sm-9">&nbsp;<c:out value="${question.answer3}"></c:out></p><br/>
                 <label class="col-sm-3 control-label">Option D:</label>
-                <p class="col-sm-9">&nbsp;<%=request.getAttribute("answer4") %></p><br/>
-                <label class="col-sm-3 control-label">The Answer is:</label>
-                <p class="col-sm-9">&nbsp;<%=request.getAttribute("answer") %></p><br/>
+                <p class="col-sm-9">&nbsp;<c:out value="${question.answer4}"></c:out></p><br/>
+                <label class="col-sm-3 control-label">The Answer:</label>
+                <p class="col-sm-9">&nbsp;<c:out value="${question.answer}"></c:out></p><br/>
+                
+                </div>
+                </c:forEach>         
             </div>
             <div class="col-sm-4"></div>
             <div class="col-sm-5">
                 <br/>
                 <a href=""><button  class="btn btn-primary" >返回</button></a>
-                <a href="index.jsp"><button  class="btn btn-primary" >继续添加</button></a>
+                <a href="add.jsp"><button  class="btn btn-primary" >继续添加</button></a>
             </div>
             <div class="col-sm-3"></div>
             <div class="">

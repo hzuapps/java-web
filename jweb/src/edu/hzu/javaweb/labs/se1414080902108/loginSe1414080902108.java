@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class loginSe1414080902108
  */
 @WebServlet("/1414080902108")
-public class loginSe1414080902108 extends HttpServlet {
+public class LoginSe1414080902108 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginSe1414080902108() {
+    public LoginSe1414080902108() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,6 +44,7 @@ public class loginSe1414080902108 extends HttpServlet {
 			rd = request.getRequestDispatcher("/sign_up.jsp");
 			rd.forward(request, response);
 		}else{
+			request.getSession().setAttribute("name", username);
 			request.getSession().setAttribute("flag", "login_success");
 			if(returnUri != null){
 				rd = request.getRequestDispatcher(returnUri);
