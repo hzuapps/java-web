@@ -1,73 +1,65 @@
-<%@ page language="java" import="java.util.*" contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-  	<meta charset="utf-8"/>
-    <base href="<%=basePath%>">
-    
-    <title>Login</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="校园   学生组织   ztree">
-	<meta http-equiv="description" content="About login">
-	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  </head>
-  
- <body>
-    <div class="container">
-      <form id="login" class="form-horizontal" role="form">
- 		 <div class="form-group">
-   			 <label for="firstname" class="col-sm-2 control-label">名字</label>
-    			<div class="col-sm-10">
-      				<input type="text" class="form-control" id="firstname" placeholder="名字">
-  			    </div>
-  		</div>
-  		<div class="form-group">
-    		<label for="lastname" class="col-sm-2 control-label">姓</label>
-    			<div class="col-sm-10">
-     		 <input type="text" class="form-control" id="lastname" placeholder="姓">
-    	</div>
-  	</div>
-  	<div class="form-group">
-    	<div class="col-sm-offset-2 col-sm-10">
-      		<div class="checkbox">
-        		<label>
-          			<input type="checkbox">请记住我
-        	</label>
-      	</div>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="index.js" type="text/javascript"></script>
+
+  <style type="text/css">  
+    #preview, .img, img{width:200px;height:200px;}  
+    #preview {border:1px solid #000;}  
+  </style>  
+
+  <title>报修表</title>
+</head>
+<body>
+  <h1 align="center">报修信息</h1>
+  <form role="form" id="target" class="form-horizontal">
+    <div class="form-group">
+      <label for="inputName" class="col-sm-4 control-label">报修人</label>
+      <div class="col-xs-5">
+        <input type="text" class="form-control" id="inputName" placeholder="输入姓名">
+      </div> 
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">登录</button>
+    <div class="form-group">
+      <label for="inputPhoneNumber" class="col-sm-4 control-label">联系方式</label>
+      <div class="col-xs-5">
+        <input type="Tel" class="form-control" id="inputPhoneNumber" placeholder="输入手机号码" pattern="\d{11}"> 
+      </div>  
     </div>
-  </div>
-</form>
+    <div class="form-group">
+      <label for="inputPosition" class="col-sm-4 control-label">报修地点</label>
+      <div class="col-xs-5">
+        <input type="" class="form-control" id="inputName" placeholder="输入报修地点，如10#A101,1-101">
+      </div>
     </div>
-    
-    <script type="text/javascript">
-      $( "#login" ).submit(function(event) {
-        $.ajax({
-  			url: "/JavaWeb2/success.json",
-  			type:"post",
-  			dataType: "json",
-  			success: function(data){
-  				alert(data.msg);
-  			},
-  			error: function(){
-  				alert("error!");
-  			}
-  			
-		});
-		 event.preventDefault();
-      });
-    </script>
-  </body>
+    <div class="form-group">
+      <label for="inputDescription" class="col-sm-4 control-label">详细情况</label>
+      <div class="col-xs-5">
+        <textarea class="form-control" rows=5 id="inputDescription" placeholder="描述报修设备详情情况"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputImage" class="col-sm-4 control-label">上传图片</label>
+      <div class="col-xs-5">
+        <div id="preview"></div>  
+        <input type="file" onchange="preview(this)">  
+      </div>
+    </div>
+    <div class="checkbox">
+      <label class="col-sm-4 control-label"></label>
+      <input type="checkbox">影响较大，尽快维修
+    </div>
+    <div>
+      <label class="col-sm-4 control-label"></label>
+      <button type="submit" class="btn btn-default">提交</button>
+    </div>
+  </form>
+</body>
 </html>
+
