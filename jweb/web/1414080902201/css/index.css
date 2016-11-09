@@ -33,3 +33,10 @@ header {
 footer {
 	color: #ccc;
 }
+a.login {
+	color: #ccc;
+	text-decoration: none;
+}
+a.login:hover {
+	color: #000;
+}

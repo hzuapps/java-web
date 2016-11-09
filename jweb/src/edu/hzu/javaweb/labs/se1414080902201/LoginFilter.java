@@ -8,9 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet Filter implementation class LoginFilter
@@ -40,12 +40,21 @@ public class LoginFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         
-        HttpSession session = req.getSession();
-        if (session.getAttribute("username") == null) {
-        	resp.sendRedirect("login.jsp");
-        } else {   
-        	chain.doFilter(request, response);
-        }  
+		Cookie cookie = null;
+    	Cookie[] cookies = null;
+    	// 获取与该域相关的 Cookie 的数组
+    	cookies = req.getCookies();
+
+        if(cookies != null ){
+	      for (int i = 0; i < cookies.length; i++){
+	         cookie = cookies[i];
+	         if((cookie.getName()).equals("email")){
+	        	 chain.doFilter(request, response);
+	             return;
+	         }
+	      }
+	      resp.sendRedirect("login.jsp");
+        }
 	}
 
 	/**
