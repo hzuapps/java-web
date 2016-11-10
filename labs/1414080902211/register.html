@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+<title>注册</title>
+
+<style type="text/css">
+
+body{
+ 
+  font-family: 'Microsoft YaHei';
+}
+
+h1{
+  font-size: 45px;
+  height:80px;
+  padding-top:20px;
+}
+
+form {
+  width:600px;
+  height:420px;
+  margin:0 auto;
+}
+hr{
+  margin-bottom: 60px;
+}
+.form-group{
+  font-size: 28px;
+  height:50px;
+  margin-top:10px;
+}
+input{
+  -o-border-radius:45%;
+  -ms-border-radius:45%;
+  -moz-border-radius:45%;
+  -webkit-border-radius:45%;
+  height:35px;
+  width:350px;
+  outline: none;
+  border: 1px solid #000;
+  padding-left: 20px;
+  padding-left: 20px;
+  margin-left: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+button{
+    width: 370px;
+    height: 45px;
+    margin-left: 150px;
+    margin-top:10px;
+    border-radius: 20px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#6BD9D4), to(#4BBFA5));
+    color: white;
+    font-size: 18px;
+    outline: none;
+    margin-top: 40px;
+    margin-left: 150px;
+}
+</style>
+</head>
+
+<body>
+<h1 align="center">Welcome to the register page!</h1>
+<hr width="100%" size="2">
+<form action="submit.jsp" method="post">
+  <div class="form-group">
+    <label for="email">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp email </label>
+    <input type="text" id="email" placeholder="Enter your email">  
+</div>
+<div class="form-group">
+    <label for="username">username </label>
+    <input type="text" id="username" placeholder="Enter your username">  
+</div>
+<div class="form-group">
+    <label for="password">password </label>
+    <input type="password" id="password" placeholder="Enter your password">  
+</div>
+<div class="form-group">
+    <label for="repeat">&nbsp&nbsp&nbsp&nbsp repeat </label>
+    <input type="password" id="repeat" placeholder="Repeat your password">  
+</div>
+  <button type="submit">Submit</button>
+</form>
+</body>
+
+<html>
