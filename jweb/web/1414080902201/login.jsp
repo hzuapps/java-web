@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -18,18 +20,21 @@
   </head>
   <body>
     <div class="container">
-	    <form class="login" role="form">
+	    <form class="login" role="form" method="post" action="login">
+	    <c:if test="${!empty tip}">
+			   <p class="tip bg-danger">:( 登录失败：<c:out value="${tip}"></c:out></p>
+		</c:if>
         <div class="form-group">
           <label for="exampleInputEmail1">邮箱</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入邮箱">
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="请输入邮箱">
         </div>
         <div class="form-group">
           <label for="inputPassword3">密码</label>
-          <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+          <input type="password" name="password"class="form-control" id="inputPassword3" placeholder="请输入密码">
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox"> 30天内免登录
+            <input type="checkbox" name="remember" value="1"> 30天内免登录
           </label>
         </div>
         <button type="submit" class="btn btn-primary btn-block">登录</button>

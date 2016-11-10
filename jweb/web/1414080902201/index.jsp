@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.io.*,java.util.*" %>
-	<%@ page import="javax.servlet.*,java.text.*" %>
+<%@ page import="java.io.*,java.util.*" %>
+<%@ page import="javax.servlet.*,java.text.*" %>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -12,7 +14,6 @@
 
     <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -27,13 +28,13 @@
 		    </div>
 	    </form>
 	    <footer class="text-center">
-	    	<small>
-	    	<%
-			   Date Now = new Date();
-			   SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
-			   out.print( "Now " + ft.format(Now));
-			%>
-			</small>
+	    	<c:if test="${!empty email}">
+			   <small>:) Welcome <c:out value="${email}"></c:out></small>
+			</c:if>
+			<c:if test="${empty email}">
+			   <small>:) 您尚未登录，请先<a class="login" href="login.jsp">登录</a></small>
+			</c:if>
+	    	
 	    </footer>
     </div>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
