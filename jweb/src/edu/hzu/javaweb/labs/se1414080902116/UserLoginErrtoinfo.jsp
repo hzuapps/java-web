@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>登录页面</title>
+    <title>My JSP 'index.jsp' starting page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,16 +21,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <h4 align="center">会员登录界面</4></br>
-<img src="file:///C:/Users/Administrator/Desktop/001.png"  width="600xp"  height="300xp"> </br>
-<form action="servlet/Se1414080902116Servlet" method="post" >
-请输入用户名:<input type="text" name="username"/></br>
-请输入密码:<input type="password" name="userpwd"/></br>
+     <h4 align="center">你没有权限登录</4></br>
 
-
-<input type="submit" value="登录"/>
-<input type="reset">
-</form>
-  
+<blockquote>
+<input type="submit" value="返回上一层界面" name="button1">
+<input type="submit" value="退出系统" name="button2">
+</blockquote>
   </body>
 </html>
