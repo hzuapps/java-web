@@ -1,13 +1,17 @@
 package edu.hzu.javaweb.labs.se1414080902108;
 
+import java.awt.List;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Se1414080902108Servlet
@@ -15,28 +19,34 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/1414080902108")
 public class Se1414080902108Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Se1414080902108Servlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+	ArrayList<Question> questionlist = new ArrayList<Question>();
+	int i=0;
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	public Se1414080902108Servlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+        i++;
 		String subject = request.getParameter("subject");
 		String question = request.getParameter("question");
 		String answer1 = request.getParameter("answer1");
@@ -45,16 +55,10 @@ public class Se1414080902108Servlet extends HttpServlet {
 		String answer4 = request.getParameter("answer4");
 		String answer = request.getParameter("answer");
 		String info = "保存成功";
-		
-		
+		questionlist.add(new Question(subject, question, answer1, answer2,
+				answer3, answer4, answer,i));
+		request.setAttribute("result", questionlist);
 		request.setAttribute("Message", info);
-		request.setAttribute("subject", subject);
-		request.setAttribute("question", question);
-		request.setAttribute("answer1", answer1);
-		request.setAttribute("answer2", answer2);
-		request.setAttribute("answer3", answer3);
-		request.setAttribute("answer4", answer4);
-		request.setAttribute("answer", answer);
 		request.getRequestDispatcher("/show.jsp").forward(request, response);
 	}
 

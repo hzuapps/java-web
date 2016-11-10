@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container">
 
     <h1 class="form-signin-heading">Sign in to Exam System</h1>
-    <form class="form-signin" role="form" method="post" action="loginSe1414080902108">
+    <form class="form-signin" role="form" method="post" action="LoginSe1414080902108">
         <% if(request.getAttribute("return_uri") != null){ %>
         <input type="hidden" name="return_uri" value="<%=request.getAttribute("return_uri") %>" />
         <%} %> 

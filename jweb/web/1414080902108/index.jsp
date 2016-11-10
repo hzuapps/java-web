@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -24,17 +25,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <style>
         .top{
             background-color: #eeeeee;
+            background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #fffae3 10%, #e0f1ff);
         }
         *{
             font-family: "微软雅黑";
+        }
+        a:hover{
+            text-decoration:none;
+        }
+        .jumbotron{
+            background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #fffae3 10%, #e0f1ff);
         }
     </style>
 
   </head>
   
   <body>
+     <% Calendar rightNow = Calendar.getInstance();
+       Integer Hour = new Integer(rightNow.get(Calendar.HOUR_OF_DAY));
+       request.setAttribute("hour", Hour);
+     %>
     <div class="top">
-    <nav class="navbar navbar-inverse" role="navigation">
+    <nav class="navbar navbar-inverse navbar-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -45,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">在线考试系统</a>
+                <a class="navbar-brand" href="index.jsp">在线考试系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">功能<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">首页</a></li>
+                            <li><a href="index.jsp">首页</a></li>
                             <li class="divider"></li>
                             <li><a href="add.jsp">新增试题</a></li>
                             <li><a href="#">查询成绩</a></li>
@@ -77,7 +89,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li><a href="#">关于我们</a></li>
                     <li><a href="#">帮助</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的 <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                         <c:if test="${name != null}">欢迎，<%=session.getAttribute("name") %></c:if> 
+                         <c:if test="${name == null}">我的</c:if> 
+                        <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">修改信息</a></li>
                             <li><a href="#">我的记录</a></li>
@@ -91,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                }
                                if(flag.equals("login_success")){
                              %>
-                             <a href="<%=request.getContextPath() %>/logoutSe1414080902108">退出</a>
+                             <a href="<%=request.getContextPath() %>/LogoutSe1414080902108">退出</a>
                              <% }else{ %>
                              <a href="<%=request.getContextPath() %>/sign.jsp">登录</a>
                              <%} %>
@@ -109,7 +124,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Internet Based Exam System</h1><br/>
+        <h2>
+        <c:if test="${hour>=0 && hour <=1}">夜深了,</c:if>
+        <c:if test="${hour>=3 && hour <=11}">上午好,</c:if>
+        <c:if test="${hour>=12 && hour <=13}">中午好,</c:if>
+        <c:if test="${hour>=14 && hour <=17}">下午好,</c:if>
+        <c:if test="${hour>=18 && hour <=22}">晚上好,</c:if>
+        <c:if test="${hour>=23}">夜深了,</c:if>
+        <c:if test="${name != null}"><%=session.getAttribute("name") %></c:if>
+        <c:if test="${name == null}"><a href="sign.jsp">请先登录</a></c:if>
+        <br>
+        </h2><br/>
+        <h1>Welcome to</h1><br/>
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Internet Based Exam System</h1><br/>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在线考试系统是一款面向老师和学生的优秀系统，可以更好地管理学生的试卷，更高效地评卷以及查询成绩,学生也可以随时随地进行更方便地答题。目前只提供三种功能：老师可以添加考试试题，查询学生成绩，学生可以在线考试答题。</p>
         <br/><p><a class="btn btn-info btn-lg" href="#" role="button">Know more &raquo;</a></p>
     </div>
