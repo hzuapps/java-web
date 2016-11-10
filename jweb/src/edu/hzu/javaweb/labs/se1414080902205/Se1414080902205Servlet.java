@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 @WebServlet("/1414080902205")
 public class Se1414080902205Servlet extends HttpServlet {
 
@@ -53,21 +54,30 @@ public class Se1414080902205Servlet extends HttpServlet {
 		request.setCharacterEncoding("gb2312");
 		response.setCharacterEncoding("gb2312");
 		PrintWriter out = response.getWriter();
-		String Account = new String(request.getParameter("account"));
-		String Amount = new String(request.getParameter("amount"));
+		String Account = "";
+		String Amount ="";
+		if(request.getParameter("username")!=null){
+//			System.out.println("fkldasjflkasjdkflas");
+			Account+=new String(request.getParameter("username"));
+		}
+			
+		if(request.getParameter("passwd")!=null)
+			Amount= new String(request.getParameter("passwd"));
 //		out.print(Account);
 //		out.print(Amount);
+		HttpSession session=request.getSession(true);
+		String msg = "";
 		if (Account.equals("")) {
-			out.println("账号不能为空");
+			msg = "账号不能为空";
 		} else if (Amount.equals("")) {
-			out.println("转账金额不能为空");
+			msg = "转账金额不能为空";
 		} else {
 			boolean flat = true;
 			char[] str=Account.toCharArray();
 			for (int i = 0;i < Account.length();i++) {
 				int x = str[i] - '0';
 				if (!(x >= 0 && x <= 9)) {
-					out.println("请输入正确的账号");
+					msg = "请输入正确的账号";
 					flat = false;
 					break;
 				}
@@ -77,14 +87,22 @@ public class Se1414080902205Servlet extends HttpServlet {
 				for (int i = 0;i < Amount.length();i++) {
 					int x = sstr[i] - '0';
 					if (!(x >= 0 && x <= 9)) {
-						out.println("请输入正确的转账金额");
+						msg = "请输入正确的转账金额";
 						flat = false;
 						break;
 					}
 				}
 			}
-			if (flat) out.println("转账成功");
+			if (flat) msg = "转账成功";
 		}
+		System.out.println(msg);
+		request.setAttribute("message", msg);
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
+//		System.out.println("dflajskldfjads");
+		session.setAttribute("message", msg);
+	//	System.out.println(session.getAttribute("message").toString());
+		//System.out.println("fsfsdfsd");
+//		request.getSession().setAttribute("message",msg);
 //		String Account = "1414080902205";
 //		String Amount = "1414080902205";
 //		out.println(Account);
