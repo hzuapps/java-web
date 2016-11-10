@@ -1,0 +1,19 @@
+body{
+	background-color : #dceffe;
+}
+.right-top{
+	position : relative;
+	right : 10%;
+}
+#title{
+	position : relative;
+	left : 10%;
+	width : 80%;
+}
+#mid-block{
+	background-color : white;
+	position : relative;
+	left : 10%;
+	width : 80%;
+	height : 100%;
+}

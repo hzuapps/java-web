@@ -1,6 +1,7 @@
 package edu.hzu.javaweb.labs.se1414080902106;
 
 import java.io.IOException;
+import java.util.Vector;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,13 +32,20 @@ public class Se1414080902106Servlet extends HttpServlet {
 		
 		//获取参数——标题、内容
 		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+		String text = request.getParameter("text");
 		
-		//将标题和内容放到session里
+		//获取已有帖子
 		HttpSession session = request.getSession();
-		session.setAttribute("title", title);
-		session.setAttribute("content", content);
-		
+		Vector<Content> contents = (Vector<Content>)session.getAttribute("content");
+		if(contents == null)
+			contents = new Vector<Content>(0);
+		//插入新帖子
+		Content new_content = new Content();
+		new_content.setTitle(title);
+		new_content.setText(text);
+		contents.add(new_content);
+		//将新的帖子集写入session
+		session.setAttribute("content", contents);		
 		//将页面跳转到index.jsp
 		response.sendRedirect("home.jsp");
 	}

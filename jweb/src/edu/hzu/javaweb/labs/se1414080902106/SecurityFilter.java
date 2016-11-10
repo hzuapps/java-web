@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(filterName="securityFilter",urlPatterns={"/home.jsp","/content.jsp"})
+@WebFilter(filterName="securityFilter",urlPatterns={"/home.jsp","/new_content.jsp","/display.jsp","/display.jsp*"})
 public class SecurityFilter implements Filter {
 
 	@Override

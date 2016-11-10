@@ -1,19 +1,21 @@
 <%@ page pageEncoding = "utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 	<head>
 		<title>登录页面</title>
 		<meta content="charset=utf-8">
 	</head>
 	<body>
-		<p align="center" style="color:red">
-		<%
-			String first = (String)session.getAttribute("first");
-			if(first == null)
-				session.setAttribute("first", "no");
-			else
-				out.println("用户名或密码输入错误！");
-		%>
-		</p>
+		<c:choose>
+			<c:when test="${empty first}">
+				<% session.setAttribute("first", "no"); %>
+			</c:when>
+			<c:when test="${not empty first}">
+				<p align="center" style="color:red">
+					<c:out value="用户名或密码输入错误！" />
+				</p>
+			</c:when>
+		</c:choose>
 		<form action="login" method="post">
 			<table align="center">
 				<tr>
