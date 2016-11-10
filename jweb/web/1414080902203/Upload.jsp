@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <form action="Pass" method="post">
+  <form action="Se1414080902203Servlet" method="post">
 	<div id="01" style=" position:absolute; width:100%; height:100%; background-color:yellow"
 	<center> 现在的时间是： <%=new Date()%> ：60S后刷新<hr>
 	<%response.setHeader("refresh","60");%>

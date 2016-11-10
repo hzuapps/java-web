@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	<%String Name=request.getParameter("Pass");
 	if(Name.equals("Upload"))%>
-	<jsp:forward page="W.jsp"/>
+	<jsp:forward page="Wating.jsp"/>
 	
   </body>
   </html>
