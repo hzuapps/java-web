@@ -1,10 +1,10 @@
-$( "#target" ).submit(function( event ) { 
-$.ajax({
-  url: "success.json"
-}).done(function(data) {
-  if ( console && console.log ) {
-      console.dir(data);
-      alert(data.msg);
-    }
-});
-});
+$.a=function(){
+  		$.ajax({
+  			type:"post",
+  			datatype:"html",
+   			url:"1414080902113",
+  			success:function(data){
+  			alert(data);
+   			}
+   		});		
+  	};

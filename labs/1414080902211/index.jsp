@@ -80,7 +80,7 @@ button {
   <h1 align="center">welcome to the control page of air conditioner!</h1>
   <p align="center"><%=new Date()%></p>
   <hr width="100%" size="2">
-  <form role="form">
+  <form role="form" method="post" action="Set_cussess">
     <div class="form-group">
       <label for="temperature ">temperature&nbsp&nbsp&nbsp</label>
       <input type="range" class="form-control" id="temperature">
