@@ -8,8 +8,8 @@
 <title>登录错误</title>
 </head>
 <body>
-	<div class="text-center"><h4>账号或密码为空</h4></div>
+	<div class="text-center"><h4>请重新登录</h4></div>
 	<p></p>
-	<div class="text-center">点击<a href='javascript:history.back()'>返回</a></div>	
+	<div class="text-center">点击<a href=index.jsp>返回</a></div>	
 </body>
 </html>

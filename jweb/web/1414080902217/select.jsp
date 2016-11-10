@@ -18,8 +18,11 @@
 <body>
 <br>
 <div class="row">
-   	<div class="col-xs-offset-1 col-xs-9"><font size="3"face="微软雅黑">现在时间是: <%= (new java.util.Date()).toLocaleString()%></font></div>
-   	<div class="col-xs-2"><font size="3"face="微软雅黑"><%=request.getAttribute("userName") + "，欢迎你"%></font></div>
+   	<div class="col-xs-offset-1 col-xs-8"><font size="3"face="微软雅黑">现在时间是: <%= (new java.util.Date()).toLocaleString()%></font></div>
+   	<div class="col-xs-2"><font size="3"face="微软雅黑"><%=request.getSession().getAttribute("userName") + "，欢迎你"%></font></div>
+</div>
+<div class="row">
+	<div class="col-xs-offset-9 col-xs-1"><a class="btn btn-default btn-sm" href="clear" role="button">退出登陆</a></div>
 </div>
 <hr width="95%"size="20"color="#00ffee"align="center"/>
 <div class="text-center">

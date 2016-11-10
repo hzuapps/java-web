@@ -11,13 +11,13 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <title>登录界面</title>
+    <title>注册界面</title>
 </head>
 
 <body>
 <p></p>
 <p></p>
-<div class="text-center"><font size="5"face="微软雅黑">填写登录信息</font></div>
+<div class="text-center"><font size="5"face="微软雅黑">填写注册信息</font></div>
 <p></p>
 <p></p>
 <form action="1414080902217"method="post"class="form-horizontal" >
@@ -26,7 +26,6 @@
     <div class="col-xs-4">
       	<input type="text" class="form-control" name="username" placeholder="用户名">
     </div>
-    <div class="col-xs-2"><a class="btn btn-default" href="select.jsp" role="button">游客登录</a></div>
   	</div>
 	
 	<div class="form-group">
@@ -34,15 +33,15 @@
     <div class="col-xs-4">
       	<input type="password" class="form-control" name="userpwd" placeholder="密码">
     </div>
-    <div class="col-xs-1"><a class="btn btn-default" href="registered.jsp" role="button">注册</a></div>
   	</div>
   	
 	<div class="form-group">
     <div class="row">
-      <div class="col-md-offset-5 col-xs-1"><button type="submit" class="btn btn-default">登录</button></div>
-      <div class="col-xs-1"><button type="reset" class="btn btn-default">取消</button></div>
+      <div class="col-xs-offset-5 col-xs-1"><button type="submit" class="btn btn-default">登录</button></div>
+      <div class="col-xs-5"><a class="btn btn-default" href="index.jsp" role="button">返回</a></div>
     </div>
   	</div>
+  	
 </form>       
 </body>
 </html>
