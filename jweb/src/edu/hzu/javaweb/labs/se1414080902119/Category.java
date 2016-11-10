@@ -1,8 +1,8 @@
 package edu.hzu.javaweb.labs.se1414080902119;
 
-public class BookType {
+public class Category {
 	public String name; // 图书类别名字
-	private Boolean isHasBook; // 该类别下是否有图书标志
+	private Boolean isHasBook; // 该类别下是否有图书标�?
 
 	public String getName() {
 		return name;
@@ -20,13 +20,13 @@ public class BookType {
 		this.isHasBook = isHasBook;
 	}
 
-	public BookType(String name, Boolean isHasBook) {
+	public Category(String name, Boolean isHasBook) {
 		super();
 		this.name = name;
 		this.isHasBook = isHasBook;
 	}
 
-	public BookType() {
+	public Category() {
 		super();
 	}
 }

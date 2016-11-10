@@ -24,6 +24,8 @@ public class Se1414080902119filter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		String localAddr = request.getLocalAddr();
+		request.setCharacterEncoding("utf-8");
+		chain.doFilter(request, response);
 		if("127.0.0.1".equals(localAddr))
 		{
 			System.out.println("本机请求");
@@ -32,7 +34,6 @@ public class Se1414080902119filter implements Filter {
 		{
 			System.out.println(localAddr+"请求");
 		}
-		chain.doFilter(request, response);
 		
 	}
 

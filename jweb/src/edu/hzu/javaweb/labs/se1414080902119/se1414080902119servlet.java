@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 public class Se1414080902119servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	//初始化基本数据
-	private static List<BookType> types;
+	//初始化基本数�?
+	private static List<Category> types;
 	static{
-		types=new ArrayList<BookType>();
-		types.add(new BookType("数学", false));
-		types.add(new BookType("文学",false));
-		types.add(new BookType("天文学",true));
+		types=new ArrayList<Category>();
+		types.add(new Category("日用品", false));
+		types.add(new Category("零食",false));
+		types.add(new Category("饮料",true));
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,7 +56,7 @@ public class Se1414080902119servlet extends HttpServlet {
 		for(int j=0;j<arr.length;j++)
 		{
 			for(int i=0;i<types.size();i++){
-				BookType type=types.get(i);
+				Category type=types.get(i);
 				String typeName=type.getName();
 				if(typeName.equals(arr[j]))
 				{
@@ -74,7 +74,7 @@ public class Se1414080902119servlet extends HttpServlet {
 		if(str.length()==0){
 			writer.write("{\"msg\":\"success\"}");
 		}
-		else writer.write("{\"msg\":\""+str+" 类别下有图书，不可删除"+"\"}");
+		else writer.write("{\"msg\":\""+str+"该类别下有商品"+"\"}");
 		
 		writer.close();
 	}
@@ -92,19 +92,19 @@ public class Se1414080902119servlet extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		if(name==null||name.equals(""))
 		{
-		writer.write("{\"msg\":\"请输入图书类别\"}");
+		writer.write("{\"msg\":\"请输入商品类别\"}");
 		writer.close();
 		return ;
 		}
 		for(int i=0;i<types.size();i++){
 			if(types.get(i).getName().equals(name))
 			{
-				writer.write("{\"msg\":\"该图书类别存在\"}");
+				writer.write("{\"msg\":\"该商品类别存在\"}");
 				writer.close();
 				return ;
 			}
 		}
-		BookType type=new BookType();
+		Category type=new Category();
 		type.setName(name);
 		type.setIsHasBook(false);
 		types.add(type);
@@ -114,16 +114,16 @@ public class Se1414080902119servlet extends HttpServlet {
 	
 	/**
 	 * 返回JSON数据
-	 * @param list   图书类别集合
-	 * @return 图书类别的JSON数据
+	 * @param list   商品类别集合
+	 * @return 商品类别的JSON数据
 	 */
-	public String reJSON(List<BookType> list)
+	public String reJSON(List<Category> list)
 	{
 		StringBuffer str=new StringBuffer("{");
-		Iterator<BookType> iterator = list.iterator();
+		Iterator<Category> iterator = list.iterator();
 		while(iterator.hasNext())
 		{
-			BookType bookType = iterator.next();
+			Category bookType = iterator.next();
 			str.append("\""+bookType.getName()+"\":\""+bookType.getIsHasBook()+"\"");
 			if(iterator.hasNext())str.append(",");
 		}
