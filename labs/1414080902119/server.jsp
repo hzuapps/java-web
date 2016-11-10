@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>图书类别管理</title>
+<title>商品类别管理</title>
 <link rel="stylesheet"
 	href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -25,21 +25,21 @@
 		align="center">
 	<div class="btn-group btn-group-justified">
   <div class="btn-group">
-    <button type="button" class="btn btn-default button">查看图书类别</button>
+    <button type="button" class="btn btn-default button">查看商品类别</button>
   </div>
   <div class="btn-group">
-    <button type="button" class="btn btn-default button">添加图书类别</button>
+    <button type="button" class="btn btn-default button">添加商品类别</button>
   </div>
   <div class="btn-group">
-    <button type="button" class="btn btn-default button">删除图书类别</button>
+    <button type="button" class="btn btn-default button">删除商品类别</button>
   </div>
 </div>
 	<div class="hehe"
 		style="width: 380px; height: 200px; border: 1px solid #000; border-radius: 5px">
 		<div class="list-group">
-			<a href="#" class="list-group-item">文学 </a> <a href="#"
-				class="list-group-item">数学</a> <a href="#"
-				class="list-group-item">美学</a>
+			<a href="#" class="list-group-item">日用品 </a> <a href="#"
+				class="list-group-item">零食</a> <a href="#"
+				class="list-group-item">饮料</a>
 		</div>
 	</div>
 	<div class="hehe"
@@ -48,7 +48,7 @@
 			<div class="form-group .col-md-5">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
-						<label for="exampleInputEmail1">图书类别</label> <input type="email"
+						<label for="exampleInputEmail1">商品类别</label> <input type="email"
 							class="form-control" id="exampleInputEmail1" placeholder="Enter">
 					</div>
 				</div>
