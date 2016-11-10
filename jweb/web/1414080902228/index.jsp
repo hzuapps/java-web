@@ -2,11 +2,12 @@
 <html>
 <head>
   <title>
-      实验3
+      å®éª3
   </title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <%@ page import="java.io.*,java.util.*, javax.servlet.*" %>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 </head>
 <body>
 
@@ -18,7 +19,7 @@
 <form role="form" action="/edu/hzu/javaweb/labs/se1414080902228/Se1414080902228Servlet.java" method="get">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
@@ -35,7 +36,7 @@
     </label>
   </div>
   <button type="button" class="btn btn-default" >Submit</button>
-  <button type="submit"> 提交</button>
+  <button type="submit"> æäº¤</button>
   <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
   <script src="js/bootstrap.min.js"></script>
   <script type='text/javascript'>
@@ -51,5 +52,19 @@
 
   </script>
 </form>
+
+<c:if test="${sessionScope.email == null}">
+	<c:forEach items="${requestScope.products}" var="product">
+		
+		商品：${prouduct. id}
+			${prouduct. name}
+			${prouduct. decibe}
+			${prouduct. remarks}
+			${prouduct. num}
+	</c:forEach>
+
+</c:if>
+
+
 </body>
 </html>
