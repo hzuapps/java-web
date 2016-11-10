@@ -1,4 +1,4 @@
-package edu.hzu.javaweb.bean.se1414080902134;
+package edu.hzu.javaweb.labs.se1414080902134;
 
 public class UserData {
 	private String UserName;
@@ -70,11 +70,18 @@ public class UserData {
 					System.out.println("UserName false");
 					return false;
 				} else {
-					return true;
+					//mock to search from database
+					return mock_.mockLogin(this);
 				}
 			}
 		} else {
 			return true;
 		}
+	}
+}
+
+class mock_{
+	public static boolean mockLogin(Object o){
+		return true;
 	}
 }

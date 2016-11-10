@@ -40,29 +40,6 @@ public class Se1414080902134Servlet extends HttpServlet {
 		ServletContext application=this.getServletContext(); 
 		application.setAttribute("message","only dear with post method .");
 		response.sendRedirect("/1414080902134/Home.jsp");
-//		PrintWriter out = response.getWriter();
-//		UserData ud = new UserData();
-//		Enumeration<String> iter_ = (request.getParameterNames());
-//		while (iter_.hasMoreElements()) {
-//			String key = iter_.nextElement();
-//			ud.setAttribute(key,request.getParameter(key));
-//		}
-//		if (ud.getQuickCode().equals("")) {
-//			if (!ud.isComplete()) {
-//				out.write("Information is not full .");
-//			} else {
-//				if (ud.getUserName().isEmpty()) {
-//					out.write("Welcome , " + ud.getEmail());
-//				} else {
-//					out.write("Welcome , " + ud.getUserName());
-//				}
-//			}
-//		} else {
-//			out.write("QuickCode = " + ud.getQuickCode());
-//		}
-//		
-//		out.flush();
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
