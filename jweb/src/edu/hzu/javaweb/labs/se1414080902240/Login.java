@@ -1,25 +1,24 @@
 package edu.hzu.javaweb.labs.se1414080902240;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Se1414080902240Servlet
+ * Servlet implementation class Login
  */
-@WebServlet("/Se1414080902240Servlet")
-public class Se1414080902240Servlet extends HttpServlet {
+@WebServlet(name="Login",urlPatterns="/login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Se1414080902240Servlet() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,18 +27,23 @@ public class Se1414080902240Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        out.println("<ul><li>MUSIC 1</li><li>MUSIC 2</li><li>MUSIC 3</li></ul>");
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// 为名字和姓氏创建 Cookie      
+				Cookie name = new Cookie("name",request.getParameter("name")); // 中文转码
+				
+				// 为两个 Cookie 设置过期日期为 24 小时后
+				name.setMaxAge(60*60*24*30); 
+				
+				// 在响应头中添加两个 Cookie
+				response.addCookie( name );	
+				response.sendRedirect("index.jsp");
 	}
 
 }

@@ -1,4 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 
@@ -34,11 +37,60 @@
 		
     }
    
-   
+.uk-button {
+    -webkit-appearance: none;
+    margin: 0;
+    overflow: visible;
+    font: inherit;
+    color: #FFFFFF;
+    text-transform: none;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 12px;
+    background: #000000;
+    vertical-align: middle;
+    line-height: 28px;
+    min-height: 30px;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+}
+.uk-button-small {
+    min-height: 25px;
+    padding: 0 10px;
+    line-height: 21px;
+    font-size: 12px;   
     </style>
 
 </head>
 <body>
+<%
+   Cookie cookie = null;
+   Cookie[] cookies = null;
+   // 获取cookies的数据,是一个数组
+   cookies = request.getCookies();
+   if( cookies != null ){
+      for (int i = 0; i < cookies.length; i++){
+	         cookie = cookies[i];
+	         if((cookie.getName()).equals("name")){
+	        	String name = cookie.getValue();
+	        	request.setAttribute("name",name);
+	        	break;
+	         }
+         }
+   }
+%>
+
+<div style="float:right;">
+<c:if test="${!empty name}">
+	<a class='uk-button uk-button-small' href='#'><c:out value="${name}"/></a>
+</c:if>
+<c:if test="${empty name}">
+	<a class='uk-button uk-button-small' href='login.jsp'>登录</a>
+</c:if>
+</div>
 <div id="login_panel">
    <form action="1414080902240" method="post" enctype="multipart/form-data">
    <div class="uk-margin" style="text-align:?center;" >
@@ -52,6 +104,5 @@
  <a href='1414080902240'>歌曲列表</a>
 
 </div>
-
 
 </body></html>

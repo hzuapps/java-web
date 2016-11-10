@@ -85,22 +85,18 @@
 </head>
 <body>
 <div id="login_panel">
-    <form class="xform" id="target">
+    <form class="xform" id="target" method="post" action="login">
         <div class="uk-margin" style="margin-bottom: 5px;">
             <h3>
                      用户登录</h3>
         </div>
         <div class="form-icon " style="height:65px;width:300px;" >
-            <input type="text"  placeholder="用户名"  maxlength="35">
+            <input type="text" name="name" placeholder="用户名"  maxlength="35">
         </div>
         <div class="form-icon"  style="height:65px;width:300px;">
-            <input type="password"  placeholder="密码"  maxlength="16" onkeypress="if(event.keyCode==13) {login.loginDo();return false;}">
+            <input type="password" name="password" placeholder="密码"  maxlength="16" onkeypress="if(event.keyCode==13) {login.loginDo();return false;}">
         </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> 记住我
-            </label>
-        </div>
+
         <button class="uk-button uk-width-1-1 uk-button-large uk-margin"  type="submit"  style="margin-top: 5px;">
             登录
         </button>
