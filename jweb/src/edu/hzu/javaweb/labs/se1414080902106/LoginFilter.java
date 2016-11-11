@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(filterName="loginFilter",urlPatterns="/index.html")
+@WebFilter(filterName="loginFilter",urlPatterns="/index.jsp")
 public class LoginFilter implements Filter {
 
 	@Override

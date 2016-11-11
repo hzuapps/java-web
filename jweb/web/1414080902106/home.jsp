@@ -1,30 +1,31 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
-<%!
-	String title;
-	String content;
-	String username;
-%>
-<%
-	title = (String)session.getAttribute("title");
-	content = (String)session.getAttribute("content");
-	username = (String)session.getAttribute("username");
-	if(title == null)
-		title = "没有帖子！";
-	if(content == null)
-		content = "";
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- 因为是实验，所以只能发一个帖子 -->
 <html>
 	<head>
-		<title>欢迎<%= username %>浏览帖子</title>
+		<title>欢迎<c:out value="${username}" />浏览帖子</title>
+	    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel='stylesheet' href='css/home.css'>
+		<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+		<script type="text/javascript" src="js/home.js"></script>
 	</head>
 	<body>
-		<p align="right">欢迎&nbsp;<a href=""><%= username %></a></p>
-		<form method="post" action="content.jsp"><input type="submit" value="发帖"></form>
-		<h2 id="title"><%= title %></h2>
-		<hr>
-		<div>
-			<textarea readonly rows="20" cols="100"><%= content %></textarea>
+		<p id="username" align="right">
+			欢迎&nbsp;<strong><c:out value="${username}" /></strong>
+			<br><a href="logout.jsp" >退出登录</a>
+		</p>
+		<form method="post" action="new_content.jsp">
+			<input id="new-button" class="btn btn-sm btn-primary" type="submit" value="发帖">
+		</form>
+		<div id="mid-block" >
+			<c:forEach items="${content}" var="current" varStatus="i" >
+				<div onmousemove="beObvious(this)" onmouseout="beNormal(this)" >
+					<p class="every-title" >
+						<a href="display.jsp?index=${i.count - 1}" >${current.getTitle()}</a>
+					</p>
+				</div>
+			</c:forEach>
 		</div>
 	</body>
 </html>
