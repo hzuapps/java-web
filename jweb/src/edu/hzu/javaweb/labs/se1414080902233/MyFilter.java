@@ -9,11 +9,12 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName="MyFilter",urlPatterns="/*")
+@WebFilter(filterName="MyFilter",urlPatterns="/1414080902233")
 public class MyFilter implements Filter {
 
 	@Override
@@ -28,17 +29,19 @@ public class MyFilter implements Filter {
 		// TODO Auto-generated method stub
 		HttpServletRequest requ=(HttpServletRequest)request;
 		HttpServletResponse resp=(HttpServletResponse)response;
-		HttpSession session=requ.getSession(true);
-		if(session.getAttribute("u_name")==null){
-			resp.sendRedirect("index.jsp");
-		}else{
-			resp.sendRedirect("User.jsp");
+		Cookie cookie = null;
+    	Cookie[] cookies = null;
+    	// 获取与该域相关的 Cookie 的数组
+    	cookies = ((HttpServletRequest) request).getCookies();
+    	
+		if(cookies == null){
+			resp.sendRedirect("Login.jsp");
 		}
 	}
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
+		System.out.println("过滤");
 
 	}
 

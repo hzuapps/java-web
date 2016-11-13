@@ -1,14 +1,16 @@
-<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="text/html">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>线路查询系统</title>
     <!-- Bootstrap -->
@@ -140,7 +142,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
   </head>
   <body>
-    <% Date date=new Date();%>
+    <% 
+    	Date date=new Date();
+    	Cookie cookie = null;
+		Cookie[] cookies = null;
+		// 获取cookies的数据,是一个数组
+		cookies = request.getCookies();
+		if( cookies != null ){
+		   for (int i = 0; i < cookies.length; i++){
+		       cookie = cookies[i];
+		       if((cookie.getName()).equals("name")){
+		      	String name = cookie.getValue();
+		      	request.setAttribute("name",name);
+		      	break;
+		       }
+		      }
+		}
+    %>
     <div id=d-all>
     	<!-- 设置顶部 -->
     	<div class="d-top">
@@ -154,13 +172,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </form>
         <!-- 右边区域 -->
         <div class="right">
-          <div><a href="">登录</a></div>
-          <div><a href="">注册</a></div>
+	        <c:if test="${!empty name}">
+				您好<c:out value="${name}"/>
+			</c:if>
+			<c:if test="${empty name}">
+				<div><a href="Login.jsp">登录</a></div>
+          		<div><a href="">注册</a></div>
+			</c:if>
         </div>
       </div>
     	<!-- 设置中间两个功能 -->
     	<div class="func1"><a href="1414080902233">路线查询</a></div>
       <div class="func2"><a href="">路线规划</a></div>
     </div>
-  </body>
-</html>
