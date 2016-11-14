@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Se1414080902115Servlet extends HttpServlet {
 
@@ -41,33 +42,28 @@ public class Se1414080902115Servlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html;charset=utf-8");
+		response.setContentType("text/html");
 		String user=request.getParameter("username");
 		String pwd=request.getParameter("userpwd");
-		String b=request.getParameter("check");
-		boolean check=false;
-		System.out.println(b);
-		if("1".equals("check")) check=true;
-		else check=false;
+	//	PrintWriter out = response.getWriter();
+		HttpSession session=request.getSession();
+		session.setAttribute("user", user);
+		session.setAttribute("pwd", pwd);
 		
-		UserData data=new UserData();
-		   data.setUser(user);
-		   data.setPwd(pwd);
-		  data.setRemeber(check);
-		  data.setRemeber(check);
-		PrintWriter out = response.getWriter();
-		String username=request.getParameter("username");
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
+	   /* out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
 		out.println("<HTML>");
 		out.println("  <HEAD><TITLE>A New Servlet</TITLE></HEAD>");
 		out.println("  <BODY>");
-		out.print(" "+data.getUser()+" ,"+"惠州学院图书馆欢迎你！"+"<br>");
+		out.print("    This is ");
 		out.print(this.getClass());
-	
+		out.println(", using the GET method");
+		out.print("welcome   "+session.getAttribute("user")+"   !!!"+"<br>");
 		out.println("  </BODY>");
 		out.println("</HTML>");
 		out.flush();
-		out.close();
+		out.close();*/
+		response.sendRedirect("Second.jsp");
+		
 	}
 
 	/**
@@ -81,23 +77,22 @@ public class Se1414080902115Servlet extends HttpServlet {
 	 * @throws IOException if an error occurred
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {  
-	
+			throws ServletException, IOException {
+
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
 		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
 		out.println("<HTML>");
 		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
 		out.println("  <BODY>");
-		out.print("   欢迎你  !");
+		out.print("    This is ");
 		out.print(this.getClass());
 		out.println(", using the POST method");
 		out.println("  </BODY>");
 		out.println("</HTML>");
 		out.flush();
 		out.close();
+	
 	}
 
 	/**
