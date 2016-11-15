@@ -1,9 +1,8 @@
-﻿<%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 
 <html>
 	<head>
@@ -29,15 +28,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 		<h3 align="center">创建客户订单</h3>
-			<form name="cj" action="">
+			<form name="cj" action="1414080902238">
 				<table>
-					<tr><td>客户姓名：</td><td><input type="text" name="stuName"></td></tr>
+					<tr><td>客户姓名：</td><td><input type="text" name="clientName"></td></tr>
 					<tr><td>客户电话：</td><td><input type="text" name="phoneName"></td></tr>
-					<tr><td>所购车辆：</td><td colspan="2"><input type="file"></td></tr>
+					<tr>
+						<td>所购车辆：</td>
+						<td><select name="cars" style="width: 153px; ">
+							<option selected>宝马</option>
+							<option>奔驰</option>
+							<option>福特</option>
+							<option>奥迪</option>
+						</select>	
+						</td>
+					</tr>
 					<tr><td>付款情况：</td>
 						<td colspan="2">
-							<input type="checkbox" name="yes">已付款
-							<input type="checkbox" name="no">未付款
+							<input type="checkbox" name="check">已付款
+							<input type="checkbox" name="check">未付款
 							</td>
 						</tr>
 						<tr><td>

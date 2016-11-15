@@ -3,6 +3,9 @@ package edu.hzu.javaweb.labs.se1414080902238;
 import java.io.IOException;
 //import java.io.PrintWriter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,17 +32,29 @@ public class Se1414080902238Servlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String khName=request.getParameter("stuName");
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		String clientName=request.getParameter("clientName");
 		String phoneNamber=request.getParameter("phoneName");
+		String car=request.getParameter("cars");
+		String check=request.getParameter("check");
 		String info="";
-		if(khName.isEmpty()||phoneNamber.isEmpty()){
+		boolean hadPaid;
+		if(check=="已付款")hadPaid=true;else hadPaid=false;
+		if(clientName.isEmpty()||phoneNamber.isEmpty()){
 			info="输入不能为空！";
 		}else{
-			info="客户： "+khName+"  "+"联系电话： "+phoneNamber;
+			info="客户： "+clientName+"  "+"联系电话： "+phoneNamber;
 		}
+		List<Client> orders=new ArrayList<Client>();
+		orders.add(new Client(clientName,phoneNamber,car,hadPaid));
+		orders.add(new Client("小敏","999999","福特",true));
+		orders.add(new Client("小明","888888","奔驰",true));
+		orders.add(new Client("小红","777777","奥迪",false));
 		request.setAttribute("outputMessage",info);
+		request.setAttribute("orderList", orders);
 		request.getRequestDispatcher("/info.jsp").forward(request, response);
+		
 	}
 
 	
@@ -47,6 +62,7 @@ public class Se1414080902238Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		doGet(request, response);
+		
 	}
 
 	
