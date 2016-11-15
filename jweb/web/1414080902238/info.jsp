@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,edu.hzu.javaweb.labs.se1414080902238.Client" pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*,edu.hzu.javaweb.labs.se1414080902238.Client" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=utf-8" %>
 <html>
@@ -18,4 +18,4 @@
     		</c:forEach>
     </table>
   </body>
-</html>
+</html> 
