@@ -5,7 +5,7 @@ public class Client {
 	private String phone;
 	private String car;
 	private boolean hadPaid;
-	
+	 
 	public Client(){}
 	public Client(String na,String ph,String ca,boolean hp){
 		name=na;

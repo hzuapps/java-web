@@ -9,7 +9,7 @@
   	<%request.setCharacterEncoding("utf-8"); %>
     <%=request.getAttribute("outputMessage")%>
     <hr>
-    	定单记录如下：
+    	定单记录如下： 
     <hr>
     <table border="1">
     	<tr><th>客户名</th><th>电话号码</th><th>所购车辆</th><th>付款情况</th></tr>
