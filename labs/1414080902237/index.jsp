@@ -9,10 +9,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="js/jquery-2.1.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 <title>Library</title>
 <style type="text/css">
 	
@@ -95,7 +94,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				</div>
   			</div>
 </div>
-
+<script src="js/jquery-2.1.1.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
 	 	$(".searched").click(function(event){
