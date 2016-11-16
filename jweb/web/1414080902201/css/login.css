@@ -1,0 +1,15 @@
+body {
+	background: #f5f5f5;
+}
+.login {
+	width: 300px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: 100px;
+	position: absolute;
+	left: 50%;
+}
+.tip {
+	border-radius: 2px;
+	padding: 5px;
+}

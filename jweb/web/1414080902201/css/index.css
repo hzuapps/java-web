@@ -1,0 +1,42 @@
+body {
+	background: #f5f5f5;
+}
+header {
+	font-size: 100px;
+	color: #000;
+}
+.do {
+	margin: 20px 0;
+}
+.do > input {
+	width: 550px;
+	padding: 20px 30px;
+	font-size: 30px;
+	border: none;
+	outline: none;
+	-moz-box-shadow:0px 10px 20px #ccc;
+	-webkit-box-shadow:0px 10px 20px #ccc;
+	box-shadow:0px 10px 20px #ccc;
+}
+.do > input::-moz-placeholder {
+    color: #eee;
+	font-weight: bold;
+}
+.do > input:-ms-input-placeholder {
+    color: #eee;
+	font-weight: bold;
+}
+.do > input::-webkit-input-placeholder {
+	color: #eee;
+	font-weight: bold;
+}
+footer {
+	color: #ccc;
+}
+a.login {
+	color: #ccc;
+	text-decoration: none;
+}
+a.login:hover {
+	color: #000;
+}

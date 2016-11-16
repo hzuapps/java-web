@@ -3,6 +3,14 @@
 
 # 实验一：Web基础
 https://github.com/hzuapps/java-web/issues/2
+# 实验二：Tomcat基础
+https://github.com/hzuapps/java-web/issues/3
+# 实验三：Servlet基础
+https://github.com/hzuapps/java-web/issues/4
+# 实验四：Filter基础
+https://github.com/hzuapps/java-web/issues/5
+# 实验五：JSP基础
+https://github.com/hzuapps/java-web/issues/6
 
 # 参考资料
 

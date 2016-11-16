@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Login</title>
+	</head>
+
+<style type="text/css">
+	#container{
+		height: 640px;
+		width: 1046px;
+		background: #563c55 url(src/LoginBackground.jpg) no-repeat center top;
+		position: relative;
+	}
+	#welcome{
+		height: 180px;
+		padding-top: 60px;
+	}
+	#welcome *{
+		color: rgba(255,255,255,0.25);
+		/*简单文本的居中方式*/
+		text-align: center;
+	}
+
+	#login_form{
+		width: 300px;
+    	margin: 60px auto 30px;
+    /* Styles */
+    	border-radius: 5px;
+    	box-shadow: 0 0 5px rgba(0,0,0,0.1), 0 3px 2px rgba(0,0,0,0.1);
+    	overflow: hidden;
+	}
+	#inputArea{
+		width: 70%;
+	    border-radius: 5px 0 0 5px;
+	    border: 1px solid #fff;
+	    float: left;
+	}
+	#inputArea input{
+		height: 48px;
+		border: none; /* Remove the default border */
+	    background: white; /* Fallback */
+	    background: rgba(255,255,255,0.2);
+	    box-shadow: 
+	        inset 0 0 10px rgba(255,255,255,0.5);
+
+	    /* Font styles */
+	    font-family: 'Montserrat', sans-serif;
+	    text-indent: 10px;
+	    color: #66d9d0;
+	    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	    font-size: 20px;
+	}
+	#submit_btn{
+		/* Size and position */
+	    width: 29%;
+	    height: 102px;
+	    float: right;
+
+		border-radius: 0 5px 5px 0;
+    	box-shadow:
+        inset 0 0 4px rgba(255, 255, 255, 0.7), 
+        inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+	    border: none;
+	    border-left: 1px solid silver;
+	     /* Font styles */
+	    font-family: 'Montserrat', sans-serif;
+	    text-indent: 10px;
+	    color: white;
+	    font-size: 22px;
+	    background: rgba(145,198,84,1);
+	}
+</style>
+
+<body>
+	<div id="container">
+		<div id="welcome">
+			<h1>Welcome to Linco.com</h1>
+			<h3>Please Login first</h3>
+		</div>
+		<div id="form_div">
+			<form id="login_form" action="My_Main.jsp" method="post">
+				<div id="inputArea">
+					<input type="text" name="userName" value="UserName">
+					<input type="password" name="password">
+				</div>
+				<button type="submit" id="submit_btn">login</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

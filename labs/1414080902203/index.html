@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<!-- viewport的<meta>标签，这个标签可以修改在大部分的移动设备上面的显示，为了确保适当的绘制和触屏缩放。-->
+<title>网络教学登录页面系统</title>
+<!--样式文件引用-->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<!--link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"-->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]
+-->
+<style type="text/css">
+	h1{color:red;text-decoration:underline;font-weight:bold;font-size:25px;}
+	h2{font-size:20px;color:blue;}
+ </style>
+</head>
+<body>
+<!--JavaScript插件都是依赖与jQuery库-->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!--script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script-->
+
+<form id="target" action="">
+<div id="01" style=" position:absolute; width:100%; height:100%; background-color:#33CC99">
+	<table border="0" align="center" width="600">
+	<tr><td colspan="3" align="center" height="20"><h1>Welcome, visiter!</h1></td></tr>
+	
+	<tr><td align="right"><h2>UserName:*</h2></td>
+		<td align="center"><input type="text" name="Username"></td>
+		<td><h2>请输入用户名</h2></td>
+	</tr>
+	
+	<tr><td align="right"><h2>PassWord:*</h2></td>
+		<td align="center"><input type="text" name="Password"/></td>
+		<td><h2>请输入密码</h2></td>
+	</tr>
+	
+	<tr><td align="right"><h2>选择身份:*</h2></td>
+		<td align="center"><input type="radio" name="UserID" value="学生" checked/>学生
+		<input type="radio" name="UserID" value="教师"/>教师</td>
+		<td> <h2>请选择身份进行登录</h2></td>
+   </tr>
+   <tr>
+		<td align="center"></td>
+		<td><button type="submit" class="btn btn-default">登录</button></td>
+		<td><button type="button" class="btn btn-default" onclick="sss()">取消</button></td>
+   </tr>
+   </table>
+</div>
+	
+</form>
+<script>
+
+	$( "#target" ).submit(function( event ) {
+		
+		event.preventDefault();
+		alert( "提交成功，请继续期待" );
+	});
+
+</script>
+<script>
+	    function sss(){
+		$.ajax({
+			url: "success.json"
+		}).done(function(data) {
+			if ( console && console.log ) {
+				console.dir(data);
+				alert(data.msg);
+			}
+		});
+	}
+</script>
+</body>
+
+</html>
