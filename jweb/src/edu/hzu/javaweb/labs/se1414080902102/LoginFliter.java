@@ -1,4 +1,4 @@
-package jweb;
+package filter;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-public class filter implements Filter {
+public class LoginFliter implements Filter {
 
 	@Override
 	public void destroy() {
