@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="../css/base_Css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/base_Css/font-awesome.css" />
+
+    <!-- page specific plugin styles -->
+    <!--<link rel="stylesheet" href="../assets/css/jquery-ui.min.css" />-->
+    <!--<link rel="stylesheet" href="../assets/css/datepicker.min.css" />-->
+    <link rel="stylesheet" href="../css/base_Css/ui.jqgrid.min.css" />
+    <!-- text fonts -->
+    <!--<link rel="stylesheet" href="../assets/fonts/fonts.googleapis.com.css" />-->
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="../css/base_Css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../css/base_Css/ace-part2.min.css" class="ace-main-stylesheet"/>
+    <![endif]-->
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../css/base_Css/ace-ie.min.css"/>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../css/base_Css/zTreeStyle.css" type="text/css">
+    <!-- inline styles related to this page -->
+
+    <link rel="stylesheet" href="organization.css" />
+
+    <!-- ace settings handler -->
+    <script type="text/javascript" src="../js/baseJs/ace-extra.min.js"></script>
+
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="../js/baseJs/html5shiv.min.js"></script>
+    <script type="text/javascript" src="../js/baseJs/respond.min.js"></script>
+    <![endif]-->
+    <!--[if !IE]> -->
+    <script type="text/javascript" src="../js/baseJs/jquery.2.1.1.min.js"></script>
+
+    <!-- <![endif]-->
+
+    <!--[if IE]>
+    <script type="text/javascript" src="../js/baseJs/jquery.1.11.1.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="../js/baseJs/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../js/baseJs/ace.min.js"></script>
+    <script type="text/javascript" src="../js/baseJs/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="../js/baseJs/grid.locale-cn.js"></script>
+    <script type="text/javascript" src="../js/baseJs/ace-elements.min.js"></script>
+    <script type="text/javascript" src="../js/baseJs/bootbox.min.js"></script>
+    <script type="text/javascript" src="../js/commonJs/appCommon.js"></script>
+    <!--  script type="text/javascript" src="../js/jquery.blockUI.js"></script-->
+
+    <script type="text/javascript" src="../js/commonJs/commonValidation.js"></script>
+
+    <script type="text/javascript" src="../js/ztree/jquery.ztree.all.min.js"></script>
+
+    <script type="text/javascript" src="organization.js"/>
+
+    <!-- page specific plugin scripts -->
+    <script>
+
+    </script>
+    <!--<script type="text/javascript" src="../js/ztree/jquery.ztree.core.js"></script>-->
+    <style type="text/css">
+        .ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+    </style>
+</head>
+
+<body class="no-skip">
+    <div class="page-header">
+        <h1>
+           组织信息<small> <i class="ace-icon fa fa-angle-double-right"></i>树形查看
+        </small>
+        </h1>
+    </div>
+
+<div class="content_wrap">
+
+    <div class="row"  style="padding-left: 40px;">
+        <label for="search_orgName">组织名称: </label>
+        <input type="text" name="orgName" id="search_orgName">
+        <button class="btn btn-purple" id="searchBtn">查找</button>
+        <button class="btn btn-primary" id="resetBtn">重置</button>
+    </div>
+
+    <div class="zTreeDemoBackground middle">
+        <ul id="orgTree" class="ztree"></ul>
+    </div>
+
+
+
+    <div tabindex="-1" class="modal fade in" id="update-modal" aria-hidden="false" style="padding-right: 17px; display:none">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                    <h3 class="smaller lighter blue no-margin">修改窗口</h3>
+                </div>
+                <input type="hidden" name="id">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form id="update_orgInfo" class="form-horizontal" style="margin: 0px">
+
+                                <input type="hidden" name="id" id="update_org_id" value="">
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="update_org_name">组织名称:</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-12 col-sm-7" id="update_org_name" name="name" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="update_org_des">描述:</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-12 col-sm-7" id="update_org_des" name="description" type="text">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-lg btn-danger pull-left" onclick="closeUpdateWin()">
+                        <i class="ace-icon fa  fa-undo"></i> 取消
+                    </button>
+                    <button class="btn btn-lg btn-success" type="button" onclick="updateOrg()">
+                        <i class="ace-icon fa fa-check"></i> 提交
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div tabindex="-1" class="modal fade in" id="add-modal" aria-hidden="false" style="padding-right: 17px; display:none">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                    <h3 class="smaller lighter blue no-margin">新增窗口</h3>
+                </div>
+                <input type="hidden" name="id">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form id="add_orgInfo" class="form-horizontal" style="margin: 0px">
+
+                                <input type="hidden" name="pcode" id="add_org_pcode" value="">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="add_org_code">组织码:</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-12 col-sm-7" id="add_org_code" name="code" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="add_org_name">组织名称:</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-12 col-sm-7" id="add_org_name" name="name" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="add_org_des">描述:</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-12 col-sm-7" id="add_org_des" name="description" type="text">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-lg btn-danger pull-left" onclick="closeAddWin()">
+                        <i class="ace-icon fa  fa-undo"></i> 取消
+                    </button>
+                    <button class="btn btn-lg btn-success" type="button" onclick="addOrg()">
+                        <i class="ace-icon fa fa-check"></i> 提交
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div tabindex="-1" class="modal fade in" id="show-modal" aria-hidden="false" style="padding-right: 17px; display:none">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                    <h3 class="smaller lighter blue no-margin">展示窗口</h3>
+                </div>
+                <input type="hidden" name="id">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form id="show_orgInfo" class="form-horizontal" style="margin: 0px">
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="show_org_name">组织名称:</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-12 col-sm-7" id="show_org_name" name="name" type="text" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="show_org_des">描述:</label>
+
+                                    <div class="col-sm-9">
+                                        <input class="col-xs-12 col-sm-7" id="show_org_des" name="description" type="text" readonly>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
