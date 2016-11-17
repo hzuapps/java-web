@@ -1,12 +1,15 @@
-package Se1414080902217;
+package se1414080902217;
 
 import java.io.IOException;
-import javax.servlet.ServletConfig;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import vo.User;
+import dao.UserDao;
 
 /**
  * Servlet implementation class loginCheck
@@ -18,13 +21,20 @@ public class Se1414080902217Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName = request.getParameter("username");
 		String userPwd = request.getParameter("userpwd");
-		if(userName.equals("") || userPwd.equals(""))
-		{
-			request.getRequestDispatcher("check.jsp").forward(request, response);
+		
+		User user = new User();
+		UserDao dao = new UserDao();
+		try {
+			user = dao.findUserByName(userName);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		else
-		{
-			request.getSession().setAttribute("userName", userName);
+		if(user == null || !user.getPassword().equals(userPwd)){
+			request.setAttribute("userName", userName);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+		else{
+			request.getSession().setAttribute("customerName", user.getcustomerName());
 			request.getRequestDispatcher("select.jsp").forward(request, response);
 		}
 	}
