@@ -1,3 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,7 +42,7 @@
 	margin-top: 5%;
 	}
 	a{
-	color: white;
+	color: black;
 	font-weight: bold;
 	}
 	h3{
@@ -48,18 +52,52 @@
    letter-spacing: 0.04em;
 	}
 	.ch>li{
-	margin:10px;
+	margin:12px;
+    font-size: 18px;
 	}
 	</style>
+	<script>
+window.onload=function(){
+//定时器每秒调用一次fnDate()
+setInterval(function(){
+fnDate();
+},1000);
+}
+//js 获取当前时间
+function fnDate(){
+var oDiv=document.getElementById("div1");
+var date=new Date();
+var year=date.getFullYear();//当前年份
+var month=date.getMonth();//当前月份
+var data=date.getDate();//天
+var hours=date.getHours();//小时
+var minute=date.getMinutes();//分
+var second=date.getSeconds();//秒
+var time=year+"-"+fnW((month+1))+"-"+fnW(data)+" "+fnW(hours)+":"+fnW(minute)+":"+fnW(second);
+oDiv.innerHTML=time;
+}
+//补位 当某个字段不是两位数时补0
+function fnW(str){
+var num;
+str>10?num=str:num="0"+str;
+return num;
+} 
+</script>
   <body>
   <div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:-1">  
- <img src="image/12.jpg" height="100%" width="100%"/>  
+ <img src="image/15.jpg" height="100%" width="100%"/>  
  <script type="text/javascript">
 $(function(){
     $('#formbackground').height($(window).height());
     $('#formbackground').width($(window).width());
 });
+function openpage(){
+	document.write("!!!");
+	window.location.href = "Search.jsp";
+	//window.location.replace("Search.jsp");
+	}
 </script>
+
   </div>
    <div class="container">
 	<div class="row">
@@ -69,11 +107,19 @@ $(function(){
 			</h1>
 		</div>
 	</div>
-	<div style="margin-left: 75%;color: white">
-	当前时间      <%= new Date()%>
+	 <%
+	 	Calendar rightNow = Calendar.getInstance();
+ 	 	Integer Hour=new Integer(rightNow.get(Calendar.HOUR_OF_DAY));
+ 	 	request.setAttribute("hour", Hour);
+  	 %>
+  	  <c:choose>
+ 		 <c:when test="${ hour >= 0 && hour <= 11}"><span>Good morning </span></c:when>
+  		 <c:when test="${ hour >= 12 && hour <= 17}"><span>Good afernoon !</span></c:when>
+ 		 <c:otherwise><span>Good night, !</span></c:otherwise>
+ 	 </c:choose>
+	<label style="margin-left: 70%;color: black;font-size: 20px;font: bold;">当前时间 : </label>
+	<div  id="div1"  style="float:right;color: black;font-size: 20px;font: bold;">
 	</div>
-	
-	
 	<div class="row">
 		<div class="span4" style="float:left;width: 20%" >
 			<form class="form-horizontal" id="target" style="height: 250px;margin-top:2%" action="loginServlet" method="get">
@@ -91,7 +137,7 @@ $(function(){
 				</div>
 				<div class="control-group">
 					<div class="controls"  style="margin-left: 10%">
-						<label class="checkbox"><input type="checkbox"   name="check" checked="checked" value="1 " /> 记住账户</label>
+						<label class="checkbox"><input type="checkbox" /> 记住账户</label>
 						 <button class="btn" type="submit"  style="margin-top: 10%">登陆</button>
 					</div>
 				</div>
@@ -108,9 +154,11 @@ $(function(){
 			</h3>
 		</div>
 		<div class="span4" style="float:left;width:25%;height:265px">
-			<form class="form-search" style="margin: 2%;">
-				<input class="input-medium search-query" type="text" /> <button type="submit" class="btn"style="margin-left: 10px;">
+			<form class="form-search" style="margin-left: 20px;margin-top: 10px" id="formsearch"   action="Search.jsp">
+				<input class="input-medium search-query" type="text" /> 
+				<button type="submit" class="btn"style="margin-left: 10px;" >
 				查&nbsp;&nbsp;找</button>
+				
 			</form>
 			
 			<ul class="ch" style="float: left;">
@@ -136,7 +184,7 @@ $(function(){
 	<div class="row">
 		<div class="span2" style="float:left;width: 20%">
 			<ul class="nav nav-list" style="width:80%">
-			 	<li class="nav-header" style="font-weight: bold;">
+			 	<li class="nav-header" style="font-weight: bold;font-size: 20px;">
 					    惠州学院图书馆
 				</li>
 				<li class="active">
@@ -149,7 +197,7 @@ $(function(){
 					<a href="#">新书推购</a>
 				</li>
 				
-				<li class="nav-header" style="font-weight: bold;">
+				<li class="nav-header" style="font-weight: bold;font-size: 20px;">
 					     管理
 				</li>
 				<li>
@@ -195,7 +243,7 @@ $(function(){
 	</div>
 </div>
  <script type="text/JavaScript" >
-$("#target").submit(function (event) {
+ $("#target").submit(function (event) {
 	 var user = document.getElementById("inputEmail");
 	var pwd= document.getElementById("inputPassword"); 
 if(user.value.length>0&&pwd.value.length>0){
@@ -207,6 +255,7 @@ if(user.value.length>0&&pwd.value.length>0){
             success: function (data) {
                 // Play with returned data in JSON format
                 alert(data.msg);
+                
                 return true;
             },
             error: function (msg) {
@@ -219,6 +268,8 @@ if(user.value.length>0&&pwd.value.length>0){
 	return false;
 }	
 });   
+ 
+
    
   </script>
   </body>
