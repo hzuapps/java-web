@@ -1,6 +1,6 @@
-<%@page language="java" import="java.util.*" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html >
+<html>
 <head lang="zh-cn">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,17 +34,6 @@
 
 <body>
 
-<%  
-  request.setCharacterEncoding("utf-8");
-  if(request.getParameter("Username")!= null)
-    session.setAttribute("username",request.getParameter("Username"));
-  
-  if(request.getParameter("Email")!= null)
-    session.setAttribute("email",request.getParameter("Email"));
-  if(request.getParameter("Password")!= null)
-    session.setAttribute("password",request.getParameter("Password"));
- %>
- 
 <nav class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header">
@@ -68,7 +57,8 @@
     </div>
 </nav>
 
-<form role="form" class="form-horizontal" method="post" action="Login.jsp">
+
+<form role="form" class="form-horizontal" method="get" action="check">
     <div class="form-group">
         <label class="control-label col-md-5">用户名 ：</label>
         <div class="col-md-2 has-feedback" >
@@ -95,11 +85,14 @@
     </div>
     <br>
 
-      <div class="col-sm-offset-5">
-        <button type="submit" class="btn btn-success" id="submit" name="submit">登录</button>
-        <button type="reset" class="btn btn-primary" id="reset" name="reset">取消</button>
+    <div class="form-group">
+      <div class="col-md-5"></div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-success btn-block" id="submit" name="submit">登录</button>
       </div>
-
+      <div class="col-md-5"></div>
+    </div>
+    
 </form> 
 </body>
-<html>
+</html>

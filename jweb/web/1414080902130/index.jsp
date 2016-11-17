@@ -1,4 +1,5 @@
-<%@page contentType="text/html" import="java.util.*" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html >
 <head lang="zh-cn">
@@ -45,8 +46,9 @@
 </script>
 
 <body>
-
+   <%request.setCharacterEncoding("utf-8");%>
 <nav class="navbar navbar-default" role="navigation" >
+
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand">火车票订票服务中心</a>
@@ -63,8 +65,28 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+        
+        <c:if test="${Passenger.username != null}">
+           <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+           <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">                                                          
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="divider"></li>
+                    <li><a href="#">未完成订单</a></li>
+                    <li><a href="#">已完成订单</a></li>
+                    <li><a href="#">个人信息</a></li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </li>
+        </c:if>
+        
+        <c:if test="${Passenger.username == null}">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+        </c:if>
+        
         </ul>
     </div>
 </nav>
