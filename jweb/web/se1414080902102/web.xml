@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>filter</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <filter>
+  <filter-name>filter</filter-name>
+  <filter-class>filters.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>filter</filter-name>
+  <url-pattern>/租车/*</url-pattern>
+  </filter-mapping>
+
+ <filter>
+  <filter-name>EncodingFilter</filter-name>
+  <filter-class>filters.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>EncodingFilter</filter-name>
+  <url-pattern>/filter/*</url-pattern>
+  </filter-mapping>
+  </web-app>
