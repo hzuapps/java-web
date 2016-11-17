@@ -59,9 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 房东说明：</br>
 <td=colspan="2"><textarea name="letter" rows="8" cols="60"></textarea></br>
-
-<input type=submit value="提交"><input type=reset value="取消"></br>
-
+<a href="p1.jsp"> 提交并发布所编辑内容</a></br>
+<a href="fuction.jsp"> 返回功能界面</a>
 
    <p>:<%=new Date() %> </p>
   </body>
