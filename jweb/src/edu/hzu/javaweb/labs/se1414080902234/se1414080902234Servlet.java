@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class se1414080902234Servlet
+ * Servlet implementation class Se1414080902234Servlet
  */
 @WebServlet("/1414080902234")
-public class se1414080902234Servlet extends HttpServlet {
+public class Se1414080902234Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public se1414080902234Servlet() {
+    public Se1414080902234Servlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,8 +39,8 @@ public class se1414080902234Servlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		String text1=request.getParameter("search");
 		PrintWriter out=response.getWriter();
-		out.println("检索的关键字为："+text1);
-		
+		if(text1!="") out.println("检索的关键字为："+text1);
+		else out.println("关键字为空！");
 	}
 
 }

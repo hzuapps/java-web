@@ -2,6 +2,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'login.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,10 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
- <form action="1414080902234" method="post">
-查找问卷：<input type="text" size="50" name="search">
-<input type="submit" value="查找"><br>
-<input type="button" value="创建问卷">
+<form id="login" action="Succeed.jsp" method="post">
+用户名：<input type = "text"  name = "name"><br><br>
+密码：<input type = "password" name = "pwd"><br><br>
+<input type="submit" value="登录"><br>
 </form>
   </body>
 </html>
