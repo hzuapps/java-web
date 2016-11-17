@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,8 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<title>在线作业提交系统</title>
 </head>
 <body>
-    <h2 align="center">作业系统</h2>
-    <form action="/SY/1414080902125" method="post">
+    <h2 align="center">在线作业提交系统</h2>
+    <form action="Function.jsp" method="post" name="login">
     <table align="center">
     <tr><td align="right">登录名:*</td><td><input type="text" name="NAME"></td>
     </tr>
@@ -37,12 +38,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                      </select>
                      </td>
     </tr>
+
+     <tr>
+           <td>当前时间：</td>
+		   <td align="center">
+		   <%
+		   Date date=new Date();
+		  session.setAttribute("d",date);  
+		   %>
+		   <c:out value="${sessionScope.d}"></c:out>
+		   </td>
+	</tr>
+	
     <tr>
     <td  colspan="3" align="center"  height="40">
         <input  type="submit" value="登录" >&nbsp;
         <input   type="reset" value="取消">
     </td>
     </tr>
+    
     </table>
     </form>
 
