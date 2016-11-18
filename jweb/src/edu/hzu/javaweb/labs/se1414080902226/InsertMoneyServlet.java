@@ -27,7 +27,7 @@ public class InsertMoneyServlet extends HttpServlet {
 			System.out.println("money拿不到！！！");
 		if(req.getParameter("username")!=null)
 			rm.setName((String) req.getParameter("username"));
-//		new InsertMoneyService().insertMoney(rm);
+		new InsertMoneyService().insertMoney(rm);
 		req.setAttribute("msg", "插入成功");
 		req.getRequestDispatcher("/insertmoneyres.jsp").forward(req, resp);
 	}
