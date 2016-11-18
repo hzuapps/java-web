@@ -8,7 +8,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LoginFilter implements Filter {
 
@@ -19,12 +21,15 @@ public class LoginFilter implements Filter {
 
 	public void doFilter(ServletRequest arg0, ServletResponse arg1,
 			FilterChain arg2) throws IOException, ServletException {
-		// TODO Auto-generated method stub
+		HttpServletRequest request;
+// TODO Auto-generated method stub
 HttpServletRequest requ=(HttpServletRequest)request;
+HttpServletResponse response;
 HttpServletResponse resp=(HttpServletResponse)response;
 HttpSession session=requ.getSession(true);
-if(session.getAttribute("usename")=" ") {resp.sendRedirect("login.jsp"); }
-else {filterchain.doFilter(request,response);}
+if(session.getAttribute("usenarme")=" ") {resp.sendRedirect("login.jsp"); }
+else {FilterChain filterchain;
+filterchain.doFilter(request,response);}
 	}
 
 	public void init(FilterConfig arg0) throws ServletException {

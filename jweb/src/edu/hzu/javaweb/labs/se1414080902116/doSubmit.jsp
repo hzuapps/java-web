@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -20,12 +20,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
   </head>
   
-  <body>
-     <h4 align="center">你没有权限登录</4></br>
-
-<blockquote>
-<input type="submit" value="返回上一层界面" name="button1">
-<input type="submit" value="退出系统" name="button2">
-</blockquote>
-  </body>
+  <body><h2>你提交显示的内容如下：</h2>
+  <% request.setCharacterEncoding("utf8"); %>
+  用户名:${param.name }</br>
+  性别:${param.sex }</br>
+  电话：${param.regTelephone}</br>
+ email:${param.email}</br>
+  个人简介:${param.intro}</br>
+  <a href="login.jsp">返回登录界面 </a></br>
+  <a href="zhuce.jsp">返回注册界面</a>
+      </form>
+    </body>
 </html>
