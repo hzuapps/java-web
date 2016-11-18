@@ -1,4 +1,4 @@
-package Se1414080902217;
+package se1414080902217;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebFilter;
 
 
 @WebFilter(filterName = "filter_setEncoding", urlPatterns = "/*")
-public class filter_setEncoding implements Filter {
+public class Filter_setEncoding implements Filter {
 
 	public void destroy() {
 		// TODO Auto-generated method stub

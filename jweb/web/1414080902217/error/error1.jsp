@@ -5,11 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-<title>登录错误</title>
+<title>错误</title>
 </head>
 <body>
-	<div class="text-center"><h4>请重新登录</h4></div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div class="text-center"><h4>未登录无法使用此功能</h4></div>
 	<p></p>
-	<div class="text-center">点击<a href=index.jsp>返回</a></div>	
+	<div class="text-center">点击<a href=/zhhao/index.jsp>登录</a></div>	
 </body>
 </html>

@@ -1,4 +1,4 @@
-package Se1414080902217;
+package se1414080902217;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -15,10 +15,10 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class filter_login
  */
-@WebFilter(filterName = "filter_login", urlPatterns = {"/makeOrder.jsp"})
-public class filter_login implements Filter {
+@WebFilter(filterName = "filter_login", urlPatterns = {"/Orders/makeOrder.jsp"})
+public class Filter_login implements Filter {
 
-    public filter_login() {
+    public Filter_login() {
         // TODO Auto-generated constructor stub
     }
 
@@ -33,8 +33,8 @@ public class filter_login implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 
 		HttpSession session = req.getSession();
-		if (session.getAttribute("userName")==null) {
-			res.sendRedirect("check.jsp");
+		if (session.getAttribute("customerName")==null) {
+			res.sendRedirect("/zhhao/error/error1.jsp");
 		} else {
 			chain.doFilter(request, response);
 		}
