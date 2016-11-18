@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>提交订单</title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<title>登录错误</title>
 </head>
 <body>
-<p>
-	提交订单页面！
-</p>
+	<div class="text-center"><h4>注册成功</h4></div>
+	<p></p>
+	<div class="text-center">点击<a href=select.jsp>登录</a></div>	
 </body>
 </html>
