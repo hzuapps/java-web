@@ -1,5 +1,7 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jstl/core"  prefix="c"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ page import="KK.Book"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP '1.jsp' starting page</title>
+    <title>My JSP 'show.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,16 +26,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-
-   <form action="BookServlet" method="post">
-   <table>
-   <tr><td>书籍名称：</td><td><input name="name"></td></tr>
-<tr><td>作者：</td><td><input name="writer"></td></tr>
-<tr><td> 出版日期：</td><td><input name="date"></td></tr>
-<tr><td>出版社：</td><td><input name="publish"></td></tr>
- <tr><td>主要内容：</td><td><input name="main"></td></tr>
- <tr><td><input type=submit value="添加书籍"> </td></tr>
- </table>
-   </form>
+  <c:forEach var="book" items="${sbook}">
+   书名：${book.name}<br> 
+   作者：${book.writer} <br>
+ 出版日期：  ${book.date} <br>
+  出版社： ${book.publish} <br>
+ 主要内容：  ${book.main}<br>
+   </c:forEach><br>
+   <c:out value="书籍添加成功！"/>
+   
   </body>
 </html>
