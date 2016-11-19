@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 
 @SuppressWarnings("serial")
-
+@WebServlet("/1414080902231")
 public class Se1414080902231Servlet extends HttpServlet {
 
 	public Se1414080902231Servlet() {
