@@ -13,6 +13,9 @@ public class Question {
 		this.num = num;
 	}
 
+	public Question(){
+		
+	}
 	public Question(String subject, String question, String answer1,
 			String answer2, String answer3, String answer4, String answer,int num) {
 		this.subject = subject;
