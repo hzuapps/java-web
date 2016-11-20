@@ -182,6 +182,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
     	<!-- 设置中间两个功能 -->
-    	<div class="func1"><a href="1414080902233">路线查询</a></div>
-      <div class="func2"><a href="">路线规划</a></div>
+    	<div class="func1"><a href="found.jsp">路线查询</a></div>
+      <div class="func2"><a href="1414080902233">路线规划</a></div>
     </div>
