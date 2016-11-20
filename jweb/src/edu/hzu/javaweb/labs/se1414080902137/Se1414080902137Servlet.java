@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class se1414080902137Servlet extends HttpServlet {
+public class Se1414080902137Servlet extends HttpServlet {
 
 
 	/**
 	 * Constructor of the object.
 	 */
-	public se1414080902137Servlet() {
+	public Se1414080902137Servlet() {
 		super();
 	}
 
@@ -73,7 +73,7 @@ public class se1414080902137Servlet extends HttpServlet {
 		String userPwd=request.getParameter("password");
 		String info="";
 		if(("abc").equals(userName)&&("123").equals(userPwd)){
-			info="��ӭ�㣬"+userName+"!";
+			info="»¶Ó­Äã£¬"+userName+"!";
 			request.setAttribute("outputMessage", info);
 			request.getRequestDispatcher("Info.jsp").forward(request,response);
 		}else{
