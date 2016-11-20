@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="edu.hzu.javaweb.labs.se1414080902108.*" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>首页</title>
+    <title>显示成绩</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -35,6 +36,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }
         .jumbotron{
             background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #fffae3 10%, #e0f1ff);
+        }
+        select{
+            float: left;
+        }
+
+        input{
+            float: left;
+            margin-right: 10px;
+        }
+        .jumbotron p{
+            font-weight: 800;
+        }
+        #title{
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+        }
+        table{
+            font-weight: 800;
         }
     </style>
 
@@ -134,34 +154,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <c:if test="${name != null}"><%=session.getAttribute("name") %></c:if>
         <c:if test="${name == null}"><a href="sign.jsp">请先登录</a></c:if>
         <br>
-        </h2><br/>
-        <h1>Welcome to</h1><br/>
-        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Internet Based Exam System</h1><br/>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在线考试系统是一款面向老师和学生的优秀系统，可以更好地管理学生的试卷，更高效地评卷以及查询成绩,学生也可以随时随地进行更方便地答题。目前只提供三种功能：老师可以添加考试试题，查询学生成绩，学生可以在线考试答题。</p>
-        <br/><p><a class="btn btn-info btn-lg" href="#" role="button">Know more &raquo;</a></p>
+        </h2><br/><br/>
+        <div class="container">
+            <h2 id="title"><%=request.getAttribute("Message") %></h2><br/><br/><br/>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+            <table align="center" class="table table-hover table-bordered">
+            <tr align="center" class="danger">
+            <td>ID</td><td>Name</td><td>Subject</td><td>Grade</td>
+            </tr>
+            <tr align="center" class="success">
+            <td>1</td>
+            <td><%=request.getAttribute("name") %></td>
+            <td><%=session.getAttribute("subject") %></td>
+            <td><%=request.getAttribute("grade") %></td>
+            </tr>
+            </table>
+            <br><br>
+            </div>
+            <div class="col-sm-2"></div>
+            
+            <div class="col-sm-4"></div>
+            <div class="col-sm-2">
+            <a href="choose.jsp" class="btn btn-success btn-lg" role="button">继续查询</a>
+            </div>
+            <div class="col-sm-2">
+            <a href="index.jsp" class="btn btn-primary btn-lg" role="button">返回首页</a>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
     </div>
+</div><br/><br/><br/><br/>
 </div>
-</div>
-
-<div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Add Question</h2>
-            <p>Please add your questions and answers to create your exam. </p>
-            <p><a class="btn btn-default" href="add.jsp" role="button">添加试题 &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>View Score</h2>
-            <p>The teachers and students can view score in here and should input the student's ID number</p>
-            <p><a class="btn btn-default" href="select.jsp" role="button">查询成绩 &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Do Exam</h2>
-            <p>The students can enter this to do his exam and the system will save the score.</p>
-            <p><a class="btn btn-default" href="choose.jsp" role="button">在线考试 &raquo;</a></p>
-        </div>
-    </div>
 
     <hr>
 

@@ -1,9 +1,21 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="edu.hzu.javaweb.labs.se1414080902108.*" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+
+<%
+        QuestionDAO dao = new QuestionDAO();
+		List<Question> questionlist = new ArrayList<Question>();
+		try {
+			questionlist = dao.findSubject();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("result", questionlist);
+ %>
 
 <!DOCTYPE html>
 <html>
@@ -59,12 +71,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }
 
         #submit {
-            margin-left: 23%;
+            margin-left: 20%;
         }
 
         * {
             font-family: "微软雅黑";
         }
+        a{
+            color:#FFFFFF;
+            text-decoration: none;
+        }
+        a:HOVER {
+            color:#FFFFFF;
+	        text-decoration: none;
+}
     </style>
 </head>
 <body>
@@ -159,7 +179,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <label for="inputSubject" class="col-sm-2 control-label">Subject</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputSubject" name="subject" placeholder="Enter Subject">
+                            <select class="form-control" name="subject">
+                            <c:forEach var="question" items="${result}">
+                            <option><c:out value="${question.subject}"></c:out></option>
+                            </c:forEach>
+                        </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -226,6 +250,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="container">
                         <button type="submit" class="btn btn-success" id="submit" name="submit">Add</button>
                         <button type="reset" class="btn btn-primary" id="reset" name="reset">Reset</button>
+                        <button type="button" class="btn btn-success" id="select" name="select"><a href="Se1414080902108Servlet">Select</a></button>
                     </div>
                 </form>
                 <hr/>

@@ -4,13 +4,13 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
-    <title>显示题目</title>
+    <title>在线考试</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -45,7 +45,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             text-align: center;
             margin-bottom: 50px;
         }
-        .col-sm-9{
+        .col-sm-11{
+            font-size: 18px;
+        }
+        .col-sm-10{
             font-size: 18px;
         }
         .boxs{
@@ -55,6 +58,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             height:300px;
             margin-bottom:20px;
             background-color: #f5f5f5;
+        }
+        .checkbox {
+            float: left;
+            margin-right: 20px;
+            margin-top: 40px;
+        }
+        
+         input[type=radio]{
+           margin-left: 30px;
+        }
+        input[type=submit]{
+           margin-right: 40px;
         }
     </style>
   </head>
@@ -138,42 +153,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="col-md-3 ">
         </div>
         <div class="col-md-6 container">
-            <!--<h2 style="text-align: center">教师信息注册</h2>-->
             <div>
-                <h2><%=request.getAttribute("Message") %></h2>
-
-                <!--<h4>Add your question and answer</h4>-->
+                <h2>考试科目：<%=request.getAttribute("Message") %></h2>
             </div>
             <div>
+                <form action="Do1414080902108" method="get">
                 <% int i=1; %>
                 <c:forEach var="question" items="${result}">
                 <div class="boxs">
-                <label class="col-sm-12"style="text-align:center">Question&nbsp;<%=i++ %></label>
-                <label class="col-sm-3 control-label">Subject:</label>
-                <p class="col-sm-9">&nbsp;<c:out value="${question.subject}"></c:out></p><br/>
-                <label class="col-sm-3 control-label">Question:</label>
-                <p class="col-sm-9">&nbsp;<c:out value="${question.question}"></c:out></p><br/>
-                <label class="col-sm-3 control-label">Option A:</label>
-                <p class="col-sm-9">&nbsp;<c:out value="${question.answer1}"></c:out></p><br/>
-                <label class="col-sm-3 control-label">Option B:</label>
-                <p class="col-sm-9">&nbsp;<c:out value="${question.answer2}"></c:out></p><br/>
-                <label class="col-sm-3 control-label">Option C:</label>
-                <p class="col-sm-9">&nbsp;<c:out value="${question.answer3}"></c:out></p><br/>
-                <label class="col-sm-3 control-label">Option D:</label>
-                <p class="col-sm-9">&nbsp;<c:out value="${question.answer4}"></c:out></p><br/>
-                <label class="col-sm-3 control-label">The Answer:</label>
-                <p class="col-sm-9">&nbsp;<c:out value="${question.answer}"></c:out></p><br/>
-                
+                <label class="col-sm-2 control-label">问题<%=i %>:</label>
+                <p class="col-sm-10">&nbsp;<c:out value="${question.question}"></c:out></p><br/>
+                <label class="col-sm-2 control-label">A:</label>
+                <p class="col-sm-10">&nbsp;<c:out value="${question.answer1}"></c:out></p><br/>
+                <label class="col-sm-2 control-label">B:</label>
+                <p class="col-sm-10">&nbsp;<c:out value="${question.answer2}"></c:out></p><br/>
+                <label class="col-sm-2 control-label">C:</label>
+                <p class="col-sm-10">&nbsp;<c:out value="${question.answer3}"></c:out></p><br/>
+                <label class="col-sm-2 control-label">D:</label>
+                <p class="col-sm-10">&nbsp;<c:out value="${question.answer4}"></c:out></p>
+                <div class="col-sm-12">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7">
+                <div class="form-group">
+                   <div class="checkbox">
+                      <label>
+                          <input type="radio" id="inputA" name="answer<%=i %>"  value="A" class="answer"> A
+                          <input type="radio" id="inputB" name="answer<%=i %>"  value="B" class="answer"> B
+                          <input type="radio" id="inputC" name="answer<%=i %>"  value="C" class="answer"> C
+                          <input type="radio" id="inputD" name="answer<%=i++ %>"  value="D" class="answer"> D
+                       </label>
+                    </div>
                 </div>
-                </c:forEach>         
+                <div class="col-sm-3"></div>
+                
+                        </div>
+                </div>
+                </div>
+                </c:forEach>
+                    <br><br><br>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                    <input type="submit" class="btn btn-primary btn-lg" value="交卷">
+                    <input type="button" class="btn btn-primary btn-lg" value="退出">  
+                    </div>
+                    <div class="col-sm-4"></div> 
+                </form>   
             </div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-5">
-                <br/>
-                <a href=""><button  class="btn btn-primary" >返回</button></a>
-                <a href="add.jsp"><button  class="btn btn-primary" >继续添加</button></a>
-            </div>
-            <div class="col-sm-3"></div>
             <div class="">
                 <footer>
                     <p style="text-align: center;margin-top: 260px">&copy;By&nbsp;Bingo1414080902108</p>

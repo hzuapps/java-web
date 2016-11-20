@@ -1,11 +1,8 @@
 package edu.hzu.javaweb.labs.se1414080902108;
 
-import java.awt.List;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.*;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +15,6 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/1414080902108")
 public class Se1414080902108Servlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	ArrayList<Question> questionlist = new ArrayList<Question>();
-	int i=0;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -35,7 +29,17 @@ public class Se1414080902108Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
+		request.setCharacterEncoding("utf-8");
+		QuestionDAO dao = new QuestionDAO();
+		List<Question> questionlist = new ArrayList<Question>();
+		try {
+			questionlist = dao.findAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("Message", "查看所有题目");
+		request.setAttribute("result", questionlist);
+		request.getRequestDispatcher("/show.jsp").forward(request, response);
 	}
 
 	/**
@@ -44,9 +48,8 @@ public class Se1414080902108Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-        i++;
+
+		request.setCharacterEncoding("utf-8");
 		String subject = request.getParameter("subject");
 		String question = request.getParameter("question");
 		String answer1 = request.getParameter("answer1");
@@ -54,11 +57,28 @@ public class Se1414080902108Servlet extends HttpServlet {
 		String answer3 = request.getParameter("answer3");
 		String answer4 = request.getParameter("answer4");
 		String answer = request.getParameter("answer");
-		String info = "保存成功";
-		questionlist.add(new Question(subject, question, answer1, answer2,
-				answer3, answer4, answer,i));
+
+		Question que = new Question(subject, question, answer1, answer2,
+				answer3, answer4, answer, 0);
+
+		QuestionDAO dao = new QuestionDAO();
+		try {
+			int n = dao.create(que);
+			if (n >= 1) {
+				request.setAttribute("Message", "保存成功");
+			} else {
+				request.setAttribute("Message", "保存失败");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		List<Question> questionlist = new ArrayList<Question>();
+		try {
+			questionlist = dao.findAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		request.setAttribute("result", questionlist);
-		request.setAttribute("Message", info);
 		request.getRequestDispatcher("/show.jsp").forward(request, response);
 	}
 
