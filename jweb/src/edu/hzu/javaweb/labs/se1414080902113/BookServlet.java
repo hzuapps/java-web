@@ -1,7 +1,9 @@
 package edu.hzu.javaweb.labs.se1414080902113;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
+import java.sql.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -40,15 +42,18 @@ public class BookServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out=response.getWriter();
 		String sname=request.getParameter("name");
 		String swriter=request.getParameter("writer");
 		String sdate=request.getParameter("date");
 		String spublish=request.getParameter("publish");
-		String smain=request.getParameter("main");
-	  List<Book> booklist=new ArrayList<Book>();
-	   booklist.add(new Book(sname,swriter,sdate,spublish,smain));
-	   request.setAttribute("sbook", booklist);
-	   request.getRequestDispatcher("show.jsp").forward(request, response);
+		String smain=request.getParameter("main"); 
+	    String sql="Insert into book_info(name,writer,date,publish,main) values('"+sname+"','"+swriter+"','"+sdate+"','"+spublish+"','"+smain+"')";
+		Util run=new Util();
+		int n=run.insertSQL(sql);
+	    if(n>=1) out.println("书籍添加成功"); else  out.println("书籍添加失败");
+
 	}
 
 	/**
