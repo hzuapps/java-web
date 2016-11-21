@@ -1,4 +1,4 @@
-package Controller_servlet;
+package edu.hzu.javaweb.labs.se1414080902204;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.db.DbConnect;
 import com.domain.Szt_information;
 import com.dao.*;
-public class Insert extends HttpServlet {
+public class InsertServlet extends HttpServlet {
 
 	private static final Szt_information Szt_information = null;
 
 	/**
 	 * Constructor of the object.
 	 */
-	public Insert() {
+	public InsertServlet() {
 		super();
 	}
 

@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<form action="Insert" method="post">
+	<form action="InsertServlet" method="post">
 	<table border="0" width="238" height="252">
 	<tr><td>姓名</td><td><input type="text" name="name" ></td></tr>
     <tr><td>身份证</td><td><input type="text" name="idcard" ></td></tr>
