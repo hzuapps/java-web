@@ -1,0 +1,10 @@
+$.a=function(){
+  		$.ajax({
+  			type:"post",
+  			datatype:"html",
+   			url:"1414080902113",
+  			success:function(data){
+  			alert(data);
+   			}
+   		});		
+  	};

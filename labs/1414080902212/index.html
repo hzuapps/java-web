@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>上传文件</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>上传文件</h1>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <form role="form" id="upload" method="post">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                <tbody>
+                    <tr>
+                      <td>文件名</td>
+                      <td align="left"><input id="fileName1" name="fileName1" type="text" style="width:150px"></td>
+                    </tr>
+                    <tr>
+                        <td>文件描述</td>
+                        <td align="left"><input id="discription" name="discription" type="text" style="width:150px"></td>
+                    </tr>
+                    <tr>
+                        <td>文件</td>
+                        <td align="left"><input id="file1" name="file1" type="file"></td>
+                    </tr> 
+                    <tr><td><input type="submit" id="submit_btn" class="btn btn-default" /></td></tr>
+                </tbody>
+            </table>
+    </form>
+        <script type="text/javascript">
+            $( "#upload" ).submit(function( event ) {
+                /*$.ajax({url:"EreFile.json",
+                    complete:function(data){
+                    	console.dir(data);
+                        alert("json数据:"+data.msg);
+                    }
+                })*/
+                if($('#fileName1').val() == "")
+                         alert("缺少文件名");
+                     else if($('#file1').val() == ""){
+                         alert("文件未选择");
+                     }else{
+		                $.getJSON('success.json',function(data){
+		                    alert(data.msg);
+		                }); 
+		            }
+                event.preventDefault();
+            });
+        </script>
+  </body>
+</html>
