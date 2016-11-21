@@ -46,22 +46,8 @@ public class Se1414080902228Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		HttpSession session = request.getSession();
 		session.setAttribute("email", email);
-		
-		List<Product> products = new ArrayList<Product>();
-		String[] name = new String[]{"苹果","梨","香蕉","西瓜","榴莲","水蜜桃"};
-		Date date = new Date();
-		Product product;
-		for(int i = 0; i < 6; i++){
-			product = new Product();
-			product.setDate(date.getYear() + "-" + date.getMonth() + "-" + date.getDay());
-			product.setId(i+"");
-			product.setName(name[i]);
-			product.setNum(i);
-			product.setDescribe("好吃，新鲜");
-			product.setRemarks("无");
-			product.setType(0);
-		}
-		
+		JDBCUtil util = new JDBCUtil();
+		List<Product> products = util.getProduct();
 		request.setAttribute("products", products);
 		request.getRequestDispatcher("/index").forward(request, response);
 		

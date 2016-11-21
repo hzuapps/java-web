@@ -1,4 +1,4 @@
-
+package edu.hzu.javaweb.labs.se1414080902228;
 public class Product {
 	private String id;
 	private String name;
@@ -10,6 +10,18 @@ public class Product {
 	
 	public Product(){}
 	
+	public Product(String id, String name, String date, String describe,
+			String remarks, int num, int type) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.date = date;
+		this.describe = describe;
+		this.remarks = remarks;
+		this.num = num;
+		this.type = type;
+	}
+
 	public String getId() {
 		return id;
 	}
