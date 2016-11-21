@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;  charset=utf-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html;  charset=utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +7,9 @@
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	<script>
-	$(function(){
-		$('form').submit(function(e){
-			var emailText = $('input[type=email]').val();
-			var passwordText = $('input[type=password]').val();
-			$.ajax({
-				url: 'servlet/Se1414080902213Servlet',
-				data: {email:emailText,password:passwordText},
-				datatype: 'html',
-				success: function(data){
-					alert(data.msg);
-				}
-			});
-		});
-	})
-	</script>
 </head>
 <body>
-<form class="form-horizontal" role="form" style="margin-top:300px">
+<form class="form-horizontal" role="form" style="margin-top:300px" action="main.jsp" method="post">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-8">
