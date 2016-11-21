@@ -5,10 +5,10 @@ public class Grades
 	private String sno;
 	private String courseName;
 	private double grade;
-	private int credit;
+	private double credit;
 	
 	
-	public Grades(String CourseName,String Sno,int Credit)
+	public Grades(String CourseName,String Sno,double Credit)
 	{
 		this.courseName=CourseName;
 		this.sno=Sno;
@@ -16,18 +16,19 @@ public class Grades
 	}
 	
 	
-	public Grades(String CourseName,int Credit)
+	public Grades(String CourseName,double Credit)
 	{
 		this.courseName=CourseName;
 		this.credit=Credit;
+		this.grade=0;
 	}
 	
-	public int getCredit() 
+	public double getCredit() 
 	{
 		return credit;
 	}
 
-	public void setCredit(int credit) 
+	public void setCredit(double credit) 
 	{
 		this.credit = credit;
 	}

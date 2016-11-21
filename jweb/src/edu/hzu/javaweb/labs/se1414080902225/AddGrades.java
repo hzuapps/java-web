@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import MainController.SqlHelper;
 import edu.hzu.javaweb.bean.Grades;
 
 @WebServlet(urlPatterns="/UpdateGrades")
@@ -28,8 +29,7 @@ public class AddGrades extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sub1=request.getParameter("subject0");
-		System.out.println(sub1);
+		
 		System.out.println("I'm calling and i will be send to Show page");
 		response.sendRedirect("1414080902225/ShowAssessmentInfo.jsp");
 
@@ -59,9 +59,19 @@ public class AddGrades extends HttpServlet {
 			}
 			
 			int k=0;
-			for (Grades grade : gl) {
+			String sqltext="update coursescore set FinalScore=? where CourseName=?";
+			int affectLine=0;
+			for (Grades grade : gl) 
+			{
 				grade.setGrade(Double.parseDouble(subjectGrades[k++]));
-				
+				Object args[]=new Object[2];
+				args[0]=grade.getGrade();
+				args[1]=grade.getCourseName();
+				affectLine += new SqlHelper().executeUpdate(sqltext, args);
+			}
+			if (affectLine>0) 
+			{
+				System.out.println("成功更新"+Integer.toString(affectLine)+"条数据");
 			}
 			hs.setAttribute("gradesList", gl);
 		} catch (Exception e) {

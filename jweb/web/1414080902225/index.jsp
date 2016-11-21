@@ -18,14 +18,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   </head>
   
@@ -36,6 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container-fluid" id="main">
         <div class="col-md-2 "></div>  
         <div class="col-md-8 bg-success" >
+            <br>
             <br>
             <br>
             <br>
