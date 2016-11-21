@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 		<h3 align="center">创建客户订单</h3>
-			<form name="cj" action="1414080902238">
+			<form name="cj" action="addOrder.jsp">
 				<table>
 					<tr><td>客户姓名：</td><td><input type="text" name="clientName"></td></tr>
 					<tr><td>客户电话：</td><td><input type="text" name="phoneName"></td></tr>
@@ -43,17 +43,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					</tr>
 					<tr><td>付款情况：</td>
-						<td colspan="2">
+						<td colspan="1">
 							<input type="checkbox" name="check">已付款
 							<input type="checkbox" name="check">未付款
-							</td>
-						</tr>
-						<tr><td>
-						<input type="submit"  id="save"  value="保存">
 						</td>
-						<td><button type="button" onclick="cancle()">取消</button></td>
-						</tr>
-				</table>
+					</tr>
+					<tr>
+						<td>
+							<input type="submit"  id="save"  value="保存">
+						</td>
+					<td>
+							<button type="button" onclick="cancle()">取消</button>
+							<button ><a href="OrderForm.jsp">所有订单</a></button>
+						</td>
+					</tr>
+				</table> 
 			</form>
 	</body>
 </html> 
