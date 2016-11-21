@@ -1,4 +1,4 @@
-package Controller_servlet;
+package edu.hzu.javaweb.labs.se1414080902204;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.Szt_informationDAO;
 import com.domain.Szt_information;
 
-public class Delete extends HttpServlet {
+public class DeleteServlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public Delete() {
+	public DeleteServlet() {
 		super();
 	}
 

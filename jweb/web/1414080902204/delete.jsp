@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" contentType="text/html;" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ page import="java.io.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -18,7 +18,7 @@
   <head>
  
     
-    <title>绑定页面</title>
+    <title>解绑页面</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -29,7 +29,7 @@
   </head>
   
   <body>
-    <form action="Delete" method="post">
+    <form action="DeleteServlet" method="post">
     <fieldset>
 
 	<center>
