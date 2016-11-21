@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -30,10 +31,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body bgcolor="yellow">
+<% 	
+	String str1=request.getParameter("textfield3");
+	session.setAttribute("DENGLUHAO",str1); 
+%>
 <form action=""method="post"id="target">
-<p >
-<font size="6"color="#FFFFFF">某滴欢迎您~</font>
-</p>
+<% 	
+			Calendar now=Calendar.getInstance();
+      		Integer Hour=new Integer(now.get(Calendar.HOUR_OF_DAY));
+       		request.setAttribute("hour", Hour);
+         
+%>
+        <div>
+        <p align="center"> 
+        	<c:if test="${hour>=0&&hour<=11 }">上午好！</c:if>
+        	<c:out value="${DENGLUHAO}用户"></c:out> 
+        </p>
+        
+        <p align="center">  
+        	<c:if test="${hour>=12&&hour<=17 }">下午好！</c:if>
+        	<c:out value="${DENGLUHAO}用户"></c:out>
+        </p>
+        
+        <p align="center">  
+        	<c:if test="${hour>=18&&hour<=23 }">晚上好！</c:if>
+        	<c:out value="${DENGLUHAO}用户"></c:out>
+        </p>
+        </div>
 <hr size="15px" noshade>
 <p align="center"><font size="5"color="#ffffff"><b>您好，您现在要去哪儿？</b></font></p>
 <ul>
@@ -70,5 +94,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <font size="5"color="#ffffff"><b>祝您乘坐愉快！*—*</b></font>
 </p>
 </form>
-</body>
+</body>                                                        
 </html>
