@@ -101,8 +101,8 @@
 	 </br>
      <input type="submit" placeholder="上传" name="submit" value="上传"  />
 </form>
- <a href='1414080902240'>歌曲列表</a>
-
+ <a href="show.jsp">歌曲列表</a>
 </div>
+
 
 </body></html>
