@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="gb2312"> 
@@ -29,7 +29,7 @@
 	</div>
 	<button id="sub"  type="button" class="btn btn-default">提交</button>
 </form>
-	
+	<a href="query.jsp">查询历史</a>
 </body>
 </html>
 <script>
