@@ -1,17 +1,26 @@
 package edu.hzu.javaweb.labs.se1414080902134;
 
 public class UserData {
+	private int userId;
 	private String UserName;
 	private String Email;
 	private String Password;
 	private String QuickCode;
 	private boolean Remeber;
+	public boolean isLogin;
 	public UserData(){
 		UserName = "";
 		Email = "";
 		Password = "";
 		QuickCode = "";
 		Remeber = false;
+		isLogin = false;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getUserName() {
 		return UserName;
@@ -71,7 +80,17 @@ public class UserData {
 					return false;
 				} else {
 					//mock to search from database
-					return mock_.mockLogin(this);
+					//return mock_.mockLogin(this);
+					UserData ud = (new UserDataDao()).CheckUser(this);
+					if (ud != null) {
+						setUserName(ud.getUserName());
+						setEmail(ud.getEmail());
+						setPassword(ud.getPassword());
+						isLogin = true;
+						return true;
+					} else {
+						return false;
+					}
 				}
 			}
 		} else {

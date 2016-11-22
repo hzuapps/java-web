@@ -1,0 +1,103 @@
+.main-panel {
+	position : absolute;
+	width : 96%;
+	padding : 10px;
+}
+.odd-label {
+	width : 31%;
+	padding : 1%;
+	float : left;
+	margin : 1%;
+	background : rgba(240, 248, 255, 0.45);
+}
+@media only screen 
+and (min-width : 0px)
+and (max-width : 444px)
+{
+	.main-panel {
+		width : 400px;
+		margin : 10px;
+	}
+	.odd-label {
+		width : 80%;
+		padding : 0 1% 1% 1%;
+		float : left;
+		margin : 0 9% 3% 9%;
+	}
+}
+@media only screen 
+and (min-width : 444px)
+and (max-width : 650px)
+{
+	.main-panel {
+		width : 90%;
+		margin : 10px;
+	}
+	.odd-label {
+		width : 80%;
+		padding : 0 1% 1% 1%;
+		float : left;
+		margin : 0 9% 3% 9%;
+	}
+}
+@media only screen 
+and (min-width : 650px)
+and (max-width : 850px)
+{
+	.main-panel {
+		width : 94%;
+		margin : 3px;
+	}
+	.odd-label {
+		width : 43%;
+		padding : 0 1% 1% 1%;
+		float : left;
+		margin : 0 2% 1% 2%;
+	}
+}
+textarea {
+	width : 98%;
+	height : 98%;
+	left : 1%;
+	top : 1%;
+	background : rgba(240, 248, 255, 0.45);
+}
+.mybody {
+	height : 200px;
+}
+.actionButton {
+	float : right;
+	border : none;
+	background : rgba(0,0,0,0);
+	font-size : x-large;
+	outline : none;
+}
+.head_input {
+	border : none;padding : 2px;
+	border-radius : 10px;
+	background : #f1f5e7;
+	outline : none;
+}
+.body_textarea {
+	border-radius : 12px;
+	outline : none;
+}
+.cohead_ {
+	height : 45px;
+}
+.qCode {
+	width : auto;
+	float : left;
+}
+.time {
+	text-align : right;
+}
+.icon_padding {
+	padding : 0 5px;
+}
+.icon_padding:hover {
+	color : #7cd0f9;
+}
+.title_ {
+	float : left;
+}

@@ -2,6 +2,7 @@ package edu.hzu.javaweb.labs.se1414080902134;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 
@@ -33,10 +34,9 @@ public class MockLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		ServletContext application=this.getServletContext(); 
 		application.setAttribute("message","only dear with post method .");
-		response.sendRedirect("/1414080902134/index.jsp");
+		response.sendRedirect("jweb/1414080902134/home.jsp");
 	}
 
 	/**
@@ -60,26 +60,24 @@ public class MockLogin extends HttpServlet {
 		if (ud.getQuickCode().equals("")) {
 			if (ud.isComplete()) {
 				// login success
-				System.out.println("info-9");
-				//application.setAttribute("UserData",ud);
+				//System.out.println("info-9");
+				ArrayList<Labels> labels = new ArrayList<Labels>();
+				for (int i = 0;i < mock.count;i++) {
+					labels.add(mock.get("", i));
+				}
 				session.setAttribute("login", true);
-				response.sendRedirect("/jweb/1414080902134/HomeUser.jsp");
+				session.setAttribute("labels", labels);
+				response.sendRedirect("/jweb/1414080902134/ShowLabels.jsp");
 			} else {
-				System.out.println("info-7");
-				//request.setAttribute("info", "Login fail , please input username and password or quickcode.");
+				//System.out.println("info-7");
 				session.setAttribute("info", "Login fail , please input username and password or quickcode.");
-				//this.getServletConfig().getServletContext().getRequestDispatcher("/1414080902134/home.jsp").forward(request,response);
 				response.sendRedirect("/jweb/1414080902134/home.jsp");
 			}
 		} else {
-			System.out.println("info-2");
-			//if have a quickcode , not redirect but show the label
+			//System.out.println("info-2");
 			Labels labels = mock.get(ud.getQuickCode());
-			//request.setAttribute("label", content);
-			//request.setAttribute("quickCode", ud.getQuickCode());
 			session.setAttribute("label", labels);
 			session.setAttribute("quickCode", ud.getQuickCode());
-			//this.getServletConfig().getServletContext().getRequestDispatcher("/1414080902134/home.jsp").forward(request,response);
 			response.sendRedirect("/jweb/1414080902134/home.jsp");
 		}
 	}
@@ -88,6 +86,18 @@ public class MockLogin extends HttpServlet {
 
 //temporary until issues x
 class mock{
+	public static int count = 7;
+	public static String[] labels = 
+			(
+				"Monday is a nice begin for me ._" + 
+				"Tuesday is a nice begin for me ._" + 
+				"Wednesday is a nice begin for me ._" + 
+				"Thursday is a nice begin for me ._" + 
+				"Friday is a nice begin for me ._" + 
+				"Saturday is a nice begin for me ._" + 
+				"Sunday is a nice begin for me ._" 
+			)
+			.split("_");
 	public static Labels get(String str){
 		Date d = new Date();
 		Labels label = new Labels();
@@ -95,6 +105,16 @@ class mock{
 		label.setTime((1990 + d.getYear()) + "Y " + (1 + d.getMonth()) + "M " + (d.getDate()) + "D " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
 		label.setContent("{Content} : Haha , Nothing I can show for you .");
 		label.setOther(new Object());
+		return label;
+	}
+	public static Labels get(String str,int n) {
+		Date d = new Date();
+		Labels label = new Labels();
+		label.setTitle("{Title}: " + labels[n % 7].split(" ")[0]);
+		label.setTime((1990 + d.getYear()) + "Y " + (1 + d.getMonth()) + "M " + (d.getDate()) + "D " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
+		label.setContent("{Content} : " + labels[n % 7]);
+		label.setOther(new Object());
+		label.setQuickCode("" + n);
 		return label;
 	}
 }

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -37,9 +38,10 @@ public class Se1414080902134Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ServletContext application=this.getServletContext(); 
-		application.setAttribute("message","only dear with post method .");
-		response.sendRedirect("/1414080902134/Home.jsp");
+		//ServletContext application=this.getServletContext(); 
+		//application.setAttribute("message","only dear with post method .");
+		System.out.println("only dear with post method");
+		response.sendRedirect("/jweb/1414080902134/Home.jsp");
 	}
 
 	/**
@@ -47,43 +49,66 @@ public class Se1414080902134Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ServletContext application=this.getServletContext(); 
+		HttpSession session = request.getSession();
+		session.setAttribute("info", null);
+		session.setAttribute("label", null);
+		session.setAttribute("quickCode", null);
+		Object isLogin_ = session.getAttribute("isLogin");
 		boolean isLogin = false;
-		PrintWriter out = response.getWriter();
+		ServletContext application=this.getServletContext();
 		UserData ud = new UserData();
+		Object ud_ = session.getAttribute("ud");
 		Enumeration<String> iter_ = (request.getParameterNames());
+		////////////if is login and remembered ///////////////////
+		if (isLogin_ != null && ud_ != null) {
+			if (((String)isLogin_).equals("true")) {
+				isLogin = true;
+			} else {
+				session.setAttribute("isLogin", null);
+			}
+		}
+		///////////////// fill the form //////////////////////////
 		while (iter_.hasMoreElements()) {
 			String key = iter_.nextElement();
 			ud.setAttribute(key,request.getParameter(key));
 		}
-		if (ud.getQuickCode().equals("")) {
-			if (!ud.isComplete()) {
-				out.write("Information is not full .");
+		//////////////// try to login ///////////////////
+		ud.isComplete();
+		///////////////// quickcode first /////////////////
+		if (!ud.getQuickCode().equals("")) {
+			//to get a note
+			note n = new note();
+			notesDao nd = new notesDao();
+			n.setQuickCode(ud.getQuickCode());
+			nd.fillNote(n);
+			System.out.println("quickCode is " + n.getQuickCode());
+			if (n.isFill) {
+				session.setAttribute("label",n);
+				System.out.println("quickCode success");
 			} else {
-				if (ud.getUserName().isEmpty()) {
-					out.write("Welcome , " + ud.getEmail());
-					isLogin = true;
-				} else {
-					out.write("Welcome , " + ud.getUserName());
-					isLogin = true;
-				}
+				session.setAttribute("info","Please a right quick code .");
+				System.out.println("quickCode fail");
 			}
-		} else {
-			out.write("QuickCode = " + ud.getQuickCode());
-			//isLogin = true;
+			response.sendRedirect("1414080902134/home.jsp");
 		}
-		if (ud.isComplete()) {
-			if (isLogin) {
-				application.setAttribute("UserData",ud);
-				response.sendRedirect("1414080902134/HomeUser.jsp");
-			} else {
-				//TO DO
-				//SEARCH SOMETHING FROM DATABASE BY THE QUICKCODE
-			}
+		else if (ud.isLogin) {
+			//new user login , keep down the new one
+			session.setAttribute("ud", ud);
+			System.out.println("login");
+			session.setAttribute("login",true);
+			response.sendRedirect("1414080902134/ShowLabels.jsp");
+		} else if (isLogin) {
+			//if there is a user is login
+			System.out.println("old login");
+			session.setAttribute("login",true);
+			session.setAttribute("ud", ud);
+			response.sendRedirect("1414080902134/ShowLabels.jsp");
 		} else {
-			response.sendRedirect("1414080902134/Home.jsp");
+			//login fail
+			session.setAttribute("info","Try to login to continue .[user name or password is wrong]");
+			System.out.println("login fail");
+			response.sendRedirect("1414080902134/home.jsp");
 		}
-		out.flush();
 	}
 
 }

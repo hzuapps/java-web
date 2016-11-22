@@ -21,6 +21,10 @@ public class LoginFilter implements Filter {
     /**
      * Default constructor. 
      */
+	private final String js = "/jweb/1414080902134/js";
+	private final String css = "/jweb/1414080902134/css";
+	private final String font = "/jweb/1414080902134/font";
+	private final String img = "/jweb/1414080902134/img";
     public LoginFilter() {
         // TODO Auto-generated constructor stub
     }
@@ -48,10 +52,17 @@ public class LoginFilter implements Filter {
 		} else {
 			page = reqURL;
 		}
-		System.out.println(page);
+		//System.out.println(page);
+		//System.out.println(page);
 		if (session.getAttribute("login") != null) {
 			chain.doFilter(request, response);
-		} else if (page.equals("/jweb/1414080902134/home.jsp") || page.equals("/jweb/MockLogin")){
+		} else if (page.equals("/jweb/1414080902134/home.jsp") 
+					|| page.equals("/jweb/1414080902134")
+					|| page.substring(0,js.length()).equals(js)
+					|| page.substring(0,font.length()).equals(font)
+					|| page.substring(0,css.length()).equals(css)
+					|| page.substring(0,img.length()).equals(img)
+			){
 			chain.doFilter(request, response);
 		} else {
 			res.sendRedirect("/jweb/1414080902134/home.jsp");

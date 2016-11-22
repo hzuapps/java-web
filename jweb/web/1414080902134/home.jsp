@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="edu.hzu.javaweb.labs.se1414080902134.Labels" %>
+<%@ page import="edu.hzu.javaweb.labs.se1414080902134.note" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,6 +11,7 @@
 	<link href = "http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel = "styleSheet"/>
 	<link href = "http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css" rel = "styleSheet"/>
 	<script src = "http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src = "js/bgimage.js"></script>
 	<style>
 		.main{
 			position : absolute;
@@ -29,9 +30,17 @@
 				padding : 5px;
 			}
 		}
+		.bgt {
+			background : rgba(133, 197, 138, 0.2);
+		}
 	</style>
 </head>
 <body>
+<script>
+	window.onload = function(){
+		bg();
+	}
+</script>
 <div class = "main">
 	<%
 		if (session.getAttribute("info") != null) {
@@ -42,10 +51,13 @@
 			session.setAttribute("info",null);
 		}
 	%>
-	<div class="container" style="padding : 10px;">
-	    <div class="panel col-sm-6">
-	        <!-- <form role="form" id="login" action = "../1414080902134" method = "post"> -->
-	        <form role="form" id="login" action = "../MockLogin" method = "post">
+	<div class="panel panel-info col-sm-8 bgt">
+	    <div class="panel-heading">
+	    	Login
+	    </div>
+	    <div class="panel-body">
+	        <form id="login" action = "../1414080902134" method = "post">
+	        <!-- <form role="form" id="login" action = "../MockLogin" method = "post"> -->
 	            <div class="form-group">
 	                <label for="exampleInputEmail1">
 	                	User Name
@@ -54,7 +66,9 @@
 	                		name = "UserName"
 	                		class="form-control" 
 	                		id="exampleInputEmail1" 
-	                		placeholder="Enter User Name"/>
+	                		placeholder="Enter User Name"
+	                		value = "ibas"
+	                		/>
 	            </div>
 	            <div class="form-group">
 	                <label for="exampleInputPassword1">
@@ -64,7 +78,9 @@
 	                		name = "Password"
 	                		class="form-control" 
 	                		id="exampleInputPassword1" 
-	                		placeholder="Password"/>
+	                		placeholder="Password"
+	                		value = "ibas"
+	                		/>
 	            </div>
 	            <div class="checkbox">
 	                <label>
@@ -78,9 +94,14 @@
 	         </form>
 	      </div>
 	</div>
-	<div class="container" style="padding : 10px;">
-     <div class = "panel col-sm-6">
-     	<form role = "form" id = "QuickCode" action = "../MockLogin" method = "post">
+	
+	<div class="panel panel-info col-sm-6 bgt">
+	    <div class="panel-heading">
+	    	QuickGet
+	    </div>
+     <div class = "panel-body">
+     	<!-- <form role = "form" id = "QuickCode" action = "../MockLogin" method = "post"> -->
+     	<form role = "form" id = "QuickCode" action = "../1414080902134" method = "post">
       	<div class="form-group">
       		<label for = "qc">Quick Code</label>
       		<br/>
@@ -97,9 +118,9 @@
 	
 	<%
 		if (session.getAttribute("label") != null) {
-			Labels label = (Labels)session.getAttribute("label");
+			note label = (note)session.getAttribute("label");
 			out.append(
-					"<div class = 'panel panel-success'>" + 
+					"<div class = 'panel panel-success' style = 'float:left;width:80%;background:rgba(218, 238, 210, 0.48);'> " + 
 						"<div class = 'panel-heading'>" + 
 							label.getTitle() + 
 						"</div>" +
@@ -108,10 +129,10 @@
 						"</div>" + 
 						"<div class = 'panel-footer' style = 'font-size:smaller;'>" + 
 							"<div style = 'width : auto;float : left;'>QC:" + 
-								session.getAttribute("quickCode") +
+								label.getQuickCode() +
 							"</div>" +
 							"<div style = 'text-align : right;'>" + 
-								label.getTime() + 
+								label.getLastTime() + 
 							"</div>" +
 						"</div>" + 
 					"</div>"

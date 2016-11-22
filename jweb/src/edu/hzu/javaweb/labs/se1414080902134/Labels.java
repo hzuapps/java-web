@@ -6,6 +6,13 @@ public class Labels {
 	private String title;
 	private String content;
 	private String time;
+	private String quickCode;
+	public String getQuickCode() {
+		return quickCode;
+	}
+	public void setQuickCode(String quickCode) {
+		this.quickCode = quickCode;
+	}
 	private Object other;
 	public String getTitle() {
 		return title;
