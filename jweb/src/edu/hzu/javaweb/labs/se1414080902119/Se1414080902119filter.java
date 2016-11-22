@@ -23,6 +23,8 @@ public class Se1414080902119filter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		String localAddr = request.getLocalAddr();
 		if("127.0.0.1".equals(localAddr))
 		{
@@ -38,8 +40,6 @@ public class Se1414080902119filter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
