@@ -1,6 +1,6 @@
-<%@page language="java" import="java.util.*" pageEncoding="utf-8" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html >
+<html>
 <head lang="zh-cn">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,6 @@
     body{
         background: #F0F0F0;
     }
-
     nav{
         font-family: STXingkai;
         font-size: 17px;
@@ -34,43 +33,33 @@
 
 <body>
 
-<%  
-  request.setCharacterEncoding("utf-8");
-  if(request.getParameter("Username")!= null)
-    session.setAttribute("username",request.getParameter("Username"));
-  
-  if(request.getParameter("Email")!= null)
-    session.setAttribute("email",request.getParameter("Email"));
-  if(request.getParameter("Password")!= null)
-    session.setAttribute("password",request.getParameter("Password"));
- %>
- 
 <nav class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand">ç«è½¦ç¥¨è®¢ç¥¨æœåŠ¡ä¸­å¿ƒ</a>
+            <a class="navbar-brand">»ð³µÆ±¶©Æ±·þÎñÖÐÐÄ</a>
         </div>
         <ul class="nav navbar-nav">
             <li>
-                <a href="#">è½¦ç¥¨é¢„å®š</a>
+                <a href="#">³µÆ±Ô¤¶¨</a>
             </li>
             <li>
-                <a href="#">æˆ‘çš„è®¢å•</a>
+                <a href="#">ÎÒµÄ¶©µ¥</a>
             </li>
             <li>
-                <a href="#">ä¸ªäººä¿¡æ¯</a>
+                <a href="#">¸öÈËÐÅÏ¢</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> æ³¨å†Œ</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> ç™»å½•</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> ×¢²á</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> µÇÂ¼</a></li>
         </ul>
     </div>
 </nav>
 
-<form role="form" class="form-horizontal" method="post" action="Login.jsp">
+
+<form role="form" class="form-horizontal" method="get" action="check">
     <div class="form-group">
-        <label class="control-label col-md-5">ç”¨æˆ·å ï¼š</label>
+        <label class="control-label col-md-5">ÓÃ»§Ãû £º</label>
         <div class="col-md-2 has-feedback" >
             <input type="text" name ="Username" class="form-control">
             <span class="glyphicon glyphicon-user form-control-feedback"></span> 
@@ -78,7 +67,7 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-md-5 ">é‚®ç®± ï¼š</label>
+        <label class="control-label col-md-5 ">ÓÊÏä £º</label>
         <div class="col-md-2  has-feedback" >
             <input type="Email" name="Email" class="form-control">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span> 
@@ -87,7 +76,7 @@
 
 
     <div class="form-group">
-          <label class="control-label col-md-5">å¯†ç  ï¼š</label>
+          <label class="control-label col-md-5">ÃÜÂë £º</label>
           <div class="col-md-2  has-feedback " >
              <input type="Password" name="Password" class="form-control">
              <span class="glyphicon glyphicon-lock form-control-feedback"></span> 
@@ -95,11 +84,14 @@
     </div>
     <br>
 
-      <div class="col-sm-offset-5">
-        <button type="submit" class="btn btn-success" id="submit" name="submit">ç™»å½•</button>
-        <button type="reset" class="btn btn-primary" id="reset" name="reset">å–æ¶ˆ</button>
+    <div class="form-group">
+      <div class="col-md-5"></div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-success btn-block" id="submit" name="submit">µÇÂ¼</button>
       </div>
-
+      <div class="col-md-5"></div>
+    </div>
+    
 </form> 
 </body>
-<html>
+</html>
