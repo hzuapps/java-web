@@ -12,40 +12,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 
-<%
-    String name;
-    String str1=request.getParameter("NAME");
-    request.setAttribute("name",str1) ;
-    request.getAttribute("name");
- %>
-
- <c:if test="${empty requestScope.name}">
-     <%
-     response.sendRedirect("Fail.jsp");
-      %>
- </c:if>
-
 <form>
 	<table align="center">
 	    <tr>
 	       <td align="left">     
-	       亲爱的<c:out value="${ param.NAME}"></c:out>用户！
+	       亲爱的<c:out value="${ param.id}"></c:out>用户！
 	       </td>
 	    </tr>
 	    
 		<tr>
 			<td align="left">功能选择：</td>
 		</tr>
+		
 		<tr>
 			<td align="right">
 				<input type="button" name="" value="提交作业" onclick="window.location.href='Submit.jsp'">
 			</td>
 		</tr>
+		
 		<tr>
 			<td align="right">
 				<input type="button" name="" value="查看作业" onclick="window.location.href='Look.jsp'">
 			</td>
 		</tr>
+		
+		<%
+		String str1=request.getParameter("id");
+        session.setAttribute( "str",str1);
+		 %>
 	</table>
 </form>
 
