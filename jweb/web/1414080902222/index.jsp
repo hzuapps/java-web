@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <meta charset="UTF-8">
    <% SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
  out.println(format.format(new Date()));%>
-    <title>比赛节目喜好调查</title>
+    <title>比赛 节目喜好调查</title>
     
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
   
