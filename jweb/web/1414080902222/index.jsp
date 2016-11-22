@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" import="java.text.*" pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*" import="java.text.*" pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/code"prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,20 +18,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>  
   <body> 
-     <% 
-     Date date = new Date();
-     date.getTime() ;
-    %>
-
+   <%Calendar rightnow=calendar.getInstance();
+	Integer hour=new Integer(rightnow.get(Calendar.HOUR_OF_DAY));
+	request.setAttribute("hour""HOUR");
+   %>
+   <c:if test="${hour>=0&&hour<=11}">上午好!></c:if>
+   <c:if test="${hour>=12&&hour<=17}">下午好!></c:if>
+   <c:if test="${hour>=18&&hour<=23}">晚上好!></c:if>
+   <c:forEach var="word"item="欢，迎，你"begin="0" step="1">
+	<c:out value="${word}"/>
+   </c:forEach>	
    <h3 align="center">比赛节目喜好调查</h3>
      <form  name="stu" action=""> 
       <table> 
-       
-       <tr> <td>性别：</td>
-           <td><input type="radio" name="stuSex" checked="checked" >男 
-               <input type="radio" name="stuSex" >女
-           </td>
-       </tr> 
        <tr> <td>出生日期</td> 
           <td><input type="text" name="stuBirthday" class="form-control"></td> 
        </tr> 
@@ -38,8 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <tr><td>偏好：</td>
           <td><select name ="stuSelect2">
                 <option selected>篮球</option>
-                <option >足球</option>   
-                <option >拳击</option>
+                <option >足球</option>  
                 <option >游戏竞技</option>
              <lect>
           </td>
@@ -47,8 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <tr> <td>平时有看：</td>
            <td colspan="2">
               <input type="checkbox" name="stuCheck" >NBA
-              <input type="checkbox" name="stuCheck" >欧冠
-              <input type="checkbox" name="stuCheck" >WWE
+              <input type="checkbox" name="stuCheck" >欧冠       
               <input type="checkbox" name="stuCheck" >LOL比赛
           </td>
        </tr> 
@@ -58,7 +56,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        </tr> 
        <tr>
          <td><button type="button" class="btn btn-default">提交</td>
-         <td><input type="reset" value="取消"></td>
        </tr> 
      </table> 
    </form> 
