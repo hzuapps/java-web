@@ -1,13 +1,32 @@
-package edu.hzu.javaweb.labs.se1414080902140;
+package Bean;
 
 public class Student {
-	private String name, sex,
-	 sno, age, hight, weight, pulmonary,
-	 longRun, shortRun;
+	private int sno;
+	private String name;
+	private String sex;
+	private int age;
+	private double weight;
+	private double hight;
+	private double longRun;
+	private double shortRun;
+	private int pulmonary;
 
-	public Student(String name, String sex, String sno, String age,
-			String hight, String weight, String pulmonary, String longRun,
-			String shortRun) {
+	public Student(int sno, String name, String sex, int age, double weight,
+			double hight, double longRun, double shortRun, int pulmonary) {
+		super();
+		this.sno = sno;
+		this.name = name;
+		this.sex = sex;
+		this.age = age;
+		this.weight = weight;
+		this.hight = hight;
+		this.longRun = longRun;
+		this.shortRun = shortRun;
+		this.pulmonary = pulmonary;
+	}
+
+	public Student(String name, String sex, int sno, int age, double hight,
+			double weight, int pulmonary, double longRun, double shortRun) {
 		super();
 		this.name = name;
 		this.sex = sex;
@@ -18,6 +37,18 @@ public class Student {
 		this.pulmonary = pulmonary;
 		this.longRun = longRun;
 		this.shortRun = shortRun;
+	}
+
+	public Student() {
+
+	}
+
+	public int getSno() {
+		return sno;
+	}
+
+	public void setSno(int sno) {
+		this.sno = sno;
 	}
 
 	public String getName() {
@@ -36,64 +67,52 @@ public class Student {
 		this.sex = sex;
 	}
 
-	public String getSno() {
-		return sno;
-	}
-
-	public void setSno(String sno) {
-		this.sno = sno;
-	}
-
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	public String getHight() {
-		return hight;
-	}
-
-	public void setHight(String hight) {
-		this.hight = hight;
-	}
-
-	public String getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(String weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
-	public String getPulmonary() {
-		return pulmonary;
+	public double getHight() {
+		return hight;
 	}
 
-	public void setPulmonary(String pulmonary) {
-		this.pulmonary = pulmonary;
+	public void setHight(double hight) {
+		this.hight = hight;
 	}
 
-	public String getLongRun() {
+	public double getLongRun() {
 		return longRun;
 	}
 
-	public void setLongRun(String longRun) {
+	public void setLongRun(double longRun) {
 		this.longRun = longRun;
 	}
 
-	public String getShortRun() {
+	public double getShortRun() {
 		return shortRun;
 	}
 
-	public void setShortRun(String shortRun) {
+	public void setShortRun(double shortRun) {
 		this.shortRun = shortRun;
 	}
 
+	public int getPulmonary() {
+		return pulmonary;
+	}
 
-	
+	public void setPulmonary(int pulmonary) {
+		this.pulmonary = pulmonary;
+	}
 
 }
-
