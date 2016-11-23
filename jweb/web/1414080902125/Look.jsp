@@ -12,41 +12,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 
-<form>
+<form action="CKjieguo.jsp" method="post">
 	<table align="center">
+	    <tr>
+	         <td>请输入学号：</td>
+	    </tr>
+	    
 		<tr>
-			<td align="left" >查看作业：</td>
-		</tr>
-		<tr>
-			<td align="left">
-				在这里显示作业：
+              </td><td><input type="text" name="id"></td>
+        </tr>
+        
+        <tr>
+			<td align="right">
+				<input type="submit" name="" value="查看">
+				<input type="reset" name="" value="取消">
 			</td>
 		</tr>
-		
-		<tr>
-		   <td align="left">
-		      <%
-		      request.setCharacterEncoding("UTF-8");
-		      %>
-		      <%
-				String job1;
-				String str1=request.getParameter("JOB1");
-				request.setAttribute("job1", str1);
-		        request.getAttribute("job1");
-		       %>
-		      <c:out value="${requestScope.job1}"></c:out>
-		   </td>
-		</tr>
-		
-		<tr>
-		   <td align="left">
-		   <%
-		   request.setCharacterEncoding("UTF-8");
-		    %>
-		      <c:out value="${param.JOB1}"></c:out>
-		   </td>
-		</tr>
-		
 	</table>
 </form>
 
