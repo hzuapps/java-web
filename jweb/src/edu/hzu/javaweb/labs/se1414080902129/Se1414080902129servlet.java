@@ -1,12 +1,16 @@
 package edu.hzu.javaweb.labs.se1414080902129;
 
+import java.awt.List;
+
 import java.io.IOException;
 
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.jws.WebService;
 import javax.servlet.ServletException;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,16 +49,20 @@ public class Se1414080902129servlet extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8"); 
 		String stuname=request.getParameter("stuname");
 		String stuphone=request.getParameter("stuphone");
 		String expressname=request.getParameter("expressname");
 		String stuadd=request.getParameter("stuadd");
+		String d=request.getParameter("d");
 		String info="»¶Ó­Äã"+stuname+"!";
 		
 	    request.setAttribute("outputMessage",info);
 	    request.setAttribute("stuname", stuname);
 	    request.setAttribute("stuadd", stuadd);
+		request.setAttribute("d",d);
+	    
 	    request.setAttribute("stuphone", stuphone);
 	    request.setAttribute("expressname", expressname);
 		request.getRequestDispatcher("/web/output.jsp").forward(request,response);
