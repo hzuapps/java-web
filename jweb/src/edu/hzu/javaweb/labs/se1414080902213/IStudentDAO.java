@@ -1,7 +1,7 @@
-package com.dao;
+package edu.hzu.javaweb.labs.se1414080902213;
 
 import java.util.List;
-import stu_info.Student;
+
 
 public interface IStudentDAO {
 	

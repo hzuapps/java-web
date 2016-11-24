@@ -1,10 +1,8 @@
-package com.dao;
-
+package edu.hzu.javaweb.labs.se1414080902213;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
-import stu_info.Student;
-import model_Db.DBConnection;
+
 
 public class StudentDAO implements IStudentDAO{
 	

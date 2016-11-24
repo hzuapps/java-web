@@ -1,4 +1,4 @@
-package model_Db;
+package edu.hzu.javaweb.labs.se1414080902213;
 
 import java.sql.*;
 
