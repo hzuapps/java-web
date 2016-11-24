@@ -67,6 +67,7 @@ catch(Exception e)
   </head>
   
   <body>
-  
+   <a href="index.jsp"> 添加，查询，删除功能</a></br></br>
+ 
   </body>
 </html>
