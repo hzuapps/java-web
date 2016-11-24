@@ -1,9 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +21,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<a class="title_text" href="">上传</a>
 			<a class="title_text" href="">(敬请期待)</a>
 		</div>
+		<%String userName=request.getParameter("userName"); %>
+		<%-- <%=userName %> --%>
+		<%request.setAttribute("userName", userName); %>
 		<div id="head_right">
-			<img id="head_right_img" src="src/head.png" alt="usrename">
+			<c:if test="${userName==null}">
+				<c:out value="${'请登录'}"></c:out>
+			</c:if>
+			<c:if test="${userName!=null}">
+				<img id="head_right_img" src="src/head.png" alt="usrename">
+			</c:if>
 		</div>
+		
 	</div>
 	<div id="content">
 		<!-- 如果上传文件,必须使用此句 enctype="multipart/form-data",表示不对文件进行编码
