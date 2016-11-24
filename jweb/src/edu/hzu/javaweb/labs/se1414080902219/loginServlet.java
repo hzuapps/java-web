@@ -43,14 +43,61 @@ public class loginServlet extends HttpServlet {
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("password");
 
-		HttpSession session=request.getSession();
-		session.setAttribute(userName, password);
-		System.out.println(userName+password);
-		PrintWriter out=response.getWriter();
-		if("swindy".equals(userName)&&"1234".equals(password))
-			out.println("登陆成功");
-		else
-			out.println("登陆失败");
+
+		   String driverName="com.mysql.jdbc.Driver";
+		   String UserName="root";
+		   String userPwd="";
+		   String dbName="thesis";
+		   String url1="jdbc:mysql://localhost:3306/"+dbName;
+		   String url2="?user="+UserName+"&password="+userPwd;
+		   String url3="&useUnicode=true&characterEncoding=utf-8";
+		   String url=url1+url2+url3;
+
+
+		   request.setCharacterEncoding("utf-8");
+		   String sql= "select password from user where userName=?";
+
+		   try{
+
+			   Class.forName(driverName);
+			   Connection conn=DriverManager.getConnection(url);
+
+			   PreparedStatement pstmt=conn.prepareStatement(sql);
+			   pstmt.setString(1,userName);
+
+
+		       ResultSet r=pstmt.executeQuery();
+
+
+		       if(r.next())
+		       {
+
+		           System.out.println(r.getString("password"));
+		           PrintWriter out=response.getWriter();
+		           if(r.getString("password").equals(password))
+		           {
+		           HttpSession session=request.getSession();
+		   		   session.setAttribute("userName", userName);
+		   		       out.println("登陆成功");
+		           }
+		   		   else
+		   			   out.println("登陆失败");
+
+
+		       }
+		       r.close();
+		       conn.close();
+
+		   }catch(SQLException e)
+		   {
+		       e.printStackTrace();
+		   } catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			 e.printStackTrace();
+		}
+
+
+	
 
 	}
 
