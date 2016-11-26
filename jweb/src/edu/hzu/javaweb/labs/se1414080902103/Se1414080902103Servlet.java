@@ -81,8 +81,8 @@ public class Se1414080902103Servlet extends HttpServlet {
 		String note = request.getParameter("note");
 	   
 		
-	/*	String Msg = "{'姓名':'" + name + "','学号':'" + id + "','日期':'" + date
-		+ "','考勤情况':'" + note + "'}";
+	/*	String Msg = "{'脨脮脙没':'" + name + "','脩搂潞脜':'" + id + "','脠脮脝脷':'" + date
+		+ "','驴录脟脷脟茅驴枚':'" + note + "'}";
         JSONObject data = JSONObject.fromObject(Msg);
         out.print(data);
 */
