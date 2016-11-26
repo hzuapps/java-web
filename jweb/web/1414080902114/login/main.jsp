@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -24,7 +25,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <center>
   <table width="900" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td height="60" bgcolor="#E6F5FF" style="color:#06F; font-size:19px; font-weight:bolder; padding-left:50px;">校园社团管理系统</td>
+      <td height="60" bgcolor="#E6F5FF" style="color:#06F; font-size:19px; font-weight:bolder; padding-left:50px;">校园社团管理系统
+       <h class="td-right">角色：<c:out value="${sessionScope.type}" default="登录异常！"/></h>
+      </td>
+  
     </tr>
     <tr>
       <td height="30" background="Images/MenuBg.jpg">&nbsp;</td>
@@ -113,7 +117,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </tr>
           </table>
           </td>
-          <td width="709" align="center" valign="middle" bgcolor="#F6F9FE"><h1>欢迎使用校园社团管理系统</h1></td>
+          <td width="709" align="center" valign="middle" bgcolor="#F6F9FE">
+          <h1><c:if test="${hour>=0&&hour<=12}">上午好！</c:if>
+          <c:if test="${hour>12&&hour<=17}">下午好！</c:if>
+          <c:if test="${hour>17&&hour<=24}">下午好！</c:if>
+          <c:out value="${sessionScope.username}"/></h1>
+          <h1>欢迎使用校园社团管理系统</h1></td>
         </tr>
       </table></td>
     </tr>
