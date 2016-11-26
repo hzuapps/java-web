@@ -1,52 +1,46 @@
 <%@page import="java.text.SimpleDateFormat"%>
-<%@ page language="java" contentType="text/html; charset=GB18030" 
-pageEncoding="GB18030"%> 
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%> 
 <%@ page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>´úÊÕ¼Ä¿ìµİÏµÍ³</title>
+<title>ä»£æ”¶å¯„å¿«é€’ç³»ç»Ÿ</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
-<script>
-window.onload=function()
-{
-var btn=document.getElementById("hehe");
-var form=document.forms[0];
-btn.onclick=function()
-{
-	form.action="14140809021292";
-	form.submit();
-}
-}
 
-</script>
 </head>
+
 <style type="text/css">
-     h3{font-size:12px;family:ËÎÌå;}
-    
+     h3{font-size:12px;family:å®‹ä½“;}
+
 </style>
       <body>
-		<h3 align="center">´úÊÕ¼Ä¿ìµİ</h3>
+		<h3 align="center">ä»£æ”¶å¯„å¿«é€’</h3>
 		  <form name="express"action="1414080902129" method="get" >
 		  	<table>
-		  		<tr><td>Ñ§ÉúĞÕÃû:</td><td><input type="text"name="stuname"></td></tr>
-		  		<tr><td>ÊÖ»úºÅÂë:</td><td><input type="text"name="stuphone"maxlength=11></td></tr>
-		  		<tr><td>¿ìµİÃû³Æ:</td><td><input type="text"name="expressname"></td></tr>
-		  	    <tr><td>ËŞÉáµØÖ·:</td><td><input type="text"name="stuadd"></td></tr>
-		  		<tr><td></td><td><input type="submit" value="´úÊÕ¿ìµİ" ;"><input type="reset"value="È¡Ïû"></td><input id="hehe" type="submit" value="¿ìµİ" ;" onclick=""></tr>
+		  		<tr><td>å­¦ç”Ÿå§“å:</td><td><input type="text"name="stuname"></td></tr>
+		  		<tr><td>æ‰‹æœºå·ç :</td><td><input type="text"name="stuphone"maxlength=11></td></tr>
+		  		<tr><td>å¿«é€’åç§°:</td><td><input type="text"name="expressname"></td></tr>
+		  	    <tr><td>å®¿èˆåœ°å€:</td><td><input type="text"name="stuadd"></td></tr>
+		  	    
+		  	    <tr><td><input type="checkbox" name="d" value="1">ä»£æ”¶å¿«é€’
+		  	    <input type="checkbox" name="d" value="2">ä»£å¯„å¿«é€’
+		  	    </td></tr>
+		  	    
+		  		<tr><td></td><td><input type="submit" value="ç¡®è®¤" ;"><input type="reset"value="å–æ¶ˆ"></td>
 		  	</table>
-		
+		  	</form>
+			 <img src="D:\github\é«˜çº§ç½‘é¡µè®¾è®¡\1.jpeg" align="right" width="400">
 		 
 		  <div style="text-align: right">
 		    <%
 		  Date date=new Date();
-		  SimpleDateFormat format=new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
+		  SimpleDateFormat format=new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥");
 		  String str=format.format(date);
 		  out.println(str);
 		   %>
 		  </div>
-		 <img src="D:\github\¸ß¼¶ÍøÒ³Éè¼Æ\1.jpeg" align="right" width="400">
+	
 	  </body>
 <script>
 	$(function() {
