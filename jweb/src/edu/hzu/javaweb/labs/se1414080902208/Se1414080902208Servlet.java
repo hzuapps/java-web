@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
   			for (int i = 0;i < Score.length();i++) {
   				int x = str[i] - '0';
   				if (!(x >= 0 && x <= 10)) {
- // 评分最大为10分	
+ // 评分最大为10分，，	
 	                     out.println("请输入正确的评分");
  					msg = "请输入正确的评分";
   					flat = false;
@@ -35,7 +35,7 @@ import javax.servlet.http.HttpSession;
   					int x = sstr[i] - '0';
   					if (!(x >= 0 && x <= 100)) {
 
- //评论字数最多为100				out.println("请在字数范围内输入评论");
+ //评论字数最多为100 ，，			out.println("请在字数范围内输入评论");
  						msg = "请在字数范围内输入评论";
   						flat = false;
   						break;
