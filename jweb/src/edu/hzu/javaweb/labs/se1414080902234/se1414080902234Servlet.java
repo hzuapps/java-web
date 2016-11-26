@@ -39,7 +39,12 @@ public class Se1414080902234Servlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		String text1=request.getParameter("search");
 		PrintWriter out=response.getWriter();
-		if(text1!="") out.println("检索的关键字为："+text1);
+		if(text1!="") 
+		{
+			request.setAttribute("keyword", text1);
+			request.getRequestDispatcher("/Result.jsp").forward(request, response);
+			
+		}
 		else out.println("关键字为空！");
 	}
 
