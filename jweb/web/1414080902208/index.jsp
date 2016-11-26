@@ -8,8 +8,8 @@
           <center>Now time is: 
           <%=new java.util.Date()%>
          </center>
- 	   	  <form id="register" action="servlet/Se1414080902208Servlet" method="post">
- 	   	  <form id="register" action="/LabForTwo/servlet/Se1414080902208Servlet" method="post">
+ 	   	  <form   id="register" action="servlet/Se1414080902208Servlet" method="post">
+ 	   	  <form   id="register" action="/LabForTwo/servlet/Se1414080902208Servlet" method="post">
   		  	<div class="form-group">
                   <label for="score">Score *</label>
                <input type="text" id="Score" class="form-control" />
