@@ -25,34 +25,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     }
  </style>
  <head>
-<title>某滴出行登录</title>
+<title>登录验证出错页面！</title>
 </head>
 <body bgcolor="yellow">
-<form action="YanZheng" method="post"id="target">
-
 	<p >
-		<font size="6"color="#FFFFFF">某滴出行账户登录</font>
+		<font align="center"size="6"color="#FFFFFF"><b><%=request.getParameter("textfield3") %>:登录失败！</b></font>
 	</p>
-	<hr size="15px" noshade>
-	<p>
-	<b>用&nbsp;&nbsp;户&nbsp;&nbsp;名：</b>
-	<input name="textfield3"type="text"class="text2"id="textfield3"placeholder="用户名/邮箱/手机号"/>
-	<br>
-	<br>
-	<br>
-	<p>
-	<b>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</b>
-	<input name="textfield4"type="password"class="text2"id="textfield4"value=""/>
-	<input type="checkbox" checked="ischecked">记住密码
-	<br> 
-	<br>
-	<br>
-	
-	<p>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="submit" class="btn"id="button1"value="登录">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="reset" class="btn"value="重置"></p>
-</form>
-
 </body>
-</html>
+
