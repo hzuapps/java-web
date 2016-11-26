@@ -60,17 +60,4 @@ public class Train {
 	public void setNullSeat(int nullSeat) {
 		this.nullSeat = nullSeat;
 	}
-	public Train(String trainID,String despartPlace,String destination,
-    String despartTime,String arrivalTime,int businessSeat,int firstSeat,int secondSeat,int nullSeat)
-    {
-		this.trainID = trainID;
-		this.nullSeat = nullSeat;
-		this.secondSeat = secondSeat;
-		this.firstSeat = firstSeat;
-		this.businessSeat = businessSeat;
-		this.arrivalTime = arrivalTime;
-		this.despartTime = despartTime;
-		this.destination = destination;
-		this.despartPlace = despartPlace;
-    }
 }

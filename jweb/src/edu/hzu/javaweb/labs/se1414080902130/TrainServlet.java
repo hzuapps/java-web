@@ -34,15 +34,7 @@ public class TrainServlet extends HttpServlet {
 		    TrianDAO tradao = new TrianDAO();
 	        try {
 				List<Train> train = tradao.find(dp, de, dd, rd);
-				List<Train> tra = new ArrayList<Train>();
-				String trainid = null;
-				trainid = train.get(1).getTrainID();
-				int a = 0, b = 0 , c = 0 , d = 0;
-				for(Train tr:train)
-				{
-					
-				}
-				request.setAttribute("tra", tra);
+				request.setAttribute("tra", train);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
