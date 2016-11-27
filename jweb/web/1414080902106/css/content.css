@@ -1,0 +1,118 @@
+/* 本文件用于定义跟 颜色、字体、对齐、边框 相关的选择器 */
+/* 全局通用 */
+.user .name { font-weight: bold; }
+.author .name { color: rgba(0,0,0,.4) }
+.logo {
+  text-align: center;
+  font-family: New Times Roman;
+  font-size: 36px;
+  font-weight: bold;
+  color: rgba(120,4,4,.5);
+}
+
+/* index, register */
+body.index, body.register { background-color: rgba(0,0,255,.1); }
+.index > .login, .register, .new-posts { text-align: center; }
+
+/* home */
+body.home, body.new-posts { background-color: rgba(220,239,254,1); }
+.home > .posts > .item * { text-align: left; }
+.home > .posts .reply { text-align: center; }
+.home > .posts {
+  background-color: white;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgba(0,0,0,.1);
+}
+.home > .posts .create {
+  font-size: 24px;
+  font-weight: bold;
+}
+.home > .posts .title {
+  font-size: 24;
+  color: rgba(45,100,179,1);
+}
+.home > .posts > .item {
+  border-bottom-style: dotted;
+  border-bottom-width: thin;
+  border-bottom-color: rgba(0,0,0,.1);
+}
+.home > .posts .datetime {
+  font-family: "Times New Roman";
+  font-style: italic;
+}
+
+/* display */
+body.display { background-color: rgba(220,239,254,1); }
+.display .datetime { text-align: end; }
+.display > .posts { background-color: white; }
+.display > .posts > .reply > .new { text-align: end; }
+.display > .posts > .reply > .reply { text-align: end; }
+.display > .posts .text { float: left; }
+.display > .posts > .reply .reply .old .delete { float: right; }
+.display > .posts > .reply .reply .old .datetime { clear: none; }
+.display > .posts > .reply .reply .new { text-align: right; }
+.display > .posts > .title {
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: rgba(0,0,0,.3);
+  font-family: "楷体";
+  font-size: 24px;
+}
+.display > .posts .author {
+  text-align: center;
+  background-color: rgba(0,0,0,.05);
+}
+.display > .posts .datetime {
+  float: right;
+  clear: both;
+}
+.display > .posts .operation {
+  clear: both;
+  text-align: end;
+}
+.display > .posts > .reply {
+  border-style: solid;
+  border-width: thin;
+  border-color: rgba(0,0,0,.1);
+}
+.display > .posts > .reply > .count {
+  color: rgba(0,127,255,.7);
+  font-weight: bold;
+}
+.display > .posts > .reply .reply {
+  text-align: left;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgba(0,0,0,.5);
+}
+.display > .posts > .reply .reply .item {
+  border-bottom-style: dotted;
+  border-bottom-width: thin;
+  border-bottom-color: rgba(0,0,0,.3);
+}
+.display > .posts > .reply .reply .author {
+  text-align: right;
+  background-color: white;
+}
+.display > .posts > .reply .reply .author > .name {
+  float: left;
+  text-align: right;
+  color: orange;
+}
+.display > .posts > .reply .reply .author > .name:after {
+  content: " : ";
+  font-weight: bold;
+}
+
+/* account */
+body.account { background-color: rgba(0,0,255,.1); }
+.account .posts {
+  outline-style: dotted;
+  outline-width: thin;
+  background-color: white;
+}
+.account .datetime {
+  float: right;
+  clear: rigth;
+}
