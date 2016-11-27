@@ -30,8 +30,19 @@ public class Se1414080902223Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
+		HttpSession session=request.getSession();
 		PrintWriter out = response.getWriter();
-		out.println("提交成功");
+		String username=request.getParameter("username");
+		String password=request.getParameter("password");
+		
+		if(username.equals("23")&&password.equals("11"))
+		{
+			session.setAttribute("username", username);
+			
+			out.println(1);
+		}
+		else 
+			out.print(0);
 		
 	}
 
