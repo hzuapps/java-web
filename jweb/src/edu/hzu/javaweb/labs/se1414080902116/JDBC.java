@@ -1,4 +1,4 @@
-package com.hzu.util;
+package Bean;
 
 import java.sql.*;
 
