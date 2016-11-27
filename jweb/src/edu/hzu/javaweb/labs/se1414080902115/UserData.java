@@ -1,6 +1,7 @@
 package edu.hzu.javaweb.labs.se1414080902115;
 
 public class UserData {
+	private String id;
  private String user;
  private String pwd;
  private boolean Remember;
@@ -20,7 +21,13 @@ public class UserData {
  {
 	 Remember=remember;
  }
- public String getUser(){
+ public String getId() {
+	return id;
+}
+public void setId(String id) {
+	this.id = id;
+}
+public String getUser(){
 	return user;
  }
  public String getPwd(){

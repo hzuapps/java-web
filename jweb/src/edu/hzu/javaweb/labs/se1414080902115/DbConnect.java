@@ -1,4 +1,4 @@
-package jdbc;
+package edu.hzu.javaweb.labs.se1414080902115;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

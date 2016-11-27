@@ -1,10 +1,12 @@
-package jdbc;
+package edu.hzu.javaweb.labs.se1414080902115;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.hzu.javaweb.labs.se1414080902115.Student;
 
 public class StudentDAO {
 	protected static final String FIELDS_INSERT ="id,name,sex,age,weight,height";
