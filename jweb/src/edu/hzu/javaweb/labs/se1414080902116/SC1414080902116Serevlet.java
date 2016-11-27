@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hzu.util.JDBC;
+import bean.JDBC;
+
+
 
 public class SC1414080902116Serevlet extends HttpServlet {
 

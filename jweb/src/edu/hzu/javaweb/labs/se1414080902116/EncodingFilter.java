@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginFilter implements Filter {
+public class EncodingFilter implements Filter {
 
 	public void destroy() {
 		// TODO Auto-generated method stub

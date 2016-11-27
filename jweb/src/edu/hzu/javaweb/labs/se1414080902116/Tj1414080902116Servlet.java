@@ -7,7 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.hzu.util.*;
+
+import bean.*;
+
+
+
 import java.sql.*;
 
 public class Tj1414080902116Servlet extends HttpServlet {

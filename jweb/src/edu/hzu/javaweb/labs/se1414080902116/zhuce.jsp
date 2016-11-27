@@ -25,8 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head><title>  注册页面</title></head>
   <% request.setCharacterEncoding("utf8"); %>
  用户名：<input type="txet" name="name" value="abc"></br>
-密码:<input type="password" name="userPwd"></br>
-再一次输入你的密码:<input type="password" name="userPwd"></br>
+密码:<input type="password" name="userPwd" value="123"></br>
   性别：<td><input type="radio" name="sex" value="男" checked/>男
   <input type="radio" name="sex" value="女" checked/>女</td></br>
    电话：<input type="text" name="regTelephone"></br>
