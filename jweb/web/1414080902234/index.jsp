@@ -24,9 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
  <form action="1414080902234" method="post">
-查找问卷：<input type="text" size="50" name="search">
+查找：<input type="text" size="50" name="search">
 <input type="submit" value="查找"><br>
-<input type="button" value="创建问卷">
+</form>
+<form action="" method="post" enctype="multipart/form-data">
+上传：<input type="file" name="file" id="file" /> 
+    <input type="submit" name="submit" value="上传" />
 </form>
   </body>
 </html>
