@@ -13,8 +13,8 @@ package edu.hzu.javaweb.labs.se1414080902214;
  import javax.servlet.http.HttpServletResponse;
  import javax.servlet.http.HttpSession;
  
- @WebFilter(filterName="firstFilter",urlPatterns="/*")
- public class firstFilter implements Filter {
+ @WebFilter(filterName="FirstFilter",urlPatterns="/*")
+ public class FirstFilter implements Filter {
  
 	@Override
 	public void destroy() {
