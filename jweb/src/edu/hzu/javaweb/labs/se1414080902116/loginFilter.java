@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginFilter implements Filter {
+public class loginFilter implements Filter {
 
 	public void destroy() {
 		// TODO Auto-generated method stub
@@ -21,19 +21,24 @@ public class LoginFilter implements Filter {
 
 	public void doFilter(ServletRequest arg0, ServletResponse arg1,
 			FilterChain arg2) throws IOException, ServletException {
-		HttpServletRequest request;
+		HttpServletRequest request = null;
 // TODO Auto-generated method stub
-HttpServletRequest requ=(HttpServletRequest)request;
-HttpServletResponse response;
-HttpServletResponse resp=(HttpServletResponse)response;
-HttpSession session=requ.getSession(true);
-if(session.getAttribute("usenarme")=" ") {resp.sendRedirect("login.jsp"); }
-else {FilterChain filterchain;
-filterchain.doFilter(request,response);}
+		arg0.setCharacterEncoding("utf-8");
+		arg1.setCharacterEncoding("utf-8");
+		String username = arg0.getParameter("username");
+		 // TODO Auto-generated method stub 
+		 HttpServletRequest requ=(HttpServletRequest)request; 
+		 HttpServletResponse response = null; 
+		 HttpServletResponse resp=(HttpServletResponse)response; 
+		 HttpSession session=requ.getSession(true); 
+		 if(username == "") {resp.sendRedirect("login.jsp"); } 
+		 else {FilterChain filterchain = null; 
+		 filterchain.doFilter(request,response);} 
+
 	}
 
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generatedmethod stub
 
 	}
 

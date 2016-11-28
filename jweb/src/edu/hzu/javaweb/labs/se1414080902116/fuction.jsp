@@ -56,11 +56,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <a href="see.jsp"> 1.fuction</a></br></br>
   
 
-   <a href="add.jsp"> 2.fuction</br></br>
+   <a href="add1.jsp"> 2.fuction</br></br>
     
     
             
-    <a href="xxx.jsp"> 3.fuction</a></br></br>
+    <a href="xxx1.jsp"> 3.fuction</a></br></br>
       
      
               

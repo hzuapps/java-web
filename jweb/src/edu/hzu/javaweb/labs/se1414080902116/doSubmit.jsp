@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body><h2>你提交显示的内容如下：</h2>
   <% request.setCharacterEncoding("utf8"); %>
   用户名:${param.name }</br>
+  密码：123
   性别:${param.sex }</br>
   电话：${param.regTelephone}</br>
  email:${param.email}</br>
