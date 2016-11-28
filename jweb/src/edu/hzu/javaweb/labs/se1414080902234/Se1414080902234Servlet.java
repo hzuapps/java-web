@@ -45,7 +45,7 @@ public class Se1414080902234Servlet extends HttpServlet {
 			request.getRequestDispatcher("/Result.jsp").forward(request, response);
 			
 		}
-		else out.println("�ؼ���Ϊ�գ�");
+		else out.println("¹Ø¼ü×ÖÎª¿Õ£¡");
 	}
 
 }
