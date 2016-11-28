@@ -34,6 +34,8 @@ span{
  	  margin-right: 20px;
   	 font-size: 30px;	  
  	}
+ 	a:hover,a:visited,a:active,a:link
+ 	{color:white;text-decoration: none; }  
 </style>
 </head>
 
@@ -60,8 +62,8 @@ span{
 			
 			<% out.println("<h2>Now you can:</h2></br>");  %>
            <center>
-           <c:forEach var="item" items="View the information of departments,Fill in the personal information" begin="0" step="1">
- 	 	<button type="submit" class="btn btn-success"><c:out value="${item}"/></button>
+           <c:forEach var="item" items="Viewdepart,Fillresume" begin="0" step="1">
+ 	 	<button type="submit" class="btn btn-success"><a href='${item}.jsp'>${item}</a></button>
  	 </c:forEach>
   	     
   	      	
