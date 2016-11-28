@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class SecurityFilter
  */
-@WebFilter(filterName="SecurityFilter",urlPatterns="/Search.jsp")
+
 public class SecurityFilter implements Filter {
 
    
@@ -39,22 +39,21 @@ public class SecurityFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;   
 	     HttpServletResponse res = (HttpServletResponse) response;    
 	     HttpSession session = req.getSession();   
-	     System.out.println("doFilter22222");
-	    if (session.getAttribute("user") != null) {//登录后才能访问   
+	    if (session.getAttribute("user") != null) {//鐧诲綍鍚庢墠鑳借闂�  
 	         chain.doFilter(request, response);   
 	     } else {   
-	         res.sendRedirect("login.jsp");  
-	    	/* PrintWriter pr=response.getWriter();
-	    	 pr.print("shibai!!!!");*/
+	         //res.sendRedirect("../failure.jsp");  
+	    	 PrintWriter pr=response.getWriter();
+	    	 pr.print("shibai!!!!");
 	     }  
-	    
+	    chain.doFilter(request, response);   
 	}
 
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-	
+		// TODO Auto-generated method stub
 	}
 
 }
