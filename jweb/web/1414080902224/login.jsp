@@ -7,7 +7,7 @@
 	<title>用户登录</title>
 </head>
 <body>
-	<form action="LoginServlet">
+	<form action="ServletLogin">
 		<h2>登录</h2>
 			账号<input type="text"  name="username"><br>
 			密码&nbsp;<input type="password" name="password"><br>
