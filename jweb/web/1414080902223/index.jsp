@@ -29,14 +29,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<i>请输入你的学号和密码</b></i>
 	</font>
 	<hr>
-	<form id="fm" action="" method="post">
+	<form id="fm" action="stu.jsp" method="post">
 	<table border="1">
 	<tr><th bgcolor="MintCream">学号</th><td>
-	<input type="text" size=10 name="number"></td></tr>
+	<input type="text" size=10 name="username"></td></tr>
 	<tr><th bgcolor="MintCream">密码</th><td>
 	<input type="password" size=10 name="password"></td></tr>
+	
 	<tr><td colspan="2" align="center">
-	<input type="submit" vaule="查询"></td></tr>
+	<input type="submit" value="登陆"></td></tr>
+	
 	</table>
 	</form>
 	<font color="red">
@@ -61,15 +63,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <script>
 	$(function(){	
-		$( "#fm" ).submit(function( event ) {		        
-			alert( "cc" );		
+		$( "#fm" ).submit(function( event ) {	
 			$.ajax({
 				type:"post",
+				data:$("#fm").serialize(),
 			  	url: "1414080902223",
 				success:function(data){
-			  	alert(data);
+			  		if(data==0){
+			  			alert("fail");
+			  		}
+			  		else{
+			  			alert("success");
+			  			window.location.href="stu.jsp";
+			  		}
 			 	},
-			 	dataType:"html"
+			 	dataType:"text"
 			});	   
 		});
 	
