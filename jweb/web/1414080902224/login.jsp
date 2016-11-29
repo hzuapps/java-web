@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -7,7 +7,7 @@
 	<title>用户登录</title>
 </head>
 <body>
-	<form action="loginServlet">
+	<form action="LoginServlet">
 		<h2>登录</h2>
 			账号<input type="text"  name="username"><br>
 			密码&nbsp;<input type="password" name="password"><br>
