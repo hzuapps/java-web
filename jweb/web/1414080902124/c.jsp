@@ -1,3 +1,4 @@
+<%@ page import="edu.hzu.javaweb.labs.se1414080902124.Student" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -11,19 +12,26 @@
 <head>
     <title></title>
 </head>
-<jsp:useBean id="user" class="se1414080902124.User" scope="request"/>
+<jsp:useBean id="user" class="edu.hzu.javaweb.labs.se1414080902124.Student" scope="request"/>
 <body>
-test<br/>
+<c:out value="数据已成功保存到数据库,数据如下："> </c:out><br/>
 
-<c:if test="${user.name!=null && user.name.length()>0}">
-    <c:out value="user各属性为:"> </c:out>
-      <c:forEach items="user" >
-          <div>${user.name}</div>
-          <div>${user.id}</div>
-          <div>${user.clazz}</div>
-          <div>${user.city}</div>
-          <div>${user.salary}</div>
-      </c:forEach>
-</c:if>
+<%
+    Student student = (Student) request.getAttribute("stu");
+    session.setAttribute("stu",student);
+%>
+姓名：<%= student.getName()%>
+学号：<%= student.getId()%>
+班级：<%= student.getClazz()%>
+就职城市：<%= student.getCity()%>
+就职薪资：<%= student.getSalary()%>
+
+<form action="index.jsp" method="post">
+    <input type="button" value="修改数据" onclick="javascript:history.back(-1)"/>
+</form>
+
+<form action="DeleteServlet" method="post">
+    <input type="submit" value="删除数据" />
+</form>
 </body>
 </html>
