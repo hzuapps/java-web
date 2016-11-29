@@ -39,8 +39,13 @@ public class Se1414080902234Servlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		String text1=request.getParameter("search");
 		PrintWriter out=response.getWriter();
-		if(text1!="") out.println("¼ìË÷µÄ¹Ø¼ü×ÖÎª£º"+text1);
-		else out.println("¹Ø¼ü×ÖÎª¿Õ£¡");
+		if(text1!="") 
+		{
+			request.setAttribute("keyword", text1);
+			request.getRequestDispatcher("/Result.jsp").forward(request, response);
+			
+		}
+		else out.println("Â¹Ã˜Â¼Ã¼Ã—Ã–ÃŽÂªÂ¿Ã•Â£Â¡");
 	}
 
 }
