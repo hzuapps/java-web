@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class loginFilter
  */
-@WebFilter(filterName="loginFilter",urlPatterns="*.html")
+@WebFilter(filterName="LoginFilter",urlPatterns={"*.html","/PersonMessageModify.jsp","/updatePersonMessage.jsp"})
 public class loginFilter implements Filter {
 
 
