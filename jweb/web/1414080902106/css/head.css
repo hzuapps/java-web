@@ -1,0 +1,6 @@
+.user > .name { font-weight: bold; }
+.user {
+  margin-bottom: 5%;
+  display: block;
+  text-align: right;
+}

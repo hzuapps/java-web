@@ -1,0 +1,170 @@
+/* 本文件用于定义跟 位置、盒子、展现 相关的选择器 */
+/* 全局通用 */
+.logo {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* index */
+body.index {
+  padding: 136px;
+  min-width: 1360px;
+}
+
+/* register */
+body.register {
+  padding: 68px;
+  min-width: 1360px;
+}
+
+/* new-posts */
+body.new-posts { min-width: 1360px; }
+.new-posts .user { margin-bottom: 2%; }
+
+/* home */
+body.home { min-width: 1360px; }
+.home > .posts .title { width: 72%; }
+.home > .posts .author { width: 10%; }
+.home > .posts .datetime { width: 10%; }
+.home > .posts {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.home > .posts > .create {
+  display: block;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 1%;
+}
+.home > .posts > .item {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.home > .posts .reply {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 8%;
+}
+
+/* display */
+body.display { min-width: 1360px; }
+.display > .posts .datetime { padding: 8px; }
+.display > .posts > .reply { display: flex; }
+.display > .posts > .reply .reply .old .datetime { padding: 0; }
+.display > .posts .new > .do { margin: 10px; }
+.display > .home {
+  display: block;
+  margin-left: 10%;
+}
+.display > .posts {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.display > .posts > .title {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.display > .posts > .reply > .count {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.display > .posts > .main {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+}
+.display > .posts .content {
+  min-width: 90.8%;
+  max-width: 90.8%;
+}
+.display > .posts .author {
+  padding-top: 12px;
+  min-width: 100px;
+  max-width: 100px;
+}
+.display > .posts .text {
+  padding: 1em;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+}
+.display > .posts .operation * {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.display > .posts > .reply .new {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  width: 80%;
+}
+.display > .posts > .reply .new .text {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100px;
+  min-height: 100px;
+}
+.display > .posts > .reply .reply {
+  display: none;
+  margin-top: 1%;
+  margin-left: 4%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+}
+.display > .posts > .reply .reply .old {
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.display > .posts > .reply .reply .item {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+}
+.display > .posts > .reply .reply .author {
+  padding-top: 0;
+  min-width: 50px;
+}
+.display > .posts > .reply .reply .author .name {
+  padding-top: 6px;
+  margin-right: 4px;
+  width: 60px;
+}
+.display > .posts > .reply .reply .old .content {
+  min-width: 92%;
+  max-width: 92%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.display > .posts > .reply .reply .old .text {
+  min-height: 0;
+  padding: 0;
+}
+.display > .posts > .reply .reply .new {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: auto;
+}
+.display > .posts > .reply .reply .new .text {
+  display: block;
+  padding-left: 20px;
+  padding-right: 30px;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 80px;
+  min-height: 80px;
+  overflow: overlay;
+}
+
+/* account */
+body.account { min-width: 1360px; }
+.account > .home { margin-left: 10%; }
+.account > .posts {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 5px;
+}

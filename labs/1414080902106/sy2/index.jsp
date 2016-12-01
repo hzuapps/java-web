@@ -1,0 +1,87 @@
+<%@ page pageEncoding = 'utf-8' %>
+<!-- 此页面目标是高仿百度的个人资料修改页面，但是仿不成。。。 -->
+<html lang="zh-cn">
+  <head>
+  	<meta content="text/html;charset=utf-8" />
+    <title>实验一——个人基本资料修改页面</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(function(){
+			$("#form1").submit(function(){
+				$.getJSON("success.json",function(data){
+					console.log(data);
+					alert(data.msg);
+				});
+			});
+		});
+    </script>
+  </head>
+  <body>
+	    <form id="form1" method="post" action="">
+	    	<table align="center">
+			  	<tr><td colspan="2"><h4 class="page-header">基本资料</h4></td></tr>
+		    	<tr>
+			    	<td align="right">性别：</td>
+			    	<td>
+			    		<input name="sex" type="radio" value="0" checked>男
+			    		<input name="sex" type="radio" value="1">女
+			    	</td>
+		    	</tr>
+		    	<tr><td><br/></td></tr>
+		    	<tr>
+			    	<td align="right">生日：</td>
+			    	<td>
+				    	<select id="year" name="year" onChange="onYearChange();">
+				    		<option selected>年</option>
+				    	</select>
+				    	<select id="month" name="month" onChange="onMonthChange();">
+				    		<option selected>月</option>
+				    	</select>
+				    	<select id="day" name="day" style="display:none">
+				    		<option selected>日</option>
+				    	</select>
+			    	</td>
+		    	</tr>
+		    	<tr><td><br/></td></tr>
+		    	<tr>
+			    	<td align="right">血型：</td>
+			    	<td>
+				    	<select name="blood" class="form-control">
+				    		<option value="0" selected>未知</option>
+				    		<option value="1">A</option>
+				    		<option value="2">B</option>
+				    		<option value="3">O</option>
+				    		<option value="4">AB</option>
+				    		<option value="5">其他</option>
+				    	</select>
+				    </td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+			    <tr>
+		    		<td align="right">出生地：</td>
+		    		<td><input name="hometown" type="text" class="form-control"></td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+			    <tr>
+		    		<td align="right">居住地：</td>
+		    		<td><input name="house" type="text" class="form-control"></td>
+			    </tr>
+		    	<tr><td><br/></td></tr>
+			    <tr>
+		    		<td valign="top" align="right" style="line-height:36px">个人简介：</td>
+		    		<td><textarea name="pesonal" cols="50" rows="8" class="form-control"></textarea></td>
+			    </tr>
+			    <tr><td><br/></td></tr>
+			    <tr>
+			    	<td></td>
+	    			<td>
+	    				<input id="save" type="submit" class="btn btn-sm btn-primary" value="保存">
+	    			</td>
+	    		</tr>
+	    	</table>
+	    </form>
+    
+   </body>
+</html>

@@ -1,102 +1,96 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" import="java.util.*,java.sql.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+ 
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>air conditioner</title>
-<style type="text/css">
-/*去除浏览器默认样式*/
-input[type=range] {
-    -webkit-appearance: none;
-    width: 300px;
-    border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
-}
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>main.jsp</title>
+    
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">    
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="This is my page">
+  <!--
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  -->
+  <style type="text/css">
 
-/*滑轨样式*/
-input[type=range]::-webkit-slider-runnable-track {
-    height: 10px;
-    border-radius: 10px; /*将轨道设为圆角的*/
-    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112; /*轨道内置阴影效果*/
-    background: #C1E3EF;
-    width:500px;
-}   
+  body{
+ 
+    font-family: 'Microsoft YaHei';
+  }
 
-/*滑块样式*/
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
-    margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
-    background: #ffffff; 
-    border-radius: 50%; /*外观设置为圆形*/
-    border: solid 0.125em rgba(205, 224, 230, 0.5); /*设置边框*/
-    box-shadow: 0 .125em .125em #3b4547; /*添加底部阴影*/
-}
-
-/*获得焦距时去除外边框*/
-input[type=range]:focus {
-    outline: none;
-}
-
-h1 {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-size: 50px;
-}
-
-
-body {
-  font-family: 'Microsoft YaHei';
-}
-
-form {
-  width:600px;
-  height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 50px;
-}
-
-.form-group {
-  font-size:25px;
-  margin-bottom:25px;
-}
-
-button {
-    width: 200px;
-    height: 40px;
-    margin-left: 150px;
-    margin-top:10px;
-    border-radius: 20px;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#6BD9D4), to(#4BBFA5));
-    color: white;
-    font-size: 18px;
-    outline: none;
-}
-</style>
-</head>
-<body>
-  <h1 align="center">welcome to the control page of air conditioner!</h1>
-  <p align="center"><%=new Date()%></p>
-  <hr width="100%" size="2">
-  <form role="form">
-    <div class="form-group">
-      <label for="temperature ">temperature&nbsp&nbsp&nbsp</label>
-      <input type="range" class="form-control" id="temperature">
-    </div>
-    <div class="form-group">
-      <label for="wind-power">&nbspwind power&nbsp&nbsp&nbsp</label>
-      <input type="range" class="form-control" id="wind-power">
-    </div>
+  h1{
+    font-size: 45px;
+    height:60px;
+    padding-top:20px;
+  }
+  span{
+    float:right;
+    margin-right: 20px;
+   font-size: 25px;   
+  }
+  button{
+     width: 370px;
+     height: 45px;
+      margin-left: 190px;
+      margin-top:10px;
+      border-radius: 20px;
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#6BD9D4), to(#4BBFA5));
+     color: white;
+     font-size: 28px;
+     outline: none;
+     margin-top: 40px;
+   }
+  hr{
+    margin-bottom: 50px;
+  }
+  </style>
+  </head>
   
-   <div class="form-group">
-      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label for="pattern">pattern</label>
-      &nbsp&nbsp&nbsp&nbsp&nbsp<input type="radio" name="pattern" value="efficient" checked="checked"/><span>efficient</span>
-      &nbsp&nbsp&nbsp&nbsp<input type="radio" name="pattern" value="nomal"/><span>nomal</span>
-   </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-</body>
-
-<html>
+  <body>
+   <h1 align="center">Welcome to the main page!</h1>
+   <%
+    Calendar rightNow = Calendar.getInstance();
+    Integer Hour=new Integer(rightNow.get(Calendar.HOUR_OF_DAY));
+    request.setAttribute("hour", Hour);
+   %>
+   <c:choose>
+     <c:when test="${ hour >= 0 && hour <= 11}"><span>Good morning, <c:out value="${param.username}" default="user"/>!</span></c:when>
+     <c:when test="${ hour >= 12 && hour <= 17}"><span>Good afernoon, <c:out value="${param.username}" default="user"/>!</span></c:when>
+     <c:otherwise><span>Good night, <c:out value="${param.username}" default="user"/>!</span></c:otherwise>
+   </c:choose>
+  <hr width="100%" size="2">
+  <%
+    String driverName = "com.mysql.jdbc.Driver";   //驱动程序名
+    String userName = "root";                    //数据库用户名
+    String userPwd = "123456";                  //密码
+    String dbName = "myweb"; 
+    String  url1="jdbc:mysql://localhost/"+dbName;
+    String  url2 ="?user="+userName+"&password="+userPwd;
+    String  url3="&useUnicode=true&characterEncoding=utf-8";
+    String  url =url1+url2+url3;
+    Class.forName(driverName);
+    Connection con=DriverManager.getConnection(url); 
+    PreparedStatement prepStmt =  con.prepareStatement("select name from home_furnishing_info");
+    ResultSet rs = prepStmt.executeQuery();
+        while(rs.next()) {
+          %><button><%=rs.getString(1) %></button>
+      <%}
+    if(rs!=null) rs.close(); 
+    if(prepStmt!=null) prepStmt.close();
+    if(con!=null) con.close();
+   %>
+</form>
+  </body>
+</html>
