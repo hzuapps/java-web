@@ -21,7 +21,7 @@ package edu.hzu.javaweb.labs.se1414080902214;
  		// TODO Auto-generated method stub
  
  	}
- 
+//
  	@Override
  	public void doFilter(ServletRequest request, ServletResponse response,
  			FilterChain chain) throws IOException, ServletException {
