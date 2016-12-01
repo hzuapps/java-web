@@ -9,6 +9,15 @@ public class Userinfo {
 	
 	public Userinfo(){}
 	
+	public Userinfo(String id, String name, String date, boolean sex,int age) {
+			 		super();
+			 		this.id = id;
+			 		this.name = name;
+			 		this.date = date;
+			 		this.sex=sex;
+			 		this.age=age;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -38,6 +47,11 @@ public class Userinfo {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public void add(Userinfo userinfo) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

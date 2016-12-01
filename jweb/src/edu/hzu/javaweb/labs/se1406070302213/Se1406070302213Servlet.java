@@ -13,6 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class Se1406070302213Servlet extends HttpServlet {
+	
+	public Se1406070302213Servlet() {
+ 		super();
+ 	}
+	
+	public void destroy() {
+ 		super.destroy(); // Just puts "destroy" string in log
+ 		// Put your code here
+ 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
  			throws ServletException, IOException {
@@ -22,21 +31,8 @@ public class Se1406070302213Servlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("pw", pw);
 		
-		List<Userinfo> userinfos = new ArrayList<Userinfo>();
-		String[] name = new String[]{"∞¢¥Û","∞¢∂˛","’‘√Ù"};
-		int[] age=new int[]{22,21,18};
-		boolean[] sex=new boolean[]{true,true,false};
-		Date date = new Date();
-		Userinfo userinfo;
-		for(int i = 0; i < 3; i++){
-			userinfo = new Userinfo();
-			userinfo.setDate(date.getYear() + "-" + date.getMonth() + "-" + date.getDay());
-			userinfo.setId(i+"");			
-			userinfo.setName(name[i]);
-			userinfo.setAge(age[i]);
-			userinfo.setSex(sex[i]);
-		}
-		
+		JdbcConnect util = new JdbcConnect();
+		List<Userinfo> userinfos = util.getUserinfo();
 		request.setAttribute("userinfos", userinfos);
 		request.getRequestDispatcher("/index").forward(request, response);
 	}		
