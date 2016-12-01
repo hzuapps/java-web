@@ -2,71 +2,47 @@ package edu.hzu.javaweb.labs.se1414080902222;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Se1414080902222Servlet extends HttpServlet {
+@WebServlet("/1414080902222")
+  public class Se1414080902222Servlet extends HttpServlet {
+  
 
-	/**
-	 * Constructor of the object.
-	 */
-	public Se1414080902222Servlet() {
-		super();
-	}
+  		request.setCharacterEncoding("gb2312");
+  		response.setCharacterEncoding("gb2312");
+  		PrintWriter out = response.getWriter();
+ 
+ 		String Advice = new String(request.getParameter("account"));
+ 		
+ 
+ 
+  		if (Advice.equals("")) {
 
-	/**
-	 * Destruction of the servlet. <br>
-	 */
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
-
-	/**
-	 * The doGet method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to get.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("Success");
-//		System.out.println("fsdfsdfsd");
-	}
-
-	/**
-	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doGet(request,response);
-	}
-
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
-	}
-
-}
+ 			out.println("请写点什么吧");
+  		} 
+  		 else boolean flat = true;
+ 
+ 			if (flat) {
+ 				Connection conn = null;
+ 				PreparedStatement stmt = null;
+ 		        DBBean db = new DBBean();
+ 				try {
+ 			        conn = db.getConnection();
+ 			        String sql = "insert into transfer values(?,?)";
+ 			        stmt = db.getPreparedStatement(sql);
+ 			        stmt.setString(1,Advice);
+ 			       
+ 			        stmt.executeUpdate();
+ 			        db.closeResource(conn,null,stmt);
+ 				} catch (SQLException e) {
+ 					e.printStackTrace();
+ 				}
+ 				out.println("谢谢参与");
+ 			}
+  		}
