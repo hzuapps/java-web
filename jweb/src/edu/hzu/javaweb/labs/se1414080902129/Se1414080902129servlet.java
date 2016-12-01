@@ -56,9 +56,9 @@ public class Se1414080902129servlet extends HttpServlet {
 		String expressname=request.getParameter("expressname");
 		String stuadd=request.getParameter("stuadd");
 		String d=request.getParameter("d");
-		String info="»¶Ó­Äã"+stuname+"!";
+     
 		
-	    request.setAttribute("outputMessage",info);
+	  
 	    request.setAttribute("stuname", stuname);
 	    request.setAttribute("stuadd", stuadd);
 		request.setAttribute("d",d);

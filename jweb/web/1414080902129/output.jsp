@@ -43,6 +43,19 @@
 手机号码是<c:out value="${stuphone}"></c:out>
 </c:if>
 
+<p>现在的时间是:<%=new Date() %></p>
+
+<form action="web/insert.jsp" method="post">
+<table>
+<tr><td> <input type="hidden"name="stuname" value="${stuname}"></td></tr>
+<tr><td><input type="hidden"name="stuphone"maxlength=11 value="${stuphone}"></td></tr>
+<tr><td><input type="hidden"name="expressname" value="${expressname}"></td></tr>
+<tr><td><input type="hidden"name="stuadd" value="${stuadd}"></td></tr>
+<input type="submit" value="提交">&nbsp;&nbsp;&nbsp;
+<input type="reset" value="取消">
+</table>
+
+</form>
 
 
 
