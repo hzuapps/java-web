@@ -1,0 +1,98 @@
+
+#head{
+	height: 96px;
+	min-width: 960px;
+	background: rgb(20,200,120);
+}
+#content{
+	min-width: 960px;
+	background: rgb(226,125,134);
+	padding: 80px 0;
+}
+#tail{
+	height: 64px;
+}
+#head_left{
+	/*float使块级元素同行*/
+	float: left;
+	/*用比例做宽度单位*/
+	width: 90%;
+	padding: 60px 0 0 20px;
+}
+#head_right_img{
+	width: 64px;
+	height: 64px;
+	background: pink;
+	margin: 16px 0;
+}
+.title_text{
+	display: block;
+	float: left;
+	width: 80px;
+	height: 36px;
+	line-height: 36px;
+	font-family: 微软雅黑;
+	text-decoration:none;
+	text-align: center;
+	color: white;
+}
+a.title_text:hover{
+	background:rgb(20,160,120);
+}
+
+/*内容部分*/
+#content_center{
+	height: 280px;
+	width: 400px;
+	background: green;
+	margin: 0 auto;
+	padding-top: 80px;
+	border-radius: 10px;
+	font-size: 12px;
+}
+#content_center input{
+	display: block;
+	width: 75%;
+	height: 2em;
+	margin: 8px auto;
+	padding: 16px,5px;
+}
+
+/* 文件浏览页 */
+#list_view{
+	padding-left: 40px;
+	width: 960px;
+}
+ul{
+	list-style: none;
+}
+li{
+	margin: 5px;
+	padding-left: 20px;
+	background: rgb(246,250,255);
+	height: 100%;
+}
+.fileName{
+	display: inline-block;
+	text-overflow: ellipsis;/* 超出内容显示为省略号*/
+ 	white-space: nowrap;/*文本不进行换行*/
+	width: 360px;
+	height: 48px;
+	font-size:24px;
+}
+.time{
+	display: inline-block;
+	padding-left: 60px;
+	height: 48px;
+	width: 100px;
+	text-decoration-color: #4f4f4f
+}
+.size{
+	display: inline-block;
+	padding-left: 60px;
+	width: 100px;
+	height: 48px;
+}
+t{
+	line-height: 64px;
+}
