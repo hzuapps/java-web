@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ page import="java.sql.*"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -31,13 +32,9 @@
 
 
 <body>
-	<center>
-		Now time is:
-		<%=new java.util.Date()%>
-	</center>
-	<form id="stu" action="1414080902103" method="post">
 
-		<div>学生签到表</div>
+	<form id="stu" action="1414080902103" method="post" target="right" >
+
 		<div>
 			姓名：<input type="text" name="name" id="name">
 		</div>
@@ -53,7 +50,11 @@
 		</div>
 
 		<div>
-		<input type=submit value="登记" >
+
+		
+    <button type="submit" >登记</button>
+    
+	
 			
 			<input type="reset" value="取消" >
 		</div>	  
