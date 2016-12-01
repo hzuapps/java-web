@@ -26,7 +26,7 @@
 		{
 			ajax(url,addElement);
 			showDiv(aBtn[0]);
-		}
+		};
 		aBtn[1].onclick=function()
 		{
 			showDiv(aBtn[1]);
@@ -79,7 +79,7 @@
 			data = "operate=delete&name=" + arr;
 			ajax(url, showDeleteList);
 			ajax(url, afterDelete, data);
-		}
+		};
 	}
 
 	/*
@@ -135,7 +135,7 @@
 		} catch (e) {
 			xmlHttpRequest = new ActiveXObject('Microsoft.XMLHTTP');
 		}
-		xmlHttpRequest.open('post', url + '?' + new Date().getTime(), true)
+		xmlHttpRequest.open('post', url + '?' + new Date().getTime(), true);
 		xmlHttpRequest.setRequestHeader("Content-Type",
 				"application/x-www-form-urlencoded");
 		xmlHttpRequest.send(data);
@@ -143,13 +143,15 @@
 			if (xmlHttpRequest.readyState == 4) {
 				if (xmlHttpRequest.status == 200) {
 					str = xmlHttpRequest.responseText;
-					var json = eval('(' + str + ')')
+					var json = eval('(' + str + ')');
 					doSome(json);
 				} else {
 					alert("出错了");
 				}
+				;
 			}
-		}
+			;
+		};
 	}
 </script>
 <body>
@@ -164,12 +166,12 @@
 			</div>
 		</div>
 		<div class="hehe"
-			style="width: 380px; height: 200px; border: 1px solid #000; border-radius: 5px">
+			style="width: 380px; height: 200px; border: 1px solid #000; border-radius: 5px;overflow:auto;">
 			<div class="list-group" id="top"></div>
 		</div>
 		<div class="hehe"
 			style="display: none; width: 380px; height: 200px; border: 1px solid #000; border-radius: 5px">
-			<form role="form" action="1414080902119?operate=add">
+			<form  action="1414080902119?operate=add">
 				<div class="form-group .col-md-5">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
@@ -181,13 +183,6 @@
 				</div>
 				<button id="addBtn" type="button" class="btn btn-default">添加</button>
 			</form>
-		</div>
-	<div class="col-sm-offset-2 col-sm-10 delete_item" name="delete_item"
-		style="visibility: hidden;">
-		<div class="checkbox">
-			<label> <input type="checkbox" class="delete_item_value">
-				<span></span>
-			</label>
 		</div>
 	</div>
 </body>
