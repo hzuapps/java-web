@@ -83,22 +83,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<a href="home.jsp" class="home">返回首页</a>
 			<ul class="right">
 				<li>
-					<c:if test="${ _username == null }">
+					<c:if test="${ _username == null || _username ==''}">
 						<a href="login.jsp">你好，请登录</a>
 					</c:if>
 					<c:if test="${ _username != null }">
-							<c:out value="${ _username }"></c:out>,欢迎你
+							欢迎你，<c:out value="${ _username }"></c:out>
   					</c:if>
 				</li>
 				<li><a href="#">注册</a></li>
 			</ul>  			
 		</div>
 		<h1 class="text-center">录入简历</h1>
-		<form class="form-horizontal" action="Se1414080902139Servlet" method="post">
+		<form class="form-horizontal" action="servlet/addServlet" method="post">
         	<div class="form-group">
 		    	<label for="" class="col-sm-4 control-label">姓名</label>
 		    	<div class="col-sm-5">
-		      		<input type="text" name="name" class="form-control" id="" placeholder="">
+		      		<input type="text" name="name" class="form-control" id="">
 		    	</div>
 			</div>
 
@@ -115,28 +115,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="form-group">
 		    	<label for="" class="col-sm-4 control-label">专业</label>
 		    	<div class="col-sm-5">
-		      		<input type="text" name="profession" class="form-control" id="" placeholder="">
+		      		<input type="text" name="profession" class="form-control" id="">
 		    	</div>
 			</div>
 
 			<div class="form-group">
 		    	<label for="" class="col-sm-4 control-label">学历</label>
 		    	<div class="col-sm-5">
-		      		<input type="text" name="education" class="form-control" id="" placeholder="">
+		      		<input type="text" name="education" class="form-control" id="">
 		    	</div>
 			</div>
 
 			<div class="form-group">
 		    	<label for="" class="col-sm-4 control-label">电话</label>
 		    	<div class="col-sm-5">
-		      		<input type="tel" name="tel" class="form-control" id="" placeholder="">
+		      		<input type="tel" name="tel" class="form-control" id="">
 		    	</div>
 			</div>
 
 			<div class="form-group">
 		    	<label for="" class="col-sm-4 control-label">邮箱</label>
 		    	<div class="col-sm-5">
-		      		<input type="email" name="email" class="form-control" id="" placeholder="">
+		      		<input type="email" name="email" class="form-control" id="">
 		    	</div>
 			</div>
 
