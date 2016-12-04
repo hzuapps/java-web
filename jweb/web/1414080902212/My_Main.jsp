@@ -1,9 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -12,25 +9,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta charset="UTF-8">
 	<title>上传文件</title>
 </head>
-<link rel="stylesheet" type="text/css" href="css/File_upload.css">
+<link rel="stylesheet" type="text/css" href="css/File_Manage.css">
 <body>
 	<div id="head">
 		<div id="head_left">
-			<a class="title_text" href="">主页</a>
+			<a class="title_text" href="File_Manage_Servlet">主页</a>
 			<a class="title_text" href="">文件</a>
 			<a class="title_text" href="">上传</a>
 			<a class="title_text" href="">(敬请期待)</a>
 		</div>
-		<%String userName=request.getParameter("userName"); %>
-		<%-- <%=userName %> --%>
-		<%request.setAttribute("userName", userName); %>
+		
 		<div id="head_right">
-			<c:if test="${userName==null}">
-				<c:out value="${'请登录'}"></c:out>
-			</c:if>
-			<c:if test="${userName!=null}">
-				<img id="head_right_img" src="src/head.png" alt="usrename">
-			</c:if>
+			<img id="head_right_img" src="src/head.png" alt="usrename">
 		</div>
 		
 	</div>

@@ -3,6 +3,9 @@ package Linco;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,6 +23,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  */
 @WebServlet(description = "Linco's first Servlet", urlPatterns = { "/LincoServlet" })
 public class LincoServlet extends HttpServlet {
+	Connection conn=null;
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -28,6 +32,8 @@ public class LincoServlet extends HttpServlet {
     public LincoServlet() {
         super();
         // TODO Auto-generated constructor stub
+
+    	
     }
 
 	/**
@@ -112,8 +118,19 @@ public class LincoServlet extends HttpServlet {
 	                    "错误信息: " + ex.getMessage());
 	        }
 	        // 跳转到 message.jsp
-	        getServletContext().getRequestDispatcher("/message.jsp").forward(
+	        /*getServletContext().getRequestDispatcher("/message.jsp").forward(
 	                request, response);
+	        */
+	        try {
+				Class.forName("org.sqlite.JDBC");
+			
+		    	conn = DriverManager.getConnection("jdbc:sqlite:d:\\tast.db");
+		        System.out.println("Opened database successfully");
+		    	//PreparedStatement pstmt=conn.prepareStatement("sql 语句");
+	    	} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 }
