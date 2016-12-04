@@ -5,8 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import model.Shop;
 
 public class Build {
 	public Boolean add(String id,String pass){
@@ -26,19 +29,19 @@ public class Build {
 			ps=con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, pass);
-			//ps.executeUpdate();·µ»Ø¸Ä±äÊý¾ÝµÄÌõÊý
+			//ps.executeUpdate();ï¿½ï¿½ï¿½Ø¸Ä±ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½
 			ps.executeUpdate();
 			judge=true;
 		} catch (SQLException e) {
 			judge=false;
-			System.out.println("Ìí¼ÓÓÃ»§Ê§°Ü");
+			System.out.println("");
 			e.printStackTrace();
 		}
 		con_mysql.closes(con, ps, rs);
 		return judge;
 	}
 	
-	//²éÑ¯ÒÑ´æÔÚÓÃ»§ÕËºÅ
+	//ï¿½ï¿½Ñ¯ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ëºï¿½
 	public Map<String,String> querys(){
 		Connection con=null;
 		Statement st=null;
@@ -59,10 +62,52 @@ public class Build {
 				map.put(rs.getString(1),rs.getString(2));
 			}
 		} catch (SQLException e) {
-			System.out.println("²éÑ¯ÓÃ»§Ê§°Ü");
+			System.out.println("ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½Ê§ï¿½ï¿½");
 			e.printStackTrace();
 		}
 		con_mysql.close(con, st, rs);
 		return map;
+	}
+	
+	public ArrayList<Shop> GetShop(){
+		Con_mysql cm=new Con_mysql();
+		Connection co=cm.getConnection();
+		
+		String sql="select * from shop";
+		Statement st=null;
+		ResultSet rs=null;
+		
+		Shop shop=new Shop();
+		ArrayList<Shop> array=new ArrayList<Shop>();
+		try {
+			st = co.createStatement();
+		} catch (SQLException e) {
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½");
+			e.printStackTrace();
+		}
+		
+		try {
+			rs = st.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.println("ï¿½ï¿½Ñ¯Ê§ï¿½ï¿½");
+			e.printStackTrace();
+		}
+		try {
+			while(rs.next()){
+				shop.setShop_name(rs.getString(1));
+				shop.setShop_id(rs.getString(2));
+				shop.setPrice(rs.getString(3));
+				shop.setDescript(rs.getString(4));
+				shop.setNum(rs.getInt(5));
+				shop.setBrand(rs.getString(6));
+				
+				array.add(shop);
+			}
+		} catch (SQLException e) {
+			System.out.println("ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½");
+			e.printStackTrace();
+		}
+		
+		return array;
 	}
 }

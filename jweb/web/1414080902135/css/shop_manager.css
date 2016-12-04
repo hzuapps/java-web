@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+body{
+	background-color: #FFFAFA 
+}
+nav{
+	background-color: #337ab7;
+}
+.navbar-header a{
+	font-size: 30px;
+	color:white;
+	font-family:"微软雅黑";
+}
+.container-fluid{
+	position:relative;
+	top: 0;
+}
