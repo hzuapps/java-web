@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
+	<script type="text/javascript" src="ajax.js"></script>
 	<style type="text/css">
 	body{
 		margin: 0;
@@ -141,12 +141,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<h2 class="h2_title">登录系统
 				<a target="_blank" class="fr" href="#">注册</a>
 			</h2>
-			<form id="target" method="post" action="LoginCheckServlet">
+			<form id="target" method="post" name="login" action="loginServlet">			
 				<!-- 账号 -->
 				<div class="form_group">
 					<label class="control_label">账号</label>
 					<div class="">
-						<input class="form_control" type="text" name="username" placeholder="邮箱/用户名">
+						<input class="form_control" type="text" name="username" id="username" placeholder="邮箱/用户名" >
 					</div>
 				</div>
 				<!-- 密码 -->
@@ -166,7 +166,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<a class="fr for_passwordbtn" href="#">忘记密码</a>
 						</span>
 					</div>
-					<input type="submit" class="login_btn" id="" name="" value="登录">
+					<input type="submit" class="login_btn" id="" name="" onclick="" value="登录">
 				</div>
 			</form>
 		</div>

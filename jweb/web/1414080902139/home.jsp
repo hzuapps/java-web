@@ -71,21 +71,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="nav">
 			<ul class="right">
 				<li>
-					<c:if test="${ _username == null }">
+					<c:if test="${ _username == null || _username ==''}">
 						<a href="login.jsp">你好，请登录</a>
 					</c:if>
-					<c:if test="${ _username != null }">
-							<c:out value="${ _username }"></c:out>,欢迎你
+					<c:if test="${ _username != null && _username !=''}">
+							欢迎你，<c:out value="${ _username }"></c:out>
   					</c:if>
 				</li>
 				<li><a href="#">注册</a></li>
+				<c:if test="${ _username != null && _username !=''}">
+				<li>
+					<a href="login.jsp">退出</a>
+				</li>
+  				</c:if>
 			</ul>  			
 		</div>
 		<h1 class="text-center">简历管理系统</h1>
 		<div class="navbar navbar-default">
 		  	<ul class="nav navbar-nav">
 		  		<li><a href="add.jsp">录入简历</a></li>
-		  		<li><a href="#">修改简历</a></li>
+		  		<li><a href="modify.jsp">修改简历</a></li>
 		  		<li><a href="find.jsp">查询简历</a></li>
 		  	</ul>	
 		</div>	

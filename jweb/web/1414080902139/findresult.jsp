@@ -85,19 +85,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a href="login.jsp">你好，请登录</a>
 					</c:if>
 					<c:if test="${ _username != null }">
-							<c:out value="${ _username }"></c:out>,欢迎你
+							欢迎你，<c:out value="${ _username }"></c:out>
   					</c:if>
 				</li>
 				<li><a href="#">注册</a></li>
 			</ul>  			
 		</div>
-		<h1 class="text-center">我的简历</h1>
+		<h1 class="text-center">查询结果</h1>
 		<c:forEach var="resume" items="${findresult }">
 		<div class="row">
 			<label class="col-sm-4">姓名</label>
 			<div class="col-sm-5 show">${resume.name }</div>
 		</div>
-		<%-- <%=request.getAttribute("_name") %> --%>
 		<div class="row">
 			<label class="col-sm-4">性别</label>
 			<div class="col-sm-5 show">${resume.sex }</div>
