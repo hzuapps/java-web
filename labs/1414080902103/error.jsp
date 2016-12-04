@@ -28,21 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <body>
   
-    
+     <center></center>
 
-         <c:forEach var="StuDetails" items="${StuDetails}">
-     <c:if test="${not empty StuDetails.name && not empty StuDetails.id && not empty StuDetails.date && not empty StuDetails.note}">
-        <center><c:out value="签到已录入"/></center><br>
-    <center>   姓名：${StuDetails.name}<br> 
-         学号：${StuDetails.id} <br>
-         日期： ${StuDetails.date} <br>
-        缺勤情况： ${StuDetails.note} <br></center>
-        </c:if>
-   <c:if test="${empty StuDetails.name || empty StuDetails.id || empty StuDetails.date || empty StuDetails.note}">
+
      <center><c:out value="签到失败"/></center><br>
-        <center> 信息不能为空!</center>
-        </c:if>
-     </c:forEach><br>
+        <center> 录入失败</center>
+
+ <br>
     
 
  
