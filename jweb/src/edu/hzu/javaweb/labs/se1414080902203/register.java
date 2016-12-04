@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import edu.hzu.javaweb.labs.se1414080902203.DBUtil;
 
-public class register extends HttpServlet {
+public class Register extends HttpServlet {
 
-	public register() {
+	public Register() {
 		super();
 	}
 

@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   <form action="register" method="post" >
+   <form action="Register" method="post" >
    <div style="position:absolute; height:100%; width:100%; background-color:#33CC99">
    		<p align="center"><font size="6" >Welcome teacher!
    		</font></p><br><hr><br>
