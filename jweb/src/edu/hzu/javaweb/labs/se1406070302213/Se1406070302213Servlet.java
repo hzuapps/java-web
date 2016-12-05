@@ -1,4 +1,4 @@
-﻿package edu.hzu.javaweb.labs.se1406070302213;
+package edu.hzu.javaweb.labs.se1406070302213;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,7 +23,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 		session.setAttribute("pw", pw);
 		
 		List<Userinfo> userinfos = new ArrayList<Userinfo>();
-		String[] name = new String[]{"����","����","����"};
+		String[] name = new String[]{"阿大","阿二","赵敏"};
 		int[] age=new int[]{22,21,18};
 		boolean[] sex=new boolean[]{true,true,false};
 		Date date = new Date();
