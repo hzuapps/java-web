@@ -1,0 +1,5 @@
+create database test2;
+CREATE TABLE member(
+NAME VARCHAR(100) PRIMARY KEY,
+cost INT
+);

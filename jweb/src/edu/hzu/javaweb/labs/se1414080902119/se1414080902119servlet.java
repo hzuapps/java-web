@@ -2,11 +2,14 @@ package edu.hzu.javaweb.labs.se1414080902119;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,14 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/1414080902119")
 public class Se1414080902119servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	private static List<Member> types;
-	static {
-		types = new ArrayList<Member>();
-		types.add(new Member("张三"));
-		types.add(new Member("李四"));
-		types.add(new Member("王五"));
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -36,28 +31,35 @@ public class Se1414080902119servlet extends HttpServlet {
 		System.out.println(request.getRequestURI());
 		if (operate == null)
 			operate = "";
-		if ("show".equals(operate))
-			doshow(response, request);
-		else if ("add".equals(operate))
-			addTypes(response, request);
-		else
-			showList(response);
+		try {
+			if ("add".equals(operate))
+				addTypes(response, request);
+			else {
+				showList(response, request);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
-	private void doshow(HttpServletResponse response, HttpServletRequest request) throws IOException, ServletException {
-		request.setAttribute("list", types);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/1414080902119/client.jsp");
-		dispatcher.forward(request, response);
-	}
-	
-
-	public void showList(HttpServletResponse response) throws IOException {
+	public void showList(HttpServletResponse response, HttpServletRequest request) throws IOException, SQLException, ServletException {
+		Connection connection = DBConnection.getConnection();
+		List<Member> types = new ArrayList<Member>();
+		String sql = "select name from member";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		ResultSet resultSet = statement.executeQuery();
+		while (resultSet.next()) {
+			Member member = new Member(resultSet.getString(1));
+			types.add(member);
+		}
+		DBConnection.close(connection);
+		DBConnection.close(statement);
 		PrintWriter writer = response.getWriter();
 		writer.write(reJSON(types));
 		writer.close();
 	}
 
-	public void addTypes(HttpServletResponse response, HttpServletRequest request) throws IOException {
+	public void addTypes(HttpServletResponse response, HttpServletRequest request) throws IOException, SQLException {
 		String name = request.getParameter("name");
 		PrintWriter writer = response.getWriter();
 		if (name == null || name.equals("")) {
@@ -65,16 +67,23 @@ public class Se1414080902119servlet extends HttpServlet {
 			writer.close();
 			return;
 		}
-		for (int i = 0; i < types.size(); i++) {
-			if (types.get(i).getName().equals(name)) {
-				writer.write("{\"msg\":\"添加失败\"}");
-				writer.close();
-				return;
-			}
+		Connection connection = DBConnection.getConnection();
+		String sql1 = "select name from member where name=?";
+		PreparedStatement statement1 = connection.prepareStatement(sql1);
+		statement1.setString(1, name);
+		ResultSet resultSet = statement1.executeQuery();
+		if (resultSet.next()) {
+			writer.write("{\"msg\":\"添加失败\"}");
+			writer.close();
 		}
 		Member type = new Member();
 		type.setName(name);
-		types.add(type);
+		String sql = "insert into member(name) values(?)";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setString(1, type.getName());
+		statement.executeUpdate();
+		DBConnection.close(connection);
+		DBConnection.close(statement);
 		writer.write("{\"msg\":\"success\"}");
 		writer.close();
 	}
@@ -90,5 +99,5 @@ public class Se1414080902119servlet extends HttpServlet {
 		}
 		str.append("}");
 		return str.toString();
-}
+	}
 }
