@@ -7,6 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+
   <base href="<%=basePath%>"> 
   <title>校园宿舍管理系统</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
