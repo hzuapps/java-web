@@ -1,137 +1,69 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+%> 
+<!DOCTYPE html>
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>欢迎使用校园社团管理系统</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-  </head> 
-  <body>
-   <center>
-  <table width="900" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td height="60" bgcolor="#E6F5FF" style="color:#06F; font-size:19px; font-weight:bolder; padding-left:50px;">校园社团管理系统
-       <h class="td-right">角色：<c:out value="${sessionScope.type}" default="登录异常！"/></h>
-      </td>
-  
-    </tr>
-    <tr>
-      <td height="30" background="Images/MenuBg.jpg">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="500" align="center" valign="top"><table width="900" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="191" height="500" align="center" valign="top" background="Images/leftbg.jpg">
-          <link href="Style/Style.css" rel="stylesheet" type="text/css" />
-<table width="155" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-              <td height="31" align="center" background="Images/left1.jpg"><strong>系统选项</strong></td>
-            </tr>
-            <tr>
-              <td height="50" align="center" valign="top"><table width="150" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="##">后台首页</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-               
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">管理员管理</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">部门管理</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">部员管理</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">宿舍管理</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">活动管理</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="#">值班管理</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">部门历史资料记载</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">部门公众号管理</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="">修改密码</a></td>
-                </tr>
-                <tr>
-                  <td height="5" align="center"><img src="Images/ic.gif" width="1" height="1"></td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" background="Images/left2.jpg" style="text-align:left; padding-left:40px;"><a href="#" onclick="return confirm('确定要退出系统吗？')">退出系统</a></td>
-                </tr>
-              </table>
-              </td>
-            </tr>
-          </table>
-          </td>
-          <td width="709" align="center" valign="middle" bgcolor="#F6F9FE">
-          <h1><c:if test="${hour>=0&&hour<=12}">上午好！</c:if>
-          <c:if test="${hour>12&&hour<=17}">下午好！</c:if>
-          <c:if test="${hour>17&&hour<=24}">下午好！</c:if>
-          <c:out value="${sessionScope.username}"/></h1>
-          <h1>欢迎使用校园社团管理系统</h1></td>
-        </tr>
-      </table></td>
-    </tr>
-    <tr>
-      <td height="35" background="Images/bootBg.jpg">&nbsp;</td>
-    </tr>
-  </table>
+<head>
+    <!-- <base href="<%=basePath%>"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>欢迎来到医院电子标牌系统</title>
+    <link rel="stylesheet" type="text/css" href="/jweb/login/css/main.css">
+    <style type="text/css">
+    @import "/jweb/login/css/init.css";
+    </style>
+    <script type="text/javascript" src="/jweb/login/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/jweb/login/js/left-select.js"></script>
+</head>
+<body>
+    <div class="container">
+		<div class="header">
+	        <span>社团管理系统</span>
+		</div> 
 
-</center>
+		<div class="content">
+			<div class="content-left">
+			      <div class="left-select-top-img"><span onclick="show('left-select-systems')"></span></div>
+			      <div class="left-select-system"><span>系统选项</span></div>
+			       
+					<ul onmouseover=on() onmouseout=out() id="left-select-systems" style="display:block" >
+						<li class="five"><a href="#">信息查询</a></li>
+						<li class="five"><a href="#">资料修改</a></li>
+						<li class="five"><a href="#">添加成员</a></li>
+            <li class="five"><a href="#">删除成员</a></li>
+					</ul>
 
-  </body>
+				   <div class="left-select-info"><span class="info-ico" onclick="show('left-select-infos')"></span><span class="info-ico-text">个人中心</span></div>
+				   <ul onmouseover=on() onmouseout=out() id="left-select-infos" style="display:none"> 
+						<li class="five"><a href="#">个人信息</a></li>
+						<li class="five"><a href="#">密码修改</a></li>
+				   </ul>
+			</div>
+			<div class="content-right">
+				<h1 class="content-right-h1">
+					<span>
+					<c:if test="${hour>=0&&hour<=12}">上午好！</c:if>
+		            <c:if test="${hour>12&&hour<=17}">下午好！</c:if>
+		            <c:if test="${hour>17&&hour<=24}">下午好！</c:if>
+		            <c:out value="${sessionScope.username}"/></br>
+	                                欢迎使用校园社团管理系统
+	                </span>
+	            </h1>
+			</div>
+		</div>
+
+		<div class="left-bottom">
+		 <font color=#fff></font>
+		<span id="left-bottom"></span>
+		<span id="left-bottom-date"></span>
+		</div>
+         
+		<div class="footer">
+		</div>     	
+	</div>
+   <script type="text/javascript" src="/jweb/login/js/time.js"></script>
+</body>
 </html>
