@@ -23,6 +23,7 @@ public class Users {
 	public void setUsername(String username) {
 		Username = username;
 	}
+	
 	public String getPassword() {
 		return Password;
 	}
