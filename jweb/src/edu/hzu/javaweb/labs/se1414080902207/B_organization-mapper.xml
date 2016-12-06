@@ -70,11 +70,6 @@
         </trim>
     </select>
 
-    <select id="selectChild" parameterType="java.util.HashMap" resultType="OrganizationPojo">
-        select id,code,name,description,pcode,sort from organization
-        where pcode=#{code} AND prjCode=#{prjCode} AND disable="0"
-    </select>
-
     <select id="selectAllCode" parameterType="java.util.HashMap" resultType="java.lang.String">
         select code from organization where disable="0"
     </select>
