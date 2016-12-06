@@ -4,6 +4,13 @@ public class Users {
 	private String Type;
 	private String Username;
 	private String Password;
+	private String Info;
+	public String getInfo() {
+		return Info;
+	}
+	public void setInfo(String info) {
+		this.Info = info;
+	}
 	public String getType() {
 		return Type;
 	}
@@ -16,6 +23,7 @@ public class Users {
 	public void setUsername(String username) {
 		Username = username;
 	}
+	
 	public String getPassword() {
 		return Password;
 	}
