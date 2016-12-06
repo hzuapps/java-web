@@ -1,0 +1,220 @@
+<style type="text/css">
+* {
+  margin: 0px;
+  padding: 0;
+}
+
+.container{
+  width:85%;
+  height: 100%;
+  margin:0 auto;
+  background-color:#CDFEFC;
+  position: relative;
+}
+
+.content{
+  width:1112px;
+  height: 512px;
+  background-color:#CDFEFC;
+  position: relative;
+}
+
+.content-left{
+  width: 120px;
+  height:512px;
+  position:absolute;
+  background-image: url('../Images/left-Bg.jpg');
+  background-repeat: repeat-x;
+  background-size:500%;
+}
+
+.content-right{
+  width: 992px;
+  height:512px;
+  position:absolute;
+  left:120px;
+}
+
+.content-right-h1{
+  height:100%;
+  width:100%;
+  	
+}
+.content-right-h1 span{
+	/* margin:0 auto;
+	display:block; */
+	height:300px;
+	width:300px;
+	font-size:40px;
+	position:absolute;
+	left:300px;
+	top:150px;
+
+}
+
+.left-select-system{
+  height: 20px;
+  width: 120px;
+  text-align: center;
+  background-image: url('../Images/left-select-system.png');
+  background-repeat: no-repeat;
+}
+
+.left-select-system span{
+  position: absolute;
+  font-size: 15px;
+  left: 30px;
+}
+
+.left-select-user,.left-select-power,.left-select-info{
+  width: 120px;
+  height: 20px;
+  background-image: url('../Images/left-select-top.jpg');
+  background-repeat: repeat-x;
+  background-size:120px 25px;
+  position: relative;
+}
+
+.left-select-top-img{
+  height: 20px;
+  width: 120px;
+  float: left;
+  background-image: url('../Images/left-select-top.jpg');
+  top: -10px;
+}
+
+.left-select-top-img span{
+  height: 20px;
+  width: 20px;
+  display: block;
+  float: left;
+  background-image: url('../Images/left-select-system.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 10px;
+  top:1px;
+}
+
+  .user-ico{
+    height: 30px;
+    width: 30px;
+    display: block;
+    float: left;
+    background-image: url('../Images/left-select-user.png'); 
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 12px;
+    top:4px;
+  }
+
+  .user-ico,.power-ico,.info-ico{
+    height: 20px;
+    width: 20px;
+    display: block;
+    float: left;
+    background-image: url('../Images/left-select-system.png');
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+  .user-ico{
+    background-image: url('../Images/left-select-user.png'); 
+    left: 12px;
+    top:2px;
+  }
+  .power-ico{
+    background-image: url("../Images/left-select-power.png");
+    left: 12px;
+    top:2px;
+  }
+  .info-ico{
+    background-image: url("../Images/left-select-info.png");
+    left: 12px;
+    top:1px;
+  }
+  .user-ico-text,.power-ico-text,.info-ico-text{
+    position: absolute;
+    left: 30px;
+  }
+
+
+.left-bottom{
+ height: 20px;
+ width: 150px;
+ float: left;
+ background-image: url('../Images/clock-ico.png'); 
+ background-size: 20px 20px;
+ background-repeat: no-repeat;
+ position:relative;
+ bottom: 512px;
+ left: 970px;
+}
+
+.left-bottom span{
+position: absolute;
+left: 32px;
+
+}
+
+
+#left-bottom-date {
+display: block;
+height: 20px;
+width:140px;
+position: absolute;
+left: 0px;
+top:-25px;
+}
+
+.header{
+    width:1112px; 
+    height:82px;
+    background-color:#6CE6EC;
+    background-image: url('../Images/top.jpg');
+    background-position:0% 100%;
+    background-repeat: repeat-x;/*设置图片向x轴延伸*/
+    position: relative;
+}
+
+.header span{
+    font-size: 50px;
+    color: #fff;
+    position: absolute;
+    left: 20px;
+    top: -10px;
+}
+
+
+.five{
+	   height: 25px;
+	   font-size: 15px;
+	   text-align: center;
+     background-image: url("../Images/left21.jpg");
+     background-repeat: repeat-x;
+     position: relative;
+     left: 0px;
+}
+
+ul a{
+	position: absolute;
+	left: 30px;
+	top:4px;
+}
+
+li.k1{
+  width: 100px;
+  height: 25px;
+  background-color: #fff;
+  position: absolute;
+  top:180px;
+}
+
+.footer{
+    width:1112px; 
+    height:24px;
+    background-color:#6CE6EC;
+    background-image: url("../Images/bottom.jpg");
+    background-repeat: repeat-x;
+    position:relative;
+    bottom:0%;
+}
+</style>
