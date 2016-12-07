@@ -1,64 +1,48 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-pageEncoding="utf-8"%>
- <%
- String path = request.getContextPath();
- String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
- %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+<!DOCTYPE html>
+<html>
 <head>
- <base href="<%=basePath%>">
- <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>菜鸡课表系统</title>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登陆</title>
+<style>
+form{width:350px;height:200px;}  
+form fieldset{border:0;align:center;}  
+form label{display:inline-block;width:60px;text-align:right}  
+input{width:300px;height:35px;}  
+#submit{width:200px;height:35px;position:relative;left:60px;}  
+#submit:hover{  
+        cursor: pointer;  
+        background: #FDF5E6;  
+    }  
+body{  
+    width:100%;   
+    height:100%;  
+    background: #CCDDFF;   
+    }  
+#box{position:fixed;left:0px;right:0px;width:606px;margin-left:auto;margin-right:auto;top:100px;}   
+a{position:relative;bottom:-10px;} 
+</style>
 </head>
 <body>
-
-<div class="desu">
-
-           <h3 class="text-center" style="margin-top: 100px">欢迎使用！</h3>
-           <div class="row"  style="width:300px; margin:auto;height:150px;">
-           <form role="form" id="login">
-           <div class="form-group">
-            <div class="has-feedback" >
-              <label for="exampleInputEmail1">邮箱</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your Account">
-      
-            </div>
-           </div>
-
-           <div class="form-group">
-            <div class="has-feedback" >
-              <label for="exampleInputPassword1">密码</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your Password">
-            </div>
-           </div>
-           <center>
-  	      <button type="submit" class="btn btn-success">登陆</button>
-  	      	
-  		</center>
-          </form>
-          </div>
-       </div>
-       
-       <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-       <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> 
-       <script>
-      $( "#login" ).submit(function() {
-         $.ajax({ 
-          dataType: "html", 
-          url: "1414080902121", 
-          type: "post",
-           success: function(data){
-             alert(data);
-         },
-          error: function (XMLHttpRequest, textStatus, errorThrown) { 
-           alert("error"); 
-                                        } 
-     });
-       });
-      </script>
-      
-
+<div id="box">
+<form action="Se1414080902215Servlet" style="background:#F5F5F5  ">
+<fieldset> 
+  <p>
+    <label for="user">用户：</label>
+    <input type="text" class="" id="user" name="username" placeholder="user">
+<br>
+    <label for="password">密码：</label>
+    <input type="password" class="" id="password" name="password" placeholder="password">
+  <button type="submit" id="submit">登录</button>
+  </fieldset>
+</form>
+</div>
 </body>
+<c:if test="${!empty sessionScope.message}">
+<c:out value="${sessionScope.message}"></c:out>
+</c:if>
 </html>
