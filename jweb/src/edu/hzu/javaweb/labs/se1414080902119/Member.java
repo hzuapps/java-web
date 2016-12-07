@@ -1,7 +1,7 @@
 package edu.hzu.javaweb.labs.se1414080902119;
 
 public class Member {
-	public String name; // 图书类别名字
+	public String name; // 
 
 	public String getName() {
 		return name;

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	response.setHeader("Pragma","No-cache");
@@ -9,10 +8,8 @@
 <html>
 <head>
 <title>网吧会员管理</title>
-<link rel="stylesheet"
-	href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
@@ -26,7 +23,7 @@
 		{
 			ajax(url,addElement);
 			showDiv(aBtn[0]);
-		}
+		};
 		aBtn[1].onclick=function()
 		{
 			showDiv(aBtn[1]);
@@ -79,7 +76,7 @@
 			data = "operate=delete&name=" + arr;
 			ajax(url, showDeleteList);
 			ajax(url, afterDelete, data);
-		}
+		};
 	}
 
 	/*
@@ -135,7 +132,7 @@
 		} catch (e) {
 			xmlHttpRequest = new ActiveXObject('Microsoft.XMLHTTP');
 		}
-		xmlHttpRequest.open('post', url + '?' + new Date().getTime(), true)
+		xmlHttpRequest.open('post', url + '?' + new Date().getTime(), true);
 		xmlHttpRequest.setRequestHeader("Content-Type",
 				"application/x-www-form-urlencoded");
 		xmlHttpRequest.send(data);
@@ -143,18 +140,20 @@
 			if (xmlHttpRequest.readyState == 4) {
 				if (xmlHttpRequest.status == 200) {
 					str = xmlHttpRequest.responseText;
-					var json = eval('(' + str + ')')
+					var json = eval('(' + str + ')');
 					doSome(json);
 				} else {
 					alert("出错了");
-				}
+				};
 			}
-		}
+			;
+		};
 	}
 </script>
+
+
 <body>
-	<div style="width: 380px; margin: 0 auto; margin-top: 50px;" id="main"
-		align="center">
+	<div style="width: 380px; margin: 0 auto; margin-top: 50px;" id="main" align="center">
 		<div class="btn-group btn-group-justified">
 			<div class="btn-group">
 				<button id="btn1" type="button" class="btn1 btn btn-default button">查看网吧会员</button>
@@ -163,31 +162,20 @@
 				<button id="btn2" type="button" class="btn1 btn btn-default button">添加网吧会员</button>
 			</div>
 		</div>
-		<div class="hehe"
-			style="width: 380px; height: 200px; border: 1px solid #000; border-radius: 5px">
+		<div class="hehe" style="width: 380px; height: 200px; border: 1px solid #000; border-radius: 5px;overflow:auto;">
 			<div class="list-group" id="top"></div>
 		</div>
-		<div class="hehe"
-			style="display: none; width: 380px; height: 200px; border: 1px solid #000; border-radius: 5px">
-			<form role="form" action="1414080902119?operate=add">
+		<div class="hehe" style="display: none; width: 380px; height: 200px; border: 1px solid #000; border-radius: 5px">
+			<form action="1414080902119?operate=add">
 				<div class="form-group .col-md-5">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
-							<label for="exampleInputEmail1">网吧会员</label> <input
-								id="types_name" type="text" class="form-control"
-								placeholder="Enter" name="name">
+							<label for="exampleInputEmail1">网吧会员</label> <input id="types_name" type="text" class="form-control" placeholder="Enter" name="name">
 						</div>
 					</div>
 				</div>
 				<button id="addBtn" type="button" class="btn btn-default">添加</button>
 			</form>
-		</div>
-	<div class="col-sm-offset-2 col-sm-10 delete_item" name="delete_item"
-		style="visibility: hidden;">
-		<div class="checkbox">
-			<label> <input type="checkbox" class="delete_item_value">
-				<span></span>
-			</label>
 		</div>
 	</div>
 </body>
