@@ -3,89 +3,41 @@ package edu.hzu.javaweb.labs.se1406070302213;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.mail.Session;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Se1406070302213Servlet extends HttpServlet {
+public void doGet(HttpServletRequest request, HttpServletResponse response)
+ 			throws ServletException, IOException {
 
-	/**
-		 * Constructor of the object.
-		 */
-	public Se1406070302213Servlet() {
-		super();
-	}
-
-	/**
-		 * Destruction of the servlet. <br>
-		 */
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
-
-	/**
-		 * The doGet method of the servlet. <br>
-		 *
-		 * This method is called when a form has its tag value method equals to get.
-		 * 
-		 * @param request the request send by the client to the server
-		 * @param response the response send by the server to the client
-		 * @throws ServletException if an error occurred
-		 * @throws IOException if an error occurred
-		 */
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.println("  Hello!Mr Zeng!");
-		out.println("  <br>");
-		out.println("  My student number is 1406070302213.Thanks!");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
-	}
-
-	/**
-		 * The doPost method of the servlet. <br>
-		 *
-		 * This method is called when a form has its tag value method equals to post.
-		 * 
-		 * @param request the request send by the client to the server
-		 * @param response the response send by the server to the client
-		 * @throws ServletException if an error occurred
-		 * @throws IOException if an error occurred
-		 */
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.println("  Hello!Mr Zeng!");
-		out.println("  <br>");
-		out.println("  My student number is 1406070302213.Thanks!");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
-	}
-
-	/**
-		 * Initialization of the servlet. <br>
-		 *
-		 * @throws ServletException if an error occurs
-		 */
-	public void init() throws ServletException {
-		// Put your code here
-	}
-
+		
+		String pw = request.getParameter("pw");
+		HttpSession session = request.getSession();
+		session.setAttribute("pw", pw);
+		
+		List<Userinfo> userinfos = new ArrayList<Userinfo>();
+		String[] name = new String[]{"阿大","阿二","赵敏"};
+		int[] age=new int[]{22,21,18};
+		boolean[] sex=new boolean[]{true,true,false};
+		Date date = new Date();
+		Userinfo userinfo;
+		for(int i = 0; i < 3; i++){
+			userinfo = new Userinfo();
+			userinfo.setDate(date.getYear() + "-" + date.getMonth() + "-" + date.getDay());
+			userinfo.setId(i+"");			
+			userinfo.setName(name[i]);
+			userinfo.setAge(age[i]);
+			userinfo.setSex(sex[i]);
+		}
+		
+		request.setAttribute("userinfos", userinfos);
+		request.getRequestDispatcher("/index").forward(request, response);
+	}		
 }
