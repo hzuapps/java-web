@@ -47,10 +47,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        	<input type="text" name="time"><br/><br/>
 	        	<label for="texts">来源：</label>
 	        	<input type="text" name="description" id="texts"><br/><br/>
-	        	<input type="submit" value="添加">
+	        	<div class="btn-group">
+  					<button type="submit" class="btn btn-info" value="添加">添加</button>
+  					<button type="button" class="btn btn-warning" id="expend">查看支出明细</button>
+  					<button type="button" class="btn btn-success" id="income">查看收入明细</button>
+				</div>
+	        	
 	    </form>
   	</div>
   	<div class="col-md-2"></div>
     
   </body>
+  <script>
+  	$("#expend").click(function(){
+  		window.location.href="SelectExpendInfo";
+  	});
+  </script>
 </html>
