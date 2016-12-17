@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<br/><br/><br/><br/>
   	<div class="col-md-2"></div>
   	<div class="col-md-8" id="div1">
-  		<form  action="1414080902220" method="post">
+  		<form  action="SaveIncomeInfo" method="post">
   				<label for="income"> 收入：</label>
 	         	<input type="text" name="income" id="income"><br/><br/>
 	         	<label for="time"> 时间：</label>	 
@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        	<div class="btn-group">
   					<button type="submit" class="btn btn-info" value="添加">添加</button>
   					<button type="button" class="btn btn-warning" id="expend">查看支出明细</button>
-  					<button type="button" class="btn btn-success" id="income">查看收入明细</button>
+  					<button type="button" class="btn btn-success" id="incomeMoney">查看收入明细</button>
 				</div>
 	        	
 	    </form>
@@ -61,6 +61,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <script>
   	$("#expend").click(function(){
   		window.location.href="SelectExpendInfo";
+  	});
+  	
+  	$("#incomeMoney").click(function(){
+  		window.location.href="SelectIncomeInfo";
   	});
   </script>
 </html>
