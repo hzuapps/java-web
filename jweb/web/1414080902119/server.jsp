@@ -30,7 +30,7 @@
 			var addBtn=document.getElementById('addBtn');
 			addBtn.onclick=function(){
 				var url="<%=request.getContextPath()%>/1414080902119";
-				data="operate=add&name="+document.getElementById('types_name').value;
+				data="operate=add&name="+document.getElementById('types_name').value+"&idCard="+document.getElementById('idCard').value;
 				ajax(url,afterAdd,data);
 			};
 		};
@@ -145,8 +145,7 @@
 				} else {
 					alert("出错了");
 				};
-			}
-			;
+			};
 		};
 	}
 </script>
@@ -170,7 +169,9 @@
 				<div class="form-group .col-md-5">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
-							<label for="exampleInputEmail1">网吧会员</label> <input id="types_name" type="text" class="form-control" placeholder="Enter" name="name">
+							<label for="exampleInputEmail1">网吧会员</label>
+							 <input id="types_name" type="text" class="form-control" placeholder="Enter" name="name"> <label for="exampleInputEmail1">身份证</label> 
+							<input id="idCard" type="text" class="form-control" placeholder="Enter" name="idCard">
 						</div>
 					</div>
 				</div>
