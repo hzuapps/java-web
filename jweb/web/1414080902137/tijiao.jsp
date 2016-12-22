@@ -24,8 +24,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   <c:out value="${param.idcard}" default="cuowu1"/>
-   <c:out value="${param.name}" default="cuowu2"/>
-   <c:out value="${param.number}"default="cuowu3"/>
+   	<div>确认信息</div>
+   	客户身份证：<%=request.getParameter("id") %>
+   	客户姓名：<%=request.getParameter("name") %>
+   	房间号：<%=request.getParameter("room") %>
   </body>
 </html>
