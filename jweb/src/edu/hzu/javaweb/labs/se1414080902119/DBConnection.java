@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	private static final String DBDRIVER = "com.mysql.jdbc.Driver";
-	private static final String DBURL = "jdbc:mysql://localhost:3306/test2";
+	private static final String DBURL = "jdbc:mysql://139.199.12.99:3306/test2?characterEncoding=UTF-8";
 	private static final String DBUSER = "root";
 	private static final String DBPASSWORD = "root";
 

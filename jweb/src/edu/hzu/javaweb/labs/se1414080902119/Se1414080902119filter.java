@@ -30,11 +30,11 @@ public class Se1414080902119filter implements Filter {
 		chain.doFilter(request, response);
 		if("127.0.0.1".equals(localAddr))
 		{
-			System.out.println("鏈満璇锋眰");
+			System.out.println("本机请求");
 		}
 		else
 		{
-			System.out.println(localAddr+"璇锋眰");
+			System.out.println(localAddr+"请求");
 		}
 		
 	}

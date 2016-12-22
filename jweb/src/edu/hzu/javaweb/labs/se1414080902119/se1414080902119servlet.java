@@ -45,11 +45,11 @@ public class Se1414080902119servlet extends HttpServlet {
 	public void showList(HttpServletResponse response, HttpServletRequest request) throws IOException, SQLException, ServletException {
 		Connection connection = DBConnection.getConnection();
 		List<Member> types = new ArrayList<Member>();
-		String sql = "select name from member";
+		String sql = "select name,idcard from member";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultSet = statement.executeQuery();
 		while (resultSet.next()) {
-			Member member = new Member(resultSet.getString(1));
+			Member member = new Member(resultSet.getString(1),resultSet.getString(2));
 			types.add(member);
 		}
 		DBConnection.close(connection);
@@ -61,9 +61,11 @@ public class Se1414080902119servlet extends HttpServlet {
 
 	public void addTypes(HttpServletResponse response, HttpServletRequest request) throws IOException, SQLException {
 		String name = request.getParameter("name");
+		String idCard = request.getParameter("idCard");
+		System.out.println(name+":"+idCard);
 		PrintWriter writer = response.getWriter();
 		if (name == null || name.equals("")) {
-			writer.write("{\"msg\":\"涓嶈兘涓虹┖\"}");
+			writer.write("{\"msg\":\"不能为空\"}");
 			writer.close();
 			return;
 		}
@@ -73,14 +75,16 @@ public class Se1414080902119servlet extends HttpServlet {
 		statement1.setString(1, name);
 		ResultSet resultSet = statement1.executeQuery();
 		if (resultSet.next()) {
-			writer.write("{\"msg\":\"娣诲姞澶辫触\"}");
+			writer.write("{\"msg\":\"添加失败\"}");
 			writer.close();
 		}
 		Member type = new Member();
 		type.setName(name);
-		String sql = "insert into member(name) values(?)";
+		type.setIdCard(idCard);
+		String sql = "insert into member(name,idcard) values(?,?)";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, type.getName());
+		statement.setString(2, type.getIdCard());
 		statement.executeUpdate();
 		DBConnection.close(connection);
 		DBConnection.close(statement);
@@ -93,7 +97,7 @@ public class Se1414080902119servlet extends HttpServlet {
 		Iterator<Member> iterator = list.iterator();
 		while (iterator.hasNext()) {
 			Member Member = iterator.next();
-			str.append("\"" + Member.getName() + "\":\"" + true + "\"");
+			str.append("\"" +"姓名:"+Member.getName()+"      身份证:"+Member.getIdCard() + "\":\"" + true + "\"");
 			if (iterator.hasNext())
 				str.append(",");
 		}
