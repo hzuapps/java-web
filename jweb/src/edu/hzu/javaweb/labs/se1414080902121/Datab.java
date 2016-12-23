@@ -1,13 +1,11 @@
 package javabean;
 import java.sql.*;
-public class DataB {
+public class Datab {
 boolean bInited = false;
-
 public void initJDBC() throws ClassNotFoundException {
-
 Class.forName("com.mysql.jdbc.Driver");
 bInited = true;
-System.out.println("Success!");
+System.out.println("Operation succeeded!");
 }
 public Connection getConnection() throws ClassNotFoundException,
 SQLException{
