@@ -1,6 +1,6 @@
 package javabean;
 import java.sql.*;
-public class database {
+public class Database {
 boolean bInited = false;
 
 public void initJDBC() throws ClassNotFoundException {

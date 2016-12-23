@@ -7,7 +7,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javabean.database;
-public class servlet implements javax.servlet.Servlet{
+public class Servlet implements javax.servlet.Servlet{
 public void destroy() {
 
 }
