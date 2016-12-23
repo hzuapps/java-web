@@ -6,7 +6,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javabean.database;
+import javabean.Database;
 public class Servlet implements javax.servlet.Servlet{
 public void destroy() {
 
@@ -24,7 +24,7 @@ public void doPost(HttpServletRequest request,HttpServletResponse response)
 throws ServletException,IOException{
 String userName = request.getParameter("username");
 String password = request.getParameter("password");
-database db = new database();
+Database db = new Database();
 boolean canLogin = db.loginSuccess(userName, password);
 if(canLogin){
 response.sendRedirect("display.jsp");
