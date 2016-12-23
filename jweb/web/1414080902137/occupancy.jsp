@@ -23,10 +23,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<form action="tijiao.jsp" method="post">
-	身份证：<input type="text" name="idcard"><br>
+	<form action="Insert" method="post">
+	身份证：<input type="text" name="id"><br>
 	姓名：<input type="text" name="name"><br>
-	房间号：<input type="text" name="number"><br>
+	房间号：<input type="text" name="room"><br>
 	<input type="submit" value="确定">
 	
 	</form>
