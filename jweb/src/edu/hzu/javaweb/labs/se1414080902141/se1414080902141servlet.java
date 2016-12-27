@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class se1414080902141servlet extends HttpServlet {
+public class Se1414080902141Servlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
